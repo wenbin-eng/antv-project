@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './assets/style/base.css'
+import './assets/style/style.css'
 import './assets/style/hui-base.css'
 import './assets/style/hui-base-dark.css'
 import './assets/style/hui-theme.css'

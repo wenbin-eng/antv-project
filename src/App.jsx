@@ -280,7 +280,7 @@ function App() {
       hashed={false}
       theme={{
         algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
-        token: { colorPrimary: '#0067D1', borderRadius: 6 }
+        token: { colorPrimary: '#0067D1', borderRadius: 6, fontFamily: 'var(--font-family)' }
       }}
     >
       <AntApp>
@@ -302,7 +302,7 @@ function App() {
             <Row label="颜色变体">
               <Button>默认按钮</Button>
               <Button type="primary">主要按钮</Button>
-              <Button danger>危险按钮</Button>
+              <Button type="primary" danger>危险按钮</Button>
               <Button type="link">链接按钮</Button>
             </Row>
             <Row label="尺寸变体">
@@ -317,8 +317,8 @@ function App() {
             <Row label="图标按钮">
               <Button type="primary" icon={<SearchOutlined />}>搜索</Button>
               <Button type="primary" icon={<RightOutlined />} iconPosition="end">下一步</Button>
-              <Button type="primary" icon={<SearchOutlined />} />
-              <Button type="primary" shape="circle" size="small" icon={<SearchOutlined />} />
+              <Button  icon={<SearchOutlined />} />
+              <Button  shape="circle" size="small" icon={<SearchOutlined />} />
             </Row>
             <Row label="禁用状态">
               <Button type="primary" icon={<SearchOutlined />} disabled>搜索</Button>
