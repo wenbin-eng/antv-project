@@ -213,6 +213,8 @@ function App() {
   return (
     <ConfigProvider
       locale={zhCN}
+      cssVar
+      hashed={false}
       theme={{
         algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
         token: { colorPrimary: '#0067D1', borderRadius: 6 }
@@ -238,8 +240,8 @@ function App() {
               <Section title="Button 按钮">
                 <Space direction="vertical" style={{ width: '100%' }}>
                   <Space wrap>
-                    <Button type="primary">Primary</Button>
-                    <Button>Default</Button>
+                    <Button type="primary">主要按钮</Button>
+                    <Button>默认按钮</Button>
                     <Button type="dashed">Dashed</Button>
                     <Button type="text">Text</Button>
                     <Button type="link">Link</Button>
