@@ -7,10 +7,6 @@
     color: var(--color-text-primary);
 }
 
-.ant-tag:hover {
-    background-color: var(--color-fill-disabled);
-}
-
 .ant-tag.ant-tag-processing {
     border-color: transparent;
     background-color: var(--color-tag-bg-info);
