@@ -336,6 +336,7 @@ function App() {
             <Row label="图标与可关闭">
               <Tag icon={<CheckCircleOutlined />}>在线</Tag>
               <Tag icon={<CheckCircleOutlined />} closable>可关闭</Tag>
+              <Tag disabled={true} icon={<CheckCircleOutlined />} closable>disabled</Tag>
             </Row>
             <Row label="solid 状态色（bordered=false）">
               <Tag variant="filled" color="processing">info</Tag>
@@ -343,7 +344,6 @@ function App() {
               <Tag variant="filled" color="warning">alert</Tag>
               <Tag variant="filled" color="gold">warning</Tag>
               <Tag variant="filled" color="success">success</Tag>
-              <Tag variant="filled" color="default">disabled</Tag>
             </Row>
             <Row label="filled 状态色">
               <Tag color="processing">info</Tag>
