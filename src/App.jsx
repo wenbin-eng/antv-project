@@ -332,11 +332,6 @@ function App() {
             <Row label="默认标签">
               <Tag >默认</Tag>
             </Row>
-            <Row label="尺寸变体（MR 5.x 自定义样式）">
-              <Tag style={{ fontSize: 16, padding: '4px 12px' }}>大标签</Tag>
-              <Tag>中标签</Tag>
-              <Tag style={{ fontSize: 11, padding: '1px 6px' }}>小标签</Tag>
-            </Row>
             <Row label="图标与可关闭">
               <Tag icon={<CheckCircleOutlined />}>在线</Tag>
               <Tag icon={<CheckCircleOutlined />} closable>可关闭</Tag>
