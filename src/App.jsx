@@ -193,10 +193,10 @@ function App() {
 
   /* —— Steps —— */
   const stepItems = [
-    { title: '提交申请', description: '填写申请表单', status: 'finish' },
-    { title: '部门审核', description: '主管审批中', status: 'process' },
-    { title: '财务确认', description: '等待处理', status: 'wait' },
-    { title: '完成', description: '流程结束', status: 'wait' }
+    { title: '提交申请', content: '填写申请表单', status: 'finish' },
+    { title: '部门审核', content: '主管审批中', status: 'process' },
+    { title: '财务确认', content: '等待处理', status: 'wait' },
+    { title: '完成', content: '流程结束', status: 'wait' }
   ]
 
   /* —— Menu —— */
@@ -316,7 +316,7 @@ function App() {
             </Row>
             <Row label="图标按钮">
               <Button type="primary" icon={<SearchOutlined />}>搜索</Button>
-              <Button type="primary" icon={<RightOutlined />} iconPosition="end">下一步</Button>
+              <Button type="primary" icon={<RightOutlined />} iconPlacement="end">下一步</Button>
               <Button  icon={<SearchOutlined />} />
               <Button  shape="circle" size="small" icon={<SearchOutlined />} />
             </Row>
@@ -330,7 +330,7 @@ function App() {
 
           <ShowCard title="Tag 标签">
             <Row label="默认标签">
-              <Tag>默认</Tag>
+              <Tag >默认</Tag>
             </Row>
             <Row label="尺寸变体（MR 5.x 自定义样式）">
               <Tag style={{ fontSize: 16, padding: '4px 12px' }}>大标签</Tag>
@@ -342,12 +342,12 @@ function App() {
               <Tag icon={<CheckCircleOutlined />} closable>可关闭</Tag>
             </Row>
             <Row label="solid 状态色（bordered=false）">
-              <Tag bordered={false} color="processing">info</Tag>
-              <Tag bordered={false} color="error">error</Tag>
-              <Tag bordered={false} color="warning">alert</Tag>
-              <Tag bordered={false} color="gold">warning</Tag>
-              <Tag bordered={false} color="success">success</Tag>
-              <Tag bordered={false} color="default">disabled</Tag>
+              <Tag variant="filled" color="processing">info</Tag>
+              <Tag variant="filled" color="error">error</Tag>
+              <Tag variant="filled" color="warning">alert</Tag>
+              <Tag variant="filled" color="gold">warning</Tag>
+              <Tag variant="filled" color="success">success</Tag>
+              <Tag variant="filled" color="default">disabled</Tag>
             </Row>
             <Row label="filled 状态色">
               <Tag color="processing">info</Tag>
@@ -355,7 +355,7 @@ function App() {
               <Tag color="warning">alert</Tag>
               <Tag color="gold">warning</Tag>
               <Tag color="success">success</Tag>
-              <Tag color="default">disabled</Tag>
+              <Tag color="default" disabled={true}>disabled</Tag>
             </Row>
             <Row label="filled 彩色标签">
               <Tag color="green">green</Tag>
@@ -406,7 +406,7 @@ function App() {
               ]} />
             </Row>
             <Row label="展开图标在左侧">
-              <Collapse defaultActiveKey={['iconPanel1']} expandIconPosition="start" style={{ width: '100%' }} items={[
+              <Collapse defaultActiveKey={['iconPanel1']} expandIconPlacement="start" style={{ width: '100%' }} items={[
                 { key: 'iconPanel1', label: '基础信息', children: <p>姓名：李四，年龄：32岁，部门：产品部。</p> },
                 { key: 'iconPanel2', label: '工作经历', children: <p>2018年至今，就职于XYZ互联网公司，担任产品经理。</p> },
                 { key: 'iconPanel3', label: '教育背景', children: <p>2014-2018年，清华大学，工业设计专业。</p> }
@@ -420,8 +420,8 @@ function App() {
             <Row label="点线"><Divider style={{ borderStyle: 'dotted' }} /></Row>
             <Row label="带文字">
               <Divider>居中文字</Divider>
-              <Divider orientation="left">左侧文字</Divider>
-              <Divider orientation="right">右侧文字</Divider>
+              <Divider titlePlacement="left">左侧文字</Divider>
+              <Divider titlePlacement="right">右侧文字</Divider>
             </Row>
           </ShowCard>
 
@@ -453,18 +453,18 @@ function App() {
 
           <ShowCard title="Timeline 时间轴">
             <Row label="默认左侧对齐">
-              <Timeline mode="left" style={{ width: '100%' }} items={[
-                { color: 'green', dot: <CheckCircleOutlined />, children: <div><Text strong>需求评审</Text><br /><Text type="secondary">完成产品需求文档评审</Text></div> },
-                { color: 'blue', dot: <FileOutlined />, children: <div><Text strong>设计阶段</Text><br /><Text type="secondary">UI/UX设计稿输出</Text></div> },
-                { color: 'yellow', dot: <SettingOutlined />, children: <div><Text strong>开发中</Text><br /><Text type="secondary">前端与后端并行开发</Text></div> },
-                { color: 'gray', children: <div><Text strong>测试阶段</Text><br /><Text type="secondary">待进行功能与性能测试</Text></div> }
+              <Timeline mode="start" style={{ width: '100%' }} items={[
+                { color: 'green', icon: <CheckCircleOutlined />, content: <div><Text strong>需求评审</Text><br /><Text type="secondary">完成产品需求文档评审</Text></div> },
+                { color: 'blue', icon: <FileOutlined />, content: <div><Text strong>设计阶段</Text><br /><Text type="secondary">UI/UX设计稿输出</Text></div> },
+                { color: 'yellow', icon: <SettingOutlined />, content: <div><Text strong>开发中</Text><br /><Text type="secondary">前端与后端并行开发</Text></div> },
+                { color: 'gray', content: <div><Text strong>测试阶段</Text><br /><Text type="secondary">待进行功能与性能测试</Text></div> }
               ]} />
             </Row>
             <Row label="交替模式">
               <Timeline mode="alternate" style={{ width: '100%' }} items={[
-                { color: 'blue', children: <div><Text strong>创建项目</Text><br /><Text type="secondary">初始化项目仓库和基础框架</Text></div> },
-                { color: 'green', children: <div><Text strong>功能开发</Text><br /><Text type="secondary">完成核心功能模块开发</Text></div> },
-                { color: 'yellow', children: <div><Text strong>部署上线</Text><br /><Text type="secondary">生产环境部署与验证</Text></div> }
+                { color: 'blue', content: <div><Text strong>创建项目</Text><br /><Text type="secondary">初始化项目仓库和基础框架</Text></div> },
+                { color: 'green', content: <div><Text strong>功能开发</Text><br /><Text type="secondary">完成核心功能模块开发</Text></div> },
+                { color: 'yellow', content: <div><Text strong>部署上线</Text><br /><Text type="secondary">生产环境部署与验证</Text></div> }
               ]} />
             </Row>
           </ShowCard>
@@ -546,7 +546,7 @@ function App() {
               <Radio.Group defaultValue="apple" options={[{ label: '苹果', value: 'apple' }, { label: '橙子', value: 'orange' }, { label: '葡萄', value: 'grape' }]} />
             </Row>
             <Row label="按钮样式">
-              <Space direction="vertical">
+              <Space orientation="vertical">
                 <Radio.Group buttonStyle="solid" size="large" defaultValue="beijing" options={[{ label: '北京', value: 'beijing' }, { label: '上海', value: 'shanghai' }, { label: '广州', value: 'guangzhou' }]} optionType="button" />
                 <Radio.Group buttonStyle="solid" defaultValue="beijing" options={[{ label: '北京', value: 'beijing' }, { label: '上海', value: 'shanghai' }, { label: '广州', value: 'guangzhou' }]} optionType="button" />
                 <Radio.Group buttonStyle="solid" size="small" defaultValue="beijing" options={[{ label: '北京', value: 'beijing' }, { label: '上海', value: 'shanghai' }, { label: '广州', value: 'guangzhou' }]} optionType="button" />
@@ -721,14 +721,14 @@ function App() {
               <Tabs defaultActiveKey="t1" type="card" items={tabItemsCard.map((i) => ({ ...i, closable: true }))} style={{ width: '100%' }} />
             </Row>
             <Row label="尺寸变体 - line">
-              <Space direction="vertical" style={{ width: '100%' }}>
+              <Space orientation="vertical" style={{ width: '100%' }}>
                 <Tabs defaultActiveKey="tab1" type="line" size="large" items={tabItems} />
                 <Tabs defaultActiveKey="tab1" type="line" items={tabItems} />
                 <Tabs defaultActiveKey="tab1" type="line" size="small" items={tabItems} />
               </Space>
             </Row>
             <Row label="尺寸变体 - card">
-              <Space direction="vertical" style={{ width: '100%' }}>
+              <Space orientation="vertical" style={{ width: '100%' }}>
                 <Tabs defaultActiveKey="t1" type="card" size="large" items={tabItemsCard} />
                 <Tabs defaultActiveKey="t1" type="card" items={tabItemsCard} />
                 <Tabs defaultActiveKey="t1" type="card" size="small" items={tabItemsCard} />
@@ -758,25 +758,25 @@ function App() {
               ]} />
             </Row>
             <Row label="垂直步骤条">
-              <Steps current={1} direction="vertical" style={{ width: 300 }} items={[
-                { title: '创建项目', description: '初始化项目配置', status: 'finish' },
-                { title: '开发阶段', description: '前后端并行开发', status: 'process' },
-                { title: '部署上线', description: '生产环境发布', status: 'wait' }
+              <Steps current={1} orientation="vertical" style={{ width: 300 }} items={[
+                { title: '创建项目', content: '初始化项目配置', status: 'finish' },
+                { title: '开发阶段', content: '前后端并行开发', status: 'process' },
+                { title: '部署上线', content: '生产环境发布', status: 'wait' }
               ]} />
             </Row>
             <Row label="面板步骤条（带描述）">
               <Steps current={1} style={{ width: '100%' }} items={[
-                { title: '立项', description: '项目立项审批', status: 'finish' },
-                { title: '开发', description: '功能开发阶段', status: 'process' },
-                { title: '测试', description: '测试验证阶段', status: 'wait' },
-                { title: '上线', description: '正式发布上线', status: 'wait' }
+                { title: '立项', content: '项目立项审批', status: 'finish' },
+                { title: '开发', content: '功能开发阶段', status: 'process' },
+                { title: '测试', content: '测试验证阶段', status: 'wait' },
+                { title: '上线', content: '正式发布上线', status: 'wait' }
               ]} />
             </Row>
           </ShowCard>
 
           <ShowCard title="Pagination 分页">
             <Row label="显示总数">
-              <Pagination current={3} total={85} showTotal={(t) => `共 ${t} 条`} showSizeChanger showQuickJumper />
+              <Pagination defaultCurrent={3} total={85} showTotal={(t) => `共 ${t} 条`} showSizeChanger showQuickJumper />
             </Row>
           </ShowCard>
 

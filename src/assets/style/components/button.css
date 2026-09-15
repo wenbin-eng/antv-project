@@ -1,0 +1,205 @@
+/* Button 组件样式（token 映射，同步自 previewpc Button.less） */
+
+.ant-btn {
+  font-weight: var(--el-font-weight-primary);
+  min-width: calc(var(--spacing-4) * 5.5);
+}
+
+.ant-btn.ant-btn-color-default {
+  color: var(--el-text-color-primary);
+}
+
+.ant-btn.ant-btn-color-default:not(:disabled):hover {
+  color: var(--el-text-color-primary);
+  border-color: var(--gray-90);
+  background-color: var(--el-fill-color-blank);
+}
+
+.ant-btn.ant-btn-color-default:not(:disabled):active {
+  color: var(--el-text-color-primary);
+  border-color: var(--border-primary);
+  background-color: var(--el-fill-color-blank);
+}
+
+.ant-btn.ant-btn-color-default:disabled {
+  color: var(--el-text-color-disabled);
+  background-color: var(--gray-10);
+}
+
+.ant-btn.ant-btn-color-primary {
+  color: var(--el-color-white);
+  background-color: var(--el-color-primary);
+}
+
+.ant-btn.ant-btn-color-primary:not(:disabled):hover {
+  color: var(--el-color-white);
+  background-color: var(--brand-40);
+}
+
+.ant-btn.ant-btn-color-primary:not(:disabled):active {
+  color: var(--el-color-white);
+  background-color: var(--brand-60);
+}
+
+.ant-btn.ant-btn-color-primary:disabled {
+  color: var(--el-color-white);
+  background-color: var(--brand-20);
+}
+
+.ant-btn.ant-btn-color-danger {
+  color: var(--el-color-white);
+  background-color: var(--red-50);
+}
+
+.ant-btn.ant-btn-color-danger:not(:disabled):hover {
+  color: var(--el-color-white);
+  background-color: var(--red-40);
+}
+
+.ant-btn.ant-btn-color-danger:not(:disabled):active {
+  color: var(--el-color-white);
+  background-color: var(--red-60);
+}
+
+.ant-btn.ant-btn-color-danger:disabled {
+  color: var(--el-color-white);
+  background-color: var(--red-10);
+}
+
+.ant-btn.ant-btn-sm {
+  height: 28px;
+}
+
+.ant-btn.ant-btn-lg {
+  height: 36px;
+  padding: var(--spacing-0) var(--spacing-5);
+  min-width: 96px;
+  font-size: var(--el-font-size-base);
+}
+
+.ant-btn.ant-btn-icon-only {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: auto !important;
+  border: none !important;
+  background-color: transparent !important;
+  padding: var(--spacing-0);
+}
+
+.ant-btn.ant-btn-icon-only .anticon {
+  font-size: var(--font-size-2xl);
+}
+
+.ant-btn.ant-btn-icon-only.ant-btn-sm {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.ant-btn.ant-btn-icon-only.ant-btn-sm .anticon {
+  font-size: var(--font-size-md);
+}
+
+.ant-btn.ant-btn-icon-only:hover,
+.ant-btn.ant-btn-icon-only:focus {
+  background-color: transparent !important;
+}
+
+.ant-btn.ant-btn-icon-only.ant-btn-color-default:hover {
+  color: var(--brand-40);
+}
+
+.ant-btn.ant-btn-icon-only.ant-btn-color-default:active {
+  color: var(--brand-50);
+}
+
+.ant-btn.ant-btn-variant-link {
+  min-width: unset;
+  line-height: 22px;
+  padding: var(--spacing-0);
+  border: none;
+  background-color: transparent;
+  color: var(--el-color-primary);
+}
+
+.ant-btn.ant-btn-variant-link:not(:disabled):hover {
+  color: var(--brand-40);
+}
+
+.ant-btn.ant-btn-variant-link:not(:disabled):active {
+  color: var(--brand-60);
+}
+
+.theme-dark .ant-btn.ant-btn-color-default {
+  border-color: var(--gray-50);
+  background-color: rgb(from var(--gray-100) r g b / 0);
+}
+
+.theme-dark .ant-btn.ant-btn-color-default:not(:disabled):hover {
+  background-color: rgb(from var(--gray-100) r g b / 0);
+  border-color: var(--gray-05);
+}
+
+.theme-dark .ant-btn.ant-btn-color-default:not(:disabled):active {
+  color: var(--el-text-color-primary);
+  border-color: var(--brand-40);
+  background-color: rgb(from var(--gray-100) r g b / 0);
+}
+
+.theme-dark .ant-btn.ant-btn-color-default:disabled {
+  background-color: rgb(from var(--gray-05) r g b / 0.2);
+  border-color: var(--gray-60);
+}
+
+.theme-dark .ant-btn.ant-btn-color-primary:not(:disabled):hover {
+  background-color: var(--brand-40);
+}
+
+.theme-dark .ant-btn.ant-btn-color-primary:not(:disabled):active {
+  background-color: var(--brand-60);
+}
+
+.theme-dark .ant-btn.ant-btn-color-primary:disabled {
+  color: rgb(from var(--gray-05) r g b / 0.3);
+  background-color: var(--brand-70);
+}
+
+.theme-dark .ant-btn.ant-btn-color-danger {
+  background-color: var(--red-40);
+}
+
+.theme-dark .ant-btn.ant-btn-color-danger:not(:disabled):hover {
+  background-color: var(--red-30);
+}
+
+.theme-dark .ant-btn.ant-btn-color-danger:not(:disabled):active {
+  background-color: var(--red-50);
+}
+
+.theme-dark .ant-btn.ant-btn-color-danger:disabled {
+  color: var(--el-color-white);
+  background-color: var(--red-80);
+}
+
+.theme-dark .ant-btn.ant-btn-variant-link {
+  color: var(--brand-30);
+}
+
+.theme-dark .ant-btn.ant-btn-variant-link:not(:disabled):hover {
+  color: var(--brand-20);
+}
+
+.theme-dark .ant-btn.ant-btn-variant-link:not(:disabled):active {
+  color: var(--brand-40);
+}
+
+.theme-dark .ant-btn.ant-btn-icon-only {
+  color: var(--gray-10);
+}
+
+.theme-dark .ant-btn.ant-btn-icon-only:hover .anticon {
+  color: var(--brand-20);
+}
+
+.theme-dark .ant-btn.ant-btn-icon-only:active .anticon {
+  color: var(--brand-40);
+}
