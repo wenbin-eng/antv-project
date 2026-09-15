@@ -284,7 +284,7 @@ function App() {
       }}
     >
       <AntApp>
-        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '32px 24px' }}>
+        <div style={{ margin: '0 auto', padding: '32px 24px' }}>
           {/* 标题 */}
           <Flex justify="space-between" align="center" wrap="wrap" gap={16} style={{ marginBottom: 8 }}>
             <Title level={2} style={{ margin: 0 }}>Ant Design 组件展示</Title>
