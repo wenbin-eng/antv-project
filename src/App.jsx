@@ -387,11 +387,13 @@ function App() {
 
           <ShowCard title="Carousel 走马灯">
             <Row label="默认样式">
-              <Carousel autoplay style={{ borderRadius: 8, overflow: 'hidden' }}>
-                <div><div style={{ height: 200, lineHeight: '200px', textAlign: 'center', background: '#0067D1', color: '#fff', fontSize: 20, fontWeight: 700 }}>幻灯片 1</div></div>
-                <div><div style={{ height: 200, lineHeight: '200px', textAlign: 'center', background: '#09AA71', color: '#fff', fontSize: 20, fontWeight: 700 }}>幻灯片 2</div></div>
-                <div><div style={{ height: 200, lineHeight: '200px', textAlign: 'center', background: '#FCC800', color: '#fff', fontSize: 20, fontWeight: 700 }}>幻灯片 3</div></div>
-              </Carousel>
+              <div style={{ width: '100%' }}>
+                <Carousel autoplay style={{ borderRadius: 8, overflow: 'hidden' }}>
+                  <div><div style={{ height: 200, lineHeight: '200px', textAlign: 'center', background: '#0067D1', color: '#fff', fontSize: 20, fontWeight: 700 }}>幻灯片 1</div></div>
+                  <div><div style={{ height: 200, lineHeight: '200px', textAlign: 'center', background: '#09AA71', color: '#fff', fontSize: 20, fontWeight: 700 }}>幻灯片 2</div></div>
+                  <div><div style={{ height: 200, lineHeight: '200px', textAlign: 'center', background: '#FCC800', color: '#fff', fontSize: 20, fontWeight: 700 }}>幻灯片 3</div></div>
+                </Carousel>
+              </div>
             </Row>
           </ShowCard>
 
