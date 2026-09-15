@@ -1,4 +1,4 @@
-.theme-dark {
+.dark {
   /* 品牌色 */
   --color-brand: var(--brand-50);
   --color-brand-hover: var(--brand-40);
@@ -575,7 +575,7 @@
   height: 100%;
 }
 
-.theme-dark {
+.dark {
   color: var(--color-text-primary);
 
 }

@@ -139,7 +139,8 @@ function App() {
   const [dark, setDark] = useState(false)
 
   useEffect(() => {
-    document.documentElement.classList.toggle('theme-dark', dark)
+    document.documentElement.classList.toggle('dark', dark)
+    document.documentElement.classList.toggle('light', !dark)
   }, [dark])
 
   /* —— Table —— */
