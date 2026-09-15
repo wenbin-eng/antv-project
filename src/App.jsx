@@ -355,7 +355,7 @@ function App() {
             </Row>
             <Row label="filled 彩色标签">
               <Tag color="green">green</Tag>
-              <Tag color="rose">rose</Tag>
+              <Tag color="magenta">magenta</Tag>
               <Tag color="pink">pink</Tag>
               <Tag color="purple">purple</Tag>
               <Tag color="geekblue">indigo</Tag>
