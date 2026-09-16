@@ -1,1 +1,58 @@
 ﻿/* Radio 组件样式（占位，待填充 token 映射） */
+.ant-radio-wrapper {
+	&:hover {
+		.ant-radio {
+			border-color: var(--brand-40);
+			&.ant-radio-checked {
+				background-color: var(--brand-40);
+			}
+		}
+	}
+	
+	&.ant-radio-wrapper-disabled {
+		.ant-radio-label {
+			color: var(--color-text-disabled);
+		}
+		.ant-radio {
+			background-color: rgb(from var(--gray-90) r g b / 0.05);
+			border-color: var(--color-border-disabled);
+			&.ant-radio-checked {
+				background-color: var(--brand-20);
+				&::after {
+					background-color: var(--gray-0);
+				}
+			}
+		}
+	}
+  .ant-radio {
+		&.ant-radio-checked {
+			background-color: var(--brand-50);
+			border-color: transparent;
+		}
+		background-color: var(--gray-0);
+		border-color: var(--gray-40);
+	}
+	.ant-radio-label {
+		color: var(--color-text-primary);
+  	font-size: var(--font-size-md);
+	}
+}
+.dark {
+	.ant-radio {
+		background-color: var(--gray-100);
+		border-color: var(--gray-50);
+	}
+	.ant-radio-wrapper.ant-radio-wrapper-disabled {
+		.ant-radio {
+			background-color: rgb(from var(--gray-05) r g b / 0.2);
+			border-color: var(--gray-50);
+			&.ant-radio-checked {
+				background-color: var(--brand-70);
+				border-color: transparent;
+				&::after {
+					background-color:  rgb(from var(--gray-05) r g b / 0.3);
+				}
+			}
+		}
+	}
+}

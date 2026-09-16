@@ -541,15 +541,11 @@ function App() {
             <Row label="默认样式（水平）">
               <Radio.Group defaultValue="apple" options={[{ label: '苹果', value: 'apple' }, { label: '橙子', value: 'orange' }, { label: '葡萄', value: 'grape' }]} />
             </Row>
-            <Row label="按钮样式">
-              <Space orientation="vertical">
-                <Radio.Group buttonStyle="solid" size="large" defaultValue="beijing" options={[{ label: '北京', value: 'beijing' }, { label: '上海', value: 'shanghai' }, { label: '广州', value: 'guangzhou' }]} optionType="button" />
-                <Radio.Group buttonStyle="solid" defaultValue="beijing" options={[{ label: '北京', value: 'beijing' }, { label: '上海', value: 'shanghai' }, { label: '广州', value: 'guangzhou' }]} optionType="button" />
-                <Radio.Group buttonStyle="solid" size="small" defaultValue="beijing" options={[{ label: '北京', value: 'beijing' }, { label: '上海', value: 'shanghai' }, { label: '广州', value: 'guangzhou' }]} optionType="button" />
-              </Space>
-            </Row>
             <Row label="垂直布局">
               <Radio.Group defaultValue="apple" options={[{ label: '苹果', value: 'apple' }, { label: '橙子', value: 'orange' }, { label: '葡萄', value: 'grape' }]} style={{ display: 'flex', flexDirection: 'column', gap: 8 }} />
+            </Row>
+            <Row label="禁用状态">
+              <Radio.Group disabled defaultValue="apple" options={[{ label: '苹果', value: 'apple' }, { label: '橙子', value: 'orange' }, { label: '葡萄', value: 'grape' }]} />
             </Row>
           </ShowCard>
 
