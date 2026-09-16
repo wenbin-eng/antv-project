@@ -1,1 +1,35 @@
 ﻿/* Badge 组件样式（占位，待填充 token 映射） */
+.ant-badge {
+  .ant-badge-count {
+    min-width: 16px;
+    border: none;
+    padding: var(--spacing-0-5) var(--spacing-1);
+    font-size: var(--font-size-base);
+    line-height: 12px;
+    height: 18px;
+    border: 1px solid var(--gray-0);
+    box-shadow: 0 0 0 1px var(--gray-0);
+    background-color: var(--color-error);
+    color: var(--color-text-inverse);
+  }
+
+  .ant-badge-dot {
+    box-shadow: 0 0 0 1px var(--gray-0);
+    border: 1px solid var(--gray-0);
+    background-color: var(--color-error);
+  }
+}
+
+.dark {
+  .ant-badge {
+    .ant-badge-count {
+      border: 1px solid rgb(from var(--gray-0) r g b / 0);
+      box-shadow: 0 0 0 1px rgb(from var(--gray-0) r g b / 0);
+    }
+
+    .ant-badge-dot {
+      box-shadow: 0 0 0 1px rgb(from var(--gray-0) r g b / 0);
+      border: 1px solid rgb(from var(--gray-0) r g b / 0);
+    }
+  }
+}
