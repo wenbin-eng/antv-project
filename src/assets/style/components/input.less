@@ -1,1 +1,90 @@
 ﻿/* Input 组件样式（占位，待填充 token 映射） */
+.ant-input {
+  padding: 0 var(--spacing-3);
+  height: 32px;
+  font-size: var(--font-size-md);
+  line-height: 24px;
+  border-radius: var(--radius-base);
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+  background-color: var(--color-fill-subtle);
+  caret-color: var(--brand-50);
+
+  &::placeholder {
+    color: var(--color-text-placeholder);
+  }
+  
+  &.ant-input-lg {
+    height: 40px;
+    padding: 0 var(--spacing-3);
+    font-size: var(--font-size-md);
+    border-radius: var(--radius-base);
+  }
+
+  &.ant-input-sm {
+    padding: 0 var(--spacing-3);
+    height: 28px;
+    font-size: var(--font-size-base);
+    border-radius: var(--radius-base);
+  }
+}
+
+.ant-input-affix-wrapper {
+  padding: 0 var(--spacing-3);
+  height: 32px;
+
+  .ant-input {
+    height: 100%;
+
+    &[type="password"] {
+      letter-spacing: 4px;
+      color: var(--color-icon-primary);
+    }
+  }
+
+  >input.ant-input {
+    color: var(--color-text-primary);
+  } 
+
+  .anticon {
+    color: var(--color-icon-secondary);
+  }
+
+  .ant-input-suffix {
+    color: var(--color-text-primary);
+  }
+
+
+}
+
+.ant-input-outlined{
+  border-color: var(--color-border);
+  background-color: var(--color-fill-subtle);
+
+  &.ant-input-disabled{
+    border-color: var(--color-border-disabled);
+    background-color: var(--color-fill-disabled-subtle);
+    color: var(--color-text-disabled);
+    &:hover {
+      border-color: var(--color-border-disabled);
+    }
+  }
+
+  &:hover {
+    border-color: var(--color-border-hover);
+  }
+
+  &.ant-input-status-error:not(.ant-input-disabled) {
+    border-color: var(--color-error);
+    background-color: var( --color-fill-subtle);
+  }
+
+  &:focus,
+  &:focus-within {
+    border-color: var(--color-border-focus);
+    box-shadow: 0 0 0 1px var(--color-brand-disabled);
+    background-color: var( --color-fill-subtle);
+  }
+}
+
+

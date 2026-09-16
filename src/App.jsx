@@ -570,9 +570,16 @@ function App() {
             <Row label="默认输入框">
               <Input defaultValue="默认输入内容" placeholder="请输入内容" style={{ width: 200 }} />
             </Row>
+            <Row label="禁用输入框">
+              <Input defaultValue="禁用输入框" placeholder="请输入内容" style={{ width: 200 }} disabled />
+            </Row>
+            <Row label="错误输入框">
+              <Input status="error" defaultValue="错误输入框" placeholder="请输入内容" style={{ width: 200 }} />
+            </Row>
             <Row label="带前缀/后缀图标">
               <Input prefix={<SearchOutlined />} placeholder="搜索..." style={{ width: 200 }} />
               <Input suffix={<RightOutlined />} defaultValue="www.example.com" style={{ width: 200 }} />
+              <Input suffix="RMB" style={{ width: 200 }} />
             </Row>
             <Row label="密码输入框">
               <Input.Password defaultValue="mypassword123" placeholder="请输入密码" style={{ width: 200 }} />
