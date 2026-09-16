@@ -1,1 +1,49 @@
 ﻿/* Switch 组件样式（占位，待填充 token 映射） */
+.ant-switch {
+	height: 20px;
+	line-height: 20px;
+	min-width: 38px;
+	background-color: var(--gray-30);
+	.ant-switch-handle {
+		width: 16px;
+		height: 16px;
+	}
+	&.ant-switch-checked {
+		background-color: var(--brand-50);
+		.ant-switch-handle {
+			inset-inline-start: calc(100% - 18px);
+		}
+	}
+	&.ant-switch-disabled {
+		background-color: var(--gray-10);
+		&.ant-switch-checked {
+			background-color: var(--brand-20);
+		}
+	}
+	.ant-switch-inner {
+		.ant-switch-inner-unchecked {
+			margin-top: -20px;
+		}
+		.ant-switch-inner-checked,.ant-switch-inner-unchecked {
+			min-height: 20px;
+		}
+	}
+}
+
+.dark {
+	.ant-switch {
+		background-color: var(--gray-60);
+		&.ant-switch-checked {
+			background-color: var(--brand-50);
+		}
+		&.ant-switch-disabled {
+			background-color: var(--gray-60);
+			&.ant-switch-checked {
+				background-color: var(--brand-70);
+			}
+			.ant-switch-handle::before {
+				background-color: rgb(from var(--gray-05) r g b / 0.3);
+			}
+		}
+	}
+}
