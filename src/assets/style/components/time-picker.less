@@ -1,1 +1,82 @@
 ﻿/* TimePicker 组件样式（占位，待填充 token 映射） */
+.ant-picker.ant-picker-css-var {
+  --ant-color-border: var(--gray-20);
+  --ant-border-radius: 4px;
+  --ant-date-picker-padding-block-sm: 1px;
+  --ant-date-picker-padding-inline: 12px;
+  --ant-date-picker-padding-inline-sm: 12px;
+  --ant-date-picker-padding-inline-lg: 12px;
+  --ant-color-text-quaternary: var(--gray-50);
+  --ant-date-picker-active-border-color: var(--brand-50);
+  --ant-date-picker-active-shadow: 0 0 0 1px var(--brand-10);
+  --ant-date-picker-hover-border-color: var(--gray-90);
+
+
+  color: var(--color-text-primary);
+
+  &.ant-picker-focused {
+    --ant-color-text-quaternary: var(--gray-90);
+  }
+
+  &.ant-picker-disabled {
+    color: var(--color-text-disabled) !important;
+    background-color: rgb(from var(--gray-90) r g b / 0.05);
+    border-color: var(--gray-20);
+
+    .ant-picker-input>input {
+      color: var(--color-text-disabled);
+    }
+
+    .ant-picker-suffix {
+      color: var(--color-text-disabled) !important;
+    }
+  }
+
+  .ant-picker-input>input {
+    z-index: 1;
+    color: var(--color-text-primary);
+
+    &::placeholder {
+      color: var(--color-text-placeholder);
+    }
+  }
+}
+
+.ant-picker-range {
+  .ant-picker-active-bar {
+    bottom: 4px;
+    height: 22px;
+    background: var(--brand-05);
+    border-radius: 2px;
+  }
+
+  .ant-picker-input>input {
+    padding-left: 4px;
+  }
+}
+
+.dark {
+  .ant-picker.ant-picker-css-var {
+    --ant-color-border: var(--gray-50);
+    --ant-color-text-quaternary: var(--gray-30);
+    --ant-date-picker-active-border-color: var(--brand-40);
+    --ant-date-picker-active-shadow: 0 0 0 1px var(--brand-80);
+    --ant-date-picker-hover-border-color: var(--brand-40);
+
+    color: var(--color-text-primary);
+
+    &.ant-picker-focused {
+      --ant-color-text-quaternary: var(--gray-10);
+    }
+
+    &.ant-picker-disabled {
+      background-color: rgb(from var(--gray-05) r g b / 0.2);
+      border-color: var(--gray-20);
+    }
+
+  }
+
+  .ant-picker-range .ant-picker-active-bar {
+    background: rgb(from var(--brand-50) r g b / 0.4);
+  }
+}
