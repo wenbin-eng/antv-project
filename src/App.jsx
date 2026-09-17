@@ -35,6 +35,8 @@ import {
   Menu,
   Progress,
   Modal,
+  Popover,
+  Tooltip,
   Affix
 } from 'antd'
 import {
@@ -891,6 +893,37 @@ function App() {
             ]}>
               <Paragraph type="secondary">该对话框演示了自定义底部按钮区域，底部包含"取消"与"确认"两个按钮，分别用于关闭对话框与提交操作。对话框内容可以放置任意子组件。</Paragraph>
             </Modal>
+          </ShowCard>
+
+          <ShowCard title="Popover 气泡卡片">
+            <Row label="带标题">
+              <Popover title="提示标题" content="气泡卡片正文内容">
+                <Button>悬停</Button>
+              </Popover>
+            </Row>
+            <Row label="仅正文">
+              <Popover content="无标题的气泡卡片">
+                <Button>悬停</Button>
+              </Popover>
+            </Row>
+            <Row label="位置变体">
+              <Popover placement="top" content="上"><Button>上</Button></Popover>
+              <Popover placement="bottom" content="下"><Button>下</Button></Popover>
+              <Popover placement="left" content="左"><Button>左</Button></Popover>
+              <Popover placement="right" content="右"><Button>右</Button></Popover>
+            </Row>
+          </ShowCard>
+
+          <ShowCard title="Tooltip 文字提示">
+            <Row label="基础样式">
+              <Tooltip title="文字提示"><Button>悬停</Button></Tooltip>
+            </Row>
+            <Row label="位置变体">
+              <Tooltip placement="top" title="上"><Button>上</Button></Tooltip>
+              <Tooltip placement="bottom" title="下"><Button>下</Button></Tooltip>
+              <Tooltip placement="left" title="左"><Button>左</Button></Tooltip>
+              <Tooltip placement="right" title="右"><Button>右</Button></Tooltip>
+            </Row>
           </ShowCard>
 
           {/* 页脚 */}
