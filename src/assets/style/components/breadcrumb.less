@@ -1,1 +1,40 @@
 ﻿/* Breadcrumb 组件样式（占位，待填充 token 映射） */
+.ant-breadcrumb {
+	.ant-breadcrumb-item {
+		color: var(--gray-50);
+		font-size: 14px;
+	}
+
+	.ant-breadcrumb-item:last-child {
+		color: var(--gray-90);
+	}
+
+	.ant-breadcrumb-separator {
+		width: 12px;
+		text-align: center;
+		margin-inline: var(--spacing-1);
+		color: var(--gray-20);
+	}
+
+}
+
+.dark {
+	.ant-breadcrumb {
+		.ant-breadcrumb-item {
+			color: var(--gray-20);
+			font-size: 14px;
+		}
+
+		.ant-breadcrumb-item:last-child {
+			color: var(--gray-0);
+		}
+
+		.ant-breadcrumb-separator {
+			width: 12px;
+			text-align: center;
+			margin-inline: var(--spacing-1);
+			color: var(--gray-40);
+		}
+
+	}
+}
