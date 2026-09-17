@@ -1,1 +1,47 @@
 ﻿/* Tabs 组件样式（占位，待填充 token 映射） */
+.ant-tabs {
+  .ant-tabs-tab {
+    color: var(--color-text-secondary);
+    &:not(.ant-tabs-tab-disabled):hover {
+      color: var(--color-text-primary);
+    }
+    &.ant-tabs-tab-active {
+      .ant-tabs-tab-btn {
+        color: var(--color-link);
+      }
+      .ant-tabs-tab-remove {
+        color: var(--color-link);
+      }
+    }
+
+    &.ant-tabs-tab-disabled {
+      color: var(--color-text-disabled);
+    }
+  }
+  &.ant-tabs-card {
+    >.ant-tabs-nav {
+      .ant-tabs-tab {
+        background-color: var(--color-card-gray-disabled);
+        border-color: transparent;
+        &.ant-tabs-tab-active {
+          border-color: var(--color-border-separator);
+          border-bottom-color:var(--color-card-gray-disabled);
+          background-color: var(--color-bg-3);
+        }
+      }
+
+      .ant-tabs-nav-add {
+        border: none;
+      }
+    }
+    
+  }
+  .ant-tabs-tab-remove {
+    padding: 0;
+    font-size: var(--font-size-md);
+  }
+}
+
+.ant-tabs-top >.ant-tabs-nav::before {
+  border-color: var(--color-border-separator);
+}

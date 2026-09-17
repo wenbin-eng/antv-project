@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import {
   ConfigProvider,
   App as AntApp,
@@ -183,7 +183,7 @@ function App() {
   const tabItemsClosable = tabItems.map((i) => ({ ...i, closable: true }))
   const tabItemsCard = [
     { key: 't1', label: '基础信息', children: <Paragraph>基础信息内容区域</Paragraph> },
-    { key: 't2', label: '扩展信息', children: <Paragraph>扩展信息内容区域</Paragraph> },
+    { key: 't2', label: '扩展信息', disabled: true, children: <Paragraph>扩展信息内容区域</Paragraph> },
     { key: 't3', label: '历史记录', children: <Paragraph>历史记录内容区域</Paragraph> }
   ]
   const tabItemsOverflow = Array.from({ length: 6 }, (_, i) => ({
@@ -253,6 +253,33 @@ function App() {
   /* —— Modal —— */
   const [modalBasicOpen, setModalBasicOpen] = useState(false)
   const [modalFooterOpen, setModalFooterOpen] = useState(false)
+
+  /* —— Tabs editable —— */
+  const [editableTabs, setEditableTabs] = useState([
+    { key: 'et1', label: '首页', children: <Paragraph>首页内容区域，展示项目整体概况。</Paragraph>, closable: false },
+    { key: 'et2', label: '用户管理', children: <Paragraph>用户管理内容区域。</Paragraph> },
+    { key: 'et3', label: '系统设置', children: <Paragraph>系统设置内容区域。</Paragraph> },
+    { key: 'et4', label: '日志监控', children: <Paragraph>日志监控内容区域。</Paragraph> }
+  ])
+  const [editableTabKey, setEditableTabKey] = useState('et1')
+  const editableTabIndex = useRef(4)
+
+  const onEditableTabEdit = (targetKey, action) => {
+    if (action === 'add') {
+      editableTabIndex.current += 1
+      const newKey = `et${editableTabIndex.current}`
+      setEditableTabs((prev) => [...prev, { key: newKey, label: `新标签${editableTabIndex.current}`, children: <Paragraph>这是动态新增的标签{editableTabIndex.current}的内容。</Paragraph> }])
+      setEditableTabKey(newKey)
+    } else if (action === 'remove') {
+      setEditableTabs((prev) => {
+        const newTabs = prev.filter((t) => t.key !== targetKey)
+        if (editableTabKey === targetKey) {
+          setEditableTabKey(newTabs[newTabs.length - 1]?.key)
+        }
+        return newTabs
+      })
+    }
+  }
 
   /* —— Segmented —— */
   const [segValue, setSegValue] = useState('list')
@@ -718,6 +745,16 @@ function App() {
             </Row>
             <Row label="可编辑卡片样式">
               <Tabs defaultActiveKey="t1" type="card" items={tabItemsCard.map((i) => ({ ...i, closable: true }))} style={{ width: '100%' }} />
+            </Row>
+            <Row label="可增删页签（动态增删）">
+              <Tabs
+                type="editable-card"
+                activeKey={editableTabKey}
+                onChange={setEditableTabKey}
+                onEdit={onEditableTabEdit}
+                items={editableTabs}
+                style={{ width: '100%' }}
+              />
             </Row>
             <Row label="尺寸变体 - line">
               <Space orientation="vertical" style={{ width: '100%' }}>
