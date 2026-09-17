@@ -35,7 +35,8 @@ import {
   Menu,
   Progress,
   Modal,
-  Affix
+  Affix,
+  Drawer
 } from 'antd'
 import {
   SearchOutlined,
@@ -254,6 +255,9 @@ function App() {
   /* —— Modal —— */
   const [modalBasicOpen, setModalBasicOpen] = useState(false)
   const [modalFooterOpen, setModalFooterOpen] = useState(false)
+
+  /* —— Drawer —— */
+  const [drawerOpen, setDrawerOpen] = useState(false)
 
   /* —— Tabs editable —— */
   const [editableTabs, setEditableTabs] = useState([
@@ -891,6 +895,19 @@ function App() {
             ]}>
               <Paragraph type="secondary">该对话框演示了自定义底部按钮区域，底部包含"取消"与"确认"两个按钮，分别用于关闭对话框与提交操作。对话框内容可以放置任意子组件。</Paragraph>
             </Modal>
+          </ShowCard>
+
+          <ShowCard title="Drawer 抽屉">
+            <Row label="右侧抽屉">
+              <Button type="primary" icon={<RightOutlined />} onClick={() => setDrawerOpen(true)}>打开抽屉</Button>
+            </Row>
+            <Drawer title="基础抽屉" open={drawerOpen} onClose={() => setDrawerOpen(false)} width={480}>
+              <Paragraph type="secondary">这是一个右侧抽屉示例。抽屉从屏幕右侧滑入，适合需要更多空间的表单或详情展示。点击遮罩层或右上角关闭按钮均可关闭。</Paragraph>
+              <Flex direction="column" gap={12}>
+                <Button type="primary" block icon={<CheckOutlined />} onClick={() => { message.success('已提交'); setDrawerOpen(false) }}>提交</Button>
+                <Button block onClick={() => setDrawerOpen(false)}>取消</Button>
+              </Flex>
+            </Drawer>
           </ShowCard>
 
           {/* 页脚 */}
