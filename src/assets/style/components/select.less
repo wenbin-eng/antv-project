@@ -1,1 +1,130 @@
-﻿/* Select 组件样式（占位，待填充 token 映射） */
+﻿.ant-select-sm {
+    --ant-select-height: 28px;
+}
+
+.ant-select {
+    // 变更圆角
+    --ant-select-border-radius: var(--radius-base);
+    background: var(--color-bg-4);
+    color: var(--color-text-primary);
+
+    //  变更边框
+    &.ant-select-outlined {
+        --ant-select-border-color: var(--color-border);
+
+        &:not(.ant-select-disabled) {
+
+            &:hover {
+                --ant-select-border-color: var(--color-border-hover);
+
+                .ant-select-suffix {
+                    color: var(--color-icon-primary);
+                }
+            }
+
+            &.ant-select-focused {
+                --ant-select-border-color: var(--color-border-focus);
+                box-shadow: 0 0 0 1px var(--color-border-active);
+            }
+        }
+
+        &.ant-select-disabled {
+            --ant-select-border-color: var(--color-border-disabled)
+        }
+
+    }
+
+
+    &:not(.ant-select-disabled) {
+
+        .ant-select-placeholder {
+            color: var(--color-text-placeholder)
+        }
+
+        .ant-select-suffix {
+            color: var(--color-icon-secondary);
+        }
+
+        &:not(.ant-select-multiple).ant-select-focused.ant-select-open .ant-select-suffix {
+            transform: rotate(180deg);
+        }
+
+    }
+
+    &.ant-select-disabled {
+        //选中值文本色
+        --ant-select-color: var(--color-text-disabled);
+        color: var(--color-text-disabled);
+
+        background: var(--color-hover);
+
+        &.ant-select-multiple {
+            background: var(--color-fill-disabled-subtle);
+
+            .ant-select-content .ant-select-selection-item {
+                background: var(--color-fill-disabled-subtle);
+            }
+
+        }
+
+        .ant-select-placeholder {
+            color: var(--color-text-disabled);
+        }
+
+        .ant-select-suffix {
+            color: var(--color-icon-disabled)
+        }
+    }
+
+    // 后缀图标
+    .ant-select-suffix svg {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+//多选标签图标
+.ant-select-multiple .ant-select-content .ant-select-selection-item-remove {
+    color: var(--color-icon-primary);
+}
+
+// 下拉面板
+.ant-select-dropdown {
+    border-radius: var(--radius-md);
+    background-color: var(--color-bg-4);
+
+    .ant-select-item-option-disabled {
+        color: var(--color-text-disabled);
+    }
+
+    .ant-select-item {
+        padding: 5px var(--spacing-2);
+    }
+
+    .ant-select-item-option-selected.ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+        background-color: var(--color-select);
+        color: var(--color-text-on);
+    }
+
+    .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+        background-color: var(--color-select);
+        color: var(--color-text-on);
+    }
+
+    .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+        background-color: var(--color-hover);
+    }
+}
+
+.ant-select-single:not(.ant-select-customize).ant-select-open .ant-select-content-has-value {
+    opacity: unset;
+}
+
+.ant-select-dropdown-list-holder-inner {
+    gap: var(--spacing-1);
+}
+
+.ant-select-multiple .ant-select-content .ant-select-selection-item {
+    margin-inline-end: var(--spacing-2);
+    background: var(--color-hover);
+}

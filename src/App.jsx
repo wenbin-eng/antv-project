@@ -34,7 +34,8 @@ import {
   Pagination,
   Menu,
   Progress,
-  Modal
+  Modal,
+  Affix
 } from 'antd'
 import {
   SearchOutlined,
@@ -316,10 +317,12 @@ function App() {
           {/* 标题 */}
           <Flex justify="space-between" align="center" wrap="wrap" gap={16} style={{ marginBottom: 8 }}>
             <Title level={2} style={{ margin: 0 }}>Ant Design 组件展示</Title>
-            <Space align="center">
-              <Text type="secondary">暗色</Text>
-              <Switch checked={dark} onChange={setDark} />
-            </Space>
+            <Affix offsetTop={40}>
+              <Space align="center">
+                <Text type="secondary">暗色</Text>
+                <Switch checked={dark} onChange={setDark} />
+              </Space>
+            </Affix>
           </Flex>
           <Paragraph type="secondary">参考 componentShowcase.json，按 5 大类别展示常用组件的各种形态。</Paragraph>
 
@@ -645,9 +648,9 @@ function App() {
             </Row>
           </ShowCard>
 
-          <ShowCard title="Select 选择器">
+         <ShowCard title="Select 选择器">
             <Row label="默认选择器">
-              <Select defaultValue="option2" style={{ width: 200 }} options={[{ label: '选项一', value: 'option1' }, { label: '选项二', value: 'option2' }, { label: '选项三', value: 'option3' }, { label: '选项四', value: 'option4' }]} />
+              <Select placeholder="请选择" style={{ width: 200 }} options={[{ label: '选项一', value: 'option1' }, { label: '选项二', value: 'option2' }, { label: '选项三', value: 'option3' }, { label: '选项四', value: 'option4' }]} />
             </Row>
             <Row label="多选模式">
               <Select mode="multiple" defaultValue={['option1', 'option3']} style={{ width: 300 }} placeholder="请选择多个选项" options={[{ label: '选项一', value: 'option1' }, { label: '选项二', value: 'option2' }, { label: '选项三', value: 'option3' }, { label: '选项四', value: 'option4' }]} />
@@ -656,6 +659,18 @@ function App() {
               <Select size="large" defaultValue="option1" style={{ width: 120 }} options={[{ label: '选项一', value: 'option1' }, { label: '选项二', value: 'option2' }]} />
               <Select defaultValue="option1" style={{ width: 120 }} options={[{ label: '选项一', value: 'option1' }, { label: '选项二', value: 'option2' }]} />
               <Select size="small" defaultValue="option1" style={{ width: 120 }} options={[{ label: '选项一', value: 'option1' }, { label: '选项二', value: 'option2' }]} />
+            </Row>
+            <Row label="单选单项禁用">
+              <Select placeholder="请选择" style={{ width: 200 }} options={[{ label: '选项一', value: 'option1', disabled: true }, { label: '选项二', value: 'option2' }, { label: '选项三', value: 'option3' }, { label: '选项四', value: 'option4' }]} />
+            </Row>
+            <Row label="多选单项禁用">
+              <Select mode="multiple" placeholder="请选择" style={{ width: 200 }} options={[{ label: '选项一', value: 'option1', disabled: true }, { label: '选项二', value: 'option2' }, { label: '选项三', value: 'option3' }, { label: '选项四', value: 'option4' }]} />
+            </Row>
+            <Row label="单选禁用态">
+              <Select disabled defaultValue={'option1'} placeholder="请选择" style={{ width: 200 }} options={[{ label: '选项一', value: 'option1', }, { label: '选项二', value: 'option2' }, { label: '选项三', value: 'option3' }, { label: '选项四', value: 'option4' }]} />
+            </Row>
+            <Row label="多选禁用态">
+              <Select mode="multiple" disabled placeholder="请选择" defaultValue={['option1']} style={{ width: 200 }} options={[{ label: '选项一', value: 'option1', }, { label: '选项二', value: 'option2' }, { label: '选项三', value: 'option3' }, { label: '选项四', value: 'option4' }]} />
             </Row>
           </ShowCard>
 
