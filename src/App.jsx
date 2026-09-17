@@ -797,6 +797,7 @@ function App() {
           <ShowCard title="Progress 进度条">
             <Row label="默认进度条">
               <Progress percent={65} style={{ width: 400 }} />
+              <Progress percent={100} style={{ width: 400 }} />
             </Row>
             <Row label="状态变体">
               <Flex direction="column" gap={12} style={{ width: 400 }}>
@@ -809,10 +810,16 @@ function App() {
               <Progress percent={75} strokeColor="#722ED1" style={{ width: 400 }} />
             </Row>
             <Row label="尺寸变体">
-              <Flex direction="column" gap={12} style={{ width: 400 }}>
+              <Flex direction="column" gap={12} style={{ width: 600 }}>
                 <Progress percent={60} size={['100%', 20]} />
                 <Progress percent={60} size="small" />
+                <Progress percent={60} />
               </Flex>
+            </Row>
+            <Row label="环形进度条">
+              <Progress type="circle" percent={75} size="small" />
+              <Progress type="circle" percent={70} status="exception" />
+              <Progress type="circle" percent={100} size="medium" />
             </Row>
           </ShowCard>
 

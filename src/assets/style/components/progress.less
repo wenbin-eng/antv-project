@@ -1,1 +1,33 @@
 ﻿/* Progress 组件样式（占位，待填充 token 映射） */
+.ant-progress {
+  .ant-progress-indicator {
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+  }
+  &.ant-progress-line {
+    .ant-progress-rail {
+      background-color: var(--color-border-separator);
+    }
+    .ant-progress-track {
+      background-color: var(--color-brand);
+    }
+    &.ant-progress-status-success {
+      .ant-progress-track {
+        background-color: var(--mint-50);
+      }
+    }
+  } 
+
+}
+
+.dark {
+  .ant-progress { 
+    &.ant-progress-line {
+      &.ant-progress-status-success {
+        .ant-progress-track {
+          background-color: var(--mint-40);
+        }
+      }
+    }
+  }
+}
