@@ -24,6 +24,7 @@ import {
   Input,
   InputNumber,
   Select,
+  TreeSelect,
   Slider,
   Switch,
   Rate,
@@ -127,6 +128,30 @@ const treeCheckableData = [
       }
     ]
   }
+]
+
+const treeSelectData = [
+  { title: '总部', value: 'hq', children: [
+    { title: '研发部', value: 'rd', children: [
+      { title: '前端组', value: 'fe' },
+      { title: '后端组', value: 'be' }
+    ]},
+    { title: '市场部', value: 'mkt', children: [
+      { title: '品牌组', value: 'brand' }
+    ]}
+  ]}
+]
+
+const treeSelectIconData = [
+  { title: '总部', value: 'hq', icon: <HomeOutlined />, children: [
+    { title: '研发部', value: 'rd', icon: <SettingOutlined />, children: [
+      { title: '前端组', value: 'fe', icon: <LayoutOutlined /> },
+      { title: '后端组', value: 'be', icon: <LayoutOutlined /> }
+    ]},
+    { title: '市场部', value: 'mkt', icon: <TeamOutlined />, children: [
+      { title: '品牌组', value: 'brand', icon: <FolderOutlined /> }
+    ]}
+  ]}
 ]
 
 /* ============================================================ 辅助组件 ============================================================ */
@@ -695,6 +720,32 @@ function App() {
             </Row>
             <Row label="多选禁用态">
               <Select mode="multiple" disabled placeholder="请选择" defaultValue={['option1']} style={{ width: 200 }} options={[{ label: '选项一', value: 'option1', }, { label: '选项二', value: 'option2' }, { label: '选项三', value: 'option3' }, { label: '选项四', value: 'option4' }]} />
+            </Row>
+          </ShowCard>
+
+          <ShowCard title="TreeSelect 树选择">
+            <Row label="单选">
+              <TreeSelect placeholder="请选择" style={{ width: 200 }} treeData={treeSelectData} />
+            </Row>
+            <Row label="多选（可勾选）">
+              <TreeSelect treeCheckable placeholder="请选择" style={{ width: 280 }} treeData={treeSelectData} />
+            </Row>
+            <Row label="带图标">
+              <TreeSelect placeholder="请选择" style={{ width: 200 }} treeData={treeSelectIconData} />
+              <TreeSelect treeCheckable placeholder="请选择" style={{ width: 280 }} treeData={treeSelectIconData} />
+            </Row>
+            <Row label="尺寸变体">
+              <TreeSelect size="large" defaultValue="fe" style={{ width: 140 }} treeData={treeSelectData} />
+              <TreeSelect defaultValue="fe" style={{ width: 140 }} treeData={treeSelectData} />
+              <TreeSelect size="small" defaultValue="fe" style={{ width: 140 }} treeData={treeSelectData} />
+            </Row>
+            <Row label="禁用状态">
+              <TreeSelect disabled defaultValue="fe" style={{ width: 200 }} treeData={treeSelectData} />
+              <TreeSelect treeCheckable disabled defaultValue={['fe', 'be']} style={{ width: 280 }} treeData={treeSelectData} />
+            </Row>
+            <Row label="校验状态">
+              <TreeSelect status="error" defaultValue="fe" style={{ width: 200 }} treeData={treeSelectData} />
+              <TreeSelect status="warning" defaultValue="fe" style={{ width: 200 }} treeData={treeSelectData} />
             </Row>
           </ShowCard>
 
