@@ -1,1 +1,154 @@
 ﻿/* Modal 组件样式（占位，待填充 token 映射） */
+.ant-modal-root {
+	.ant-modal-wrap {
+		.ant-modal {
+			.ant-modal-container {
+				position: relative;
+				background-clip: padding-box;
+				border: 0;
+				border-radius: var(--radius-lg);
+				pointer-events: auto;
+				padding: var(--spacing-6);
+
+				.ant-modal-close {}
+
+				.ant-modal-header {
+					color: var(--gray-90);
+					margin-bottom: var();
+					padding: var(--ant-modal-header-padding);
+					border-bottom: var(--spacing-4);
+
+					.ant-modal-title {
+						font-size: 20px;
+						color: var(--gray-90);
+					}
+				}
+
+				.ant-modal-body {
+
+					.ant-typography.ant-typography-secondary,
+					.ant-typography.ant-typography-link.ant-typography-secondary {
+						color: var(--gray-90);
+					}
+				}
+
+				.ant-modal-footer {
+					.ant-btn {
+						border-radius: var(--radius-base);
+						height: 36px;
+						line-height: 36px;
+						border: 1px solid var(--gray-20);
+						color: var(--gray-90);
+
+						span {
+							font-size: 14px;
+						}
+					}
+
+					.ant-btn-default:hover {
+						border: 1px solid var(--gray-90);
+					}
+
+					.ant-btn-default:active {
+						border: 1px solid var(--brand-50);
+					}
+
+					.ant-btn-primary {
+						background-color: var(--brand-50);
+						color: var(--gray-0);
+					}
+
+
+					.ant-btn-primary:hover {
+						background-color: var(--brand-40);
+						color: var(--gray-0);
+					}
+
+					.ant-btn-primary:active {
+						background-color: var(--brand-60);
+						color: var(--gray-0);
+					}
+				}
+
+			}
+		}
+	}
+}
+
+.dark {
+	.ant-modal-root {
+		.ant-modal-wrap {
+			.ant-modal {
+				.ant-modal-container {
+					position: relative;
+					background-clip: padding-box;
+					border: 0;
+					border-radius: var(--radius-lg);
+					pointer-events: auto;
+					padding: var(--spacing-6);
+
+					.ant-modal-close {}
+
+					.ant-modal-header {
+						color: var(--gray-0);
+						margin-bottom: var();
+						padding: var(--ant-modal-header-padding);
+						border-bottom: var(--spacing-4);
+
+						.ant-modal-title {
+							font-size: 20px;
+							color: var(--gray-0);
+						}
+					}
+
+					.ant-modal-body {
+
+						.ant-typography.ant-typography-secondary,
+						.ant-typography.ant-typography-link.ant-typography-secondary {
+							color: var(--gray-0);
+						}
+					}
+
+					.ant-modal-footer {
+						.ant-btn {
+							border-radius: var(--radius-base);
+							height: 36px;
+							line-height: 36px;
+							border: 1px solid var(--gray-50);
+							color: var(--gray-0);
+
+							span {
+								font-size: 14px;
+							}
+						}
+
+						.ant-btn-default:hover {
+							border: 1px solid var(--gray-05);
+						}
+
+						.ant-btn-default:active {
+							border: 1px solid var(--brand-40);
+						}
+
+						.ant-btn-primary {
+							background-color: var(--brand-50);
+							color: var(--gray-0);
+						}
+
+
+						.ant-btn-primary:hover {
+							background-color: var(--brand-40);
+							color: var(--gray-0);
+						}
+
+						.ant-btn-primary:active {
+							background-color: var(--brand-60);
+							color: var(--gray-0);
+						}
+					}
+
+				}
+			}
+		}
+	}
+}

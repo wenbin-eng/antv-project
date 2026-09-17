@@ -1,1 +1,169 @@
 ﻿/* Pagination 组件样式（占位，待填充 token 映射） */
+.ant-pagination {
+	font-size: 14px;
+
+	.ant-pagination-total-text {
+		color: var(--gray-90);
+		margin-right: var(--spacing-2);
+	}
+
+	.ant-pagination-prev,
+	.ant-pagination-next {
+		margin-right: var(--spacing-2);
+		height: 24px !important;
+		min-width: 24px;
+		margin-inline-end: var(--spacing-2);
+
+		.ant-pagination-item-link {
+			width: 24px !important;
+
+			.anticon {
+				width: 10px;
+				height: 10px;
+			}
+		}
+
+	}
+
+	.ant-pagination-item {
+		margin-right: var(--spacing-2);
+		color: var(--gray-90);
+		width: 32px;
+		height: 32px;
+	}
+
+	.ant-pagination-item a:hover {
+		text-decoration: none;
+		background-color: color-mix(in srgb, var(--gray-90) 50%, transparent);
+		color: var(--gray-90);
+	}
+
+	.ant-pagination-item-active {
+		background-color: var(--brand-05);
+		border: none;
+		font-weight: var(--font-weight-normal);
+		color: var(--brand-50);
+	}
+
+	.ant-pagination-item-active:hover a {
+		color: var(--brand-50);
+		font-weight: var(--font-weight-normal);
+	}
+
+	.ant-pagination-options {
+		margin-inline-start: 0;
+
+		.ant-select-dropdown {
+			.ant-select-item {
+
+				.ant-select-item-option-content {
+					font-weight: var(--font-weight-normal) !important;
+				}
+			}
+
+			.ant-select-item-option-selected {
+				background-color: var(--brand-05);
+
+			}
+
+		}
+
+		.ant-pagination-options-quick-jumper {
+			input {
+				color: var(--gray-90);
+				font-size: 14px;
+			}
+		}
+	}
+}
+
+.dark {
+
+	/* Pagination 组件样式（占位，待填充 token 映射） */
+	.ant-pagination {
+		font-size: 14px;
+
+		.ant-pagination-total-text {
+			color: var(--gray-0);
+			margin-right: var(--spacing-2);
+		}
+
+		.ant-pagination-prev,
+		.ant-pagination-next {
+			margin-right: var(--spacing-2);
+			height: 24px !important;
+			min-width: 24px;
+			margin-inline-end: var(--spacing-2);
+
+			.ant-pagination-item-link {
+				width: 24px !important;
+
+				.anticon {
+					width: 10px;
+					height: 10px;
+				}
+			}
+
+		}
+
+		.ant-pagination-item {
+			margin-right: var(--spacing-2);
+			color: var(--gray-0);
+			width: 32px;
+			height: 32px;
+		}
+
+		.ant-pagination-item a:hover {
+			text-decoration: none;
+			background-color: color-mix(in srgb, var(--brand-05) 20%, transparent);
+			color: var(--gray-0);
+		}
+
+		.ant-pagination-item-active {
+			background-color: color-mix(in srgb, var(--brand-50) 40%, transparent);
+			border: none;
+			font-weight: var(--font-weight-normal);
+			color: var(--gray-0) !important;
+		}
+
+		.ant-pagination-item-active a {
+			background-color: color-mix(in srgb, var(--brand-50) 40%, transparent);
+			border: none;
+			font-weight: var(--font-weight-normal);
+			color: var(--gray-0) !important;
+		}
+
+		.ant-pagination-item-active:hover a {
+			color: var(--gray-0);
+			background-color: color-mix(in srgb, var(--brand-50) 40%, transparent);
+			font-weight: var(--font-weight-normal);
+		}
+
+
+		.ant-pagination-options {
+			margin-inline-start: 0;
+
+			.ant-select-dropdown {
+				.ant-select-item {
+
+					.ant-select-item-option-content {
+						font-weight: var(--font-weight-normal) !important;
+					}
+				}
+
+				.ant-select-item-option-selected {
+					background-color: var(--brand-05);
+
+				}
+
+			}
+
+			.ant-pagination-options-quick-jumper {
+				input {
+					color: var(--gray-90);
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}

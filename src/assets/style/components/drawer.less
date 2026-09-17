@@ -1,1 +1,44 @@
-﻿/* Drawer 组件样式（占位，待填充 token 映射） */
+/* Drawer 组件样式（占位，待填充 token 映射） */
+.ant-drawer {
+	.ant-drawer-content-wrapper {
+		box-shadow: var(--shadow-l-base);
+		.ant-drawer-section{
+			.ant-drawer-header {
+				padding: 20px 24px 16px;
+				border-bottom: none;
+				.ant-drawer-header-title {
+					.ant-drawer-title {
+						font-size: var(--font-size-2xl);
+						color: var(--color-text-primary);
+						font-weight: var(--font-weight-medium);
+					}
+					.ant-drawer-close {
+						order: 2;
+						margin-inline-start: auto;
+
+						.anticon {
+							font-size: 14px;
+							svg {
+								width: 14px;
+								height: 14px;
+							}
+						}
+					}
+				}
+			}
+			.ant-drawer-body {
+				padding: 0 24px 24px;
+			}
+		}
+	}
+}
+
+.dark{
+	.ant-drawer {
+		.ant-drawer-content-wrapper {
+			.ant-drawer-section{
+				background-color: var(--gray-80);
+			}
+		}
+	}
+}
