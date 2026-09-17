@@ -1004,11 +1004,7 @@ function App() {
               <Button type="primary" icon={<RightOutlined />} onClick={() => setDrawerOpen(true)}>打开抽屉</Button>
             </Row>
             <Drawer title="基础抽屉" open={drawerOpen} onClose={() => setDrawerOpen(false)} width={480}>
-              <Paragraph type="secondary">这是一个右侧抽屉示例。抽屉从屏幕右侧滑入，适合需要更多空间的表单或详情展示。点击遮罩层或右上角关闭按钮均可关闭。</Paragraph>
-              <Flex direction="column" gap={12}>
-                <Button type="primary" block icon={<CheckOutlined />} onClick={() => { message.success('已提交'); setDrawerOpen(false) }}>提交</Button>
-                <Button block onClick={() => setDrawerOpen(false)}>取消</Button>
-              </Flex>
+              <Paragraph>这是一个右侧抽屉示例。抽屉从屏幕右侧滑入，适合需要更多空间的表单或详情展示。点击遮罩层或右上角关闭按钮均可关闭。</Paragraph>
             </Drawer>
           </ShowCard>
 
