@@ -37,7 +37,8 @@ import {
   Modal,
   Popover,
   Tooltip,
-  Affix
+  Affix,
+  Drawer
 } from 'antd'
 import {
   SearchOutlined,
@@ -94,13 +95,17 @@ const sortFilterData = [
 const treeData = [
   {
     title: '总部', key: 'hq', icon: <HomeOutlined />, children: [
-      { title: '研发部', key: 'rd', icon: <SettingOutlined />, children: [
-        { title: '前端组', key: 'fe', icon: <LayoutOutlined /> },
-        { title: '后端组', key: 'be', icon: <LayoutOutlined /> }
-      ]},
-      { title: '市场部', key: 'mkt', icon: <TeamOutlined />, children: [
-        { title: '品牌组', key: 'brand', icon: <TeamOutlined /> }
-      ]}
+      {
+        title: '研发部', key: 'rd', icon: <SettingOutlined />, children: [
+          { title: '前端组', key: 'fe', icon: <LayoutOutlined /> },
+          { title: '后端组', key: 'be', icon: <LayoutOutlined /> }
+        ]
+      },
+      {
+        title: '市场部', key: 'mkt', icon: <TeamOutlined />, children: [
+          { title: '品牌组', key: 'brand', icon: <TeamOutlined /> }
+        ]
+      }
     ]
   }
 ]
@@ -108,14 +113,18 @@ const treeData = [
 const treeCheckableData = [
   {
     title: '全部权限', key: 'all', children: [
-      { title: '用户管理', key: 'user', children: [
-        { title: '查看用户', key: 'user-view' },
-        { title: '编辑用户', key: 'user-edit' }
-      ]},
-      { title: '系统设置', key: 'sys', children: [
-        { title: '基本设置', key: 'sys-basic' },
-        { title: '安全设置', key: 'sys-security' }
-      ]}
+      {
+        title: '用户管理', key: 'user', children: [
+          { title: '查看用户', key: 'user-view' },
+          { title: '编辑用户', key: 'user-edit' }
+        ]
+      },
+      {
+        title: '系统设置', key: 'sys', children: [
+          { title: '基本设置', key: 'sys-basic' },
+          { title: '安全设置', key: 'sys-security' }
+        ]
+      }
     ]
   }
 ]
@@ -206,24 +215,34 @@ function App() {
   /* —— Menu —— */
   const menuItems = [
     { key: 'home', label: '首页', icon: <HomeOutlined /> },
-    { key: 'system', label: '系统管理', icon: <SettingOutlined />, children: [
-      { key: 'user', label: '用户管理', children: [
-        { key: 'userList', label: '用户列表' },
-        { key: 'userAudit', label: '用户审核' }
-      ]},
-      { key: 'role', label: '角色管理', children: [
-        { key: 'roleConfig', label: '角色配置' },
-        { key: 'roleAssign', label: '角色分配' }
-      ]},
-      { key: 'permission', label: '权限管理' }
-    ]},
-    { key: 'content', label: '内容管理', icon: <FileTextOutlined />, children: [
-      { key: 'article', label: '文章管理', children: [
-        { key: 'articlePublish', label: '文章发布' },
-        { key: 'articleAudit', label: '文章审核' }
-      ]},
-      { key: 'category', label: '分类管理' }
-    ]},
+    {
+      key: 'system', label: '系统管理', icon: <SettingOutlined />, children: [
+        {
+          key: 'user', label: '用户管理', children: [
+            { key: 'userList', label: '用户列表' },
+            { key: 'userAudit', label: '用户审核' }
+          ]
+        },
+        {
+          key: 'role', label: '角色管理', children: [
+            { key: 'roleConfig', label: '角色配置' },
+            { key: 'roleAssign', label: '角色分配' }
+          ]
+        },
+        { key: 'permission', label: '权限管理' }
+      ]
+    },
+    {
+      key: 'content', label: '内容管理', icon: <FileTextOutlined />, children: [
+        {
+          key: 'article', label: '文章管理', children: [
+            { key: 'articlePublish', label: '文章发布' },
+            { key: 'articleAudit', label: '文章审核' }
+          ]
+        },
+        { key: 'category', label: '分类管理' }
+      ]
+    },
     { key: 'monitor', label: '系统监控', icon: <MonitorOutlined /> },
     { key: 'log', label: '日志管理', icon: <BookOutlined /> }
   ]
@@ -256,6 +275,9 @@ function App() {
   /* —— Modal —— */
   const [modalBasicOpen, setModalBasicOpen] = useState(false)
   const [modalFooterOpen, setModalFooterOpen] = useState(false)
+
+  /* —— Drawer —— */
+  const [drawerOpen, setDrawerOpen] = useState(false)
 
   /* —— Tabs editable —— */
   const [editableTabs, setEditableTabs] = useState([
@@ -350,8 +372,8 @@ function App() {
             <Row label="图标按钮">
               <Button type="primary" icon={<SearchOutlined />}>搜索</Button>
               <Button type="primary" icon={<RightOutlined />} iconPlacement="end">下一步</Button>
-              <Button  icon={<SearchOutlined />} />
-              <Button  shape="circle" size="small" icon={<SearchOutlined />} />
+              <Button icon={<SearchOutlined />} />
+              <Button shape="circle" size="small" icon={<SearchOutlined />} />
             </Row>
             <Row label="禁用状态">
               <Button type="primary" icon={<SearchOutlined />} disabled>搜索</Button>
@@ -650,7 +672,7 @@ function App() {
             </Row>
           </ShowCard>
 
-         <ShowCard title="Select 选择器">
+          <ShowCard title="Select 选择器">
             <Row label="默认选择器">
               <Select placeholder="请选择" style={{ width: 200 }} options={[{ label: '选项一', value: 'option1' }, { label: '选项二', value: 'option2' }, { label: '选项三', value: 'option3' }, { label: '选项四', value: 'option4' }]} />
             </Row>
@@ -924,6 +946,19 @@ function App() {
               <Tooltip placement="left" title="左"><Button>左</Button></Tooltip>
               <Tooltip placement="right" title="右"><Button>右</Button></Tooltip>
             </Row>
+          </ShowCard>
+          
+          <ShowCard title="Drawer 抽屉">
+            <Row label="右侧抽屉">
+              <Button type="primary" icon={<RightOutlined />} onClick={() => setDrawerOpen(true)}>打开抽屉</Button>
+            </Row>
+            <Drawer title="基础抽屉" open={drawerOpen} onClose={() => setDrawerOpen(false)} width={480}>
+              <Paragraph type="secondary">这是一个右侧抽屉示例。抽屉从屏幕右侧滑入，适合需要更多空间的表单或详情展示。点击遮罩层或右上角关闭按钮均可关闭。</Paragraph>
+              <Flex direction="column" gap={12}>
+                <Button type="primary" block icon={<CheckOutlined />} onClick={() => { message.success('已提交'); setDrawerOpen(false) }}>提交</Button>
+                <Button block onClick={() => setDrawerOpen(false)}>取消</Button>
+              </Flex>
+            </Drawer>
           </ShowCard>
 
           {/* 页脚 */}

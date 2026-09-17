@@ -1,1 +1,37 @@
 ﻿/* Collapse 组件样式（占位，待填充 token 映射） */
+.ant-collapse {
+  .ant-collapse-item {
+    border-color: var(--color-border-separator);
+    .ant-collapse-header {
+      color: var(--color-text-primary);
+      .ant-collapse-expand-icon {
+        margin-inline-end: var(--spacing-1);
+      }
+    }
+    .ant-collapse-panel {
+      border-color: var(--color-border-separator);
+
+      .ant-collapse-body {
+        padding: var(--spacing-3) var(--spacing-4) var(--spacing-4) var(--spacing-8);
+      }
+    }
+  }
+}
+
+.dark {
+  .ant-collapse {
+    .ant-collapse-item {
+      border-color: var(--color-text-inverse-disabled);
+      .ant-collapse-header {
+        color: var(--color-text-primary);
+        background-color: rgb(from var(--gray-05) r g b / 0.2);
+        .ant-collapse-expand-icon {
+          color: var(--gray-10);
+        }
+      }
+      .ant-collapse-panel {
+        border-color: var(--color-text-inverse-disabled);
+      }
+    }
+  }
+}
