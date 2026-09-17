@@ -1,1 +1,111 @@
 ﻿/* Table 组件样式（占位，待填充 token 映射） */
+.ant-table {
+	.ant-table-content {
+		border-start-start-radius: 0 !important;
+		border-start-end-radius: 0 !important;
+		.ant-table-column-sorters {
+			justify-content: flex-start;
+			.ant-table-column-title {
+				flex: none;
+			}
+			.ant-table-column-sorter {
+				display: inline-flex;
+				align-items: center;
+				line-height: 0;
+				margin-inline-start: 8px;
+			}
+		}
+		.ant-table-filter-column {
+			justify-content: flex-start;
+			.ant-table-column-title {
+				flex: none;
+			}
+			.ant-table-filter-trigger {
+				margin-inline-start: 8px;
+				margin-inline-end: 0;
+			}
+		}
+		.ant-table-thead {
+			&>tr>th {
+				height: 32px;
+				line-height: 32px;
+				padding: 0 8px; 
+				color: var(--color-text-primary);
+				background-color: var(--gray-05);
+				border-top: none !important;
+				border-bottom: none !important;
+				&::before {
+					background-color: var(--gray-20) !important;
+					height: 1em !important;
+				}
+				&:first-child {
+					border-start-start-radius: 0 !important;
+				}
+				&:last-child {
+					border-start-end-radius: 0 !important;
+				}
+			}
+		}
+		.ant-table-tbody {
+			&>tr>td {
+				height: 40px;
+				line-height: 40px;
+				padding: 0 8px; 
+				color: var(--color-text-primary);
+				border-bottom: 1px solid var(--gray-05);
+			}
+			.ant-table-row {
+				&>.ant-table-cell-row-hover {
+					background-color: var(--brand-10);
+				}
+				&.ant-table-row-selected >.ant-table-cell {
+					background-color: var(--brand-05);
+				}
+			}
+			.ant-table-expanded-row {
+				.ant-table-cell {
+					background-color: rgb(from var(--gray-90) r g b / 0.05);
+				}
+			}
+			.ant-table-column-sort {
+				background: initial;
+			}
+		}
+	}
+}
+
+.dark {
+	.ant-table {
+		.ant-table-content {
+			.ant-table-thead {
+				&>tr>th {
+					color: var(--color-text-primary);
+					background-color: var(--gray-70);
+					&::before {
+						background-color: var(--gray-50) !important;
+					}
+				}
+			}
+			.ant-table-tbody {
+				&>tr>td {
+					color: var(--color-text-primary);
+					border-bottom: 1px solid rgb(from var(--gray-05) r g b / 0.1);
+					background-color: transparent;
+				}
+				.ant-table-row {
+					&>.ant-table-cell-row-hover {
+						background-color: rgb(from var(--brand-50) r g b / 0.4);
+					}
+					&.ant-table-row-selected >.ant-table-cell {
+						background-color: rgb(from var(--brand-50) r g b / 0.2);
+					}
+				}
+				.ant-table-expanded-row {
+					.ant-table-cell {
+						background-color: rgb(from var(--gray-05) r g b / 0.1);
+					}
+				}
+			}
+		}
+	}
+}

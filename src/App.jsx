@@ -144,7 +144,7 @@ function App() {
   }, [dark])
 
   /* —— Table —— */
-  const [selectedRowKeys, setSelectedRowKeys] = useState(['1'])
+  const [selectedRowKeys, setSelectedRowKeys] = useState([])
   const baseColumns = [
     { title: '姓名', dataIndex: 'name', fixed: 'left', width: 100 },
     { title: '年龄', dataIndex: 'age', width: 80 },
@@ -170,7 +170,7 @@ function App() {
     { title: '年龄', dataIndex: 'age', sorter: (a, b) => a.age - b.age },
     { title: '部门', dataIndex: 'department', filters: [{ text: '研发部', value: '研发部' }, { text: '市场部', value: '市场部' }, { text: '设计部', value: '设计部' }, { text: '运营部', value: '运营部' }], onFilter: (v, r) => r.department.includes(v) },
     { title: '职位', dataIndex: 'position' },
-    { title: '薪资', dataIndex: 'salary', sorter: (a, b) => a.salary - b.salary },
+    { title: '薪资', dataIndex: 'salary', sorter: (a, b) => a.salary - b.salary, filters: [{ text: '≥2.5万', value: 'high' }, { text: '<2.5万', value: 'low' }], onFilter: (v, r) => v === 'high' ? Number(r.salary) >= 25000 : Number(r.salary) < 25000 },
     { title: '状态', dataIndex: 'status', filters: [{ text: '在职', value: '在职' }, { text: '休假', value: '休假' }, { text: '离职', value: '离职' }], onFilter: (v, r) => r.status.includes(v), render: (t) => <Tag color={t === '在职' ? 'success' : t === '休假' ? 'warning' : 'default'}>{t}</Tag> }
   ]
 
@@ -518,7 +518,7 @@ function App() {
                 rowKey="key"
                 columns={expandableColumns}
                 dataSource={tableData.slice(0, 3)}
-                expandable={{ expandedRowRender: (r) => <div style={{ padding: 16, background: 'var(--color-bg-1)', borderRadius: 8 }}><Text strong>个人简介</Text><br /><Text type="secondary">{r.name}，{r.joinDate}加入公司，担任{r.position}。</Text></div> }}
+                expandable={{ expandedRowRender: (r) => <div style={{ padding: 16 }}><Text strong>个人简介</Text><br /><Text type="secondary">{r.name}，{r.joinDate}加入公司，担任{r.position}。</Text></div> }}
                 pagination={false}
                 style={{ width: '100%' }}
               />
