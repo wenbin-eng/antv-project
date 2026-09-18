@@ -39,7 +39,9 @@ import {
   Popover,
   Tooltip,
   Affix,
-  Drawer
+  Drawer,
+  Form,
+  Cascader
 } from 'antd'
 import {
   SearchOutlined,
@@ -346,6 +348,25 @@ function App() {
 
   /* —— Rate —— */
   const [rateVal, setRateVal] = useState(3)
+
+  /* —— Form —— */
+  const [form] = Form.useForm()
+  const onFinish = (values) => {
+    message.success('提交成功：' + JSON.stringify(values))
+  }
+  const onFinishFailed = () => {
+    message.error('表单校验未通过，请检查必填项')
+  }
+  const cascaderOptions = [
+    { value: 'zhejiang', label: '浙江', children: [
+      { value: 'hangzhou', label: '杭州' },
+      { value: 'ningbo', label: '宁波' }
+    ]},
+    { value: 'jiangsu', label: '江苏', children: [
+      { value: 'nanjing', label: '南京' },
+      { value: 'suzhou', label: '苏州' }
+    ]}
+  ]
 
   /* —— Tree —— */
   const [treeExpanded, setTreeExpanded] = useState(['hq', 'rd'])
@@ -792,6 +813,53 @@ function App() {
               <Rate count={5} defaultValue={3} style={{ fontSize: 28 }} />
               <Rate count={5} defaultValue={3} />
               <Rate count={5} defaultValue={3} style={{ fontSize: 12 }} />
+            </Row>
+          </ShowCard>
+
+          <ShowCard title="Form 表单">
+            <Row label="基础表单（含校验）">
+              <Form
+                form={form}
+                layout="vertical"
+                style={{ width: '100%', maxWidth: 480 }}
+                initialValues={{}}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+              >
+                <Form.Item label="用户名" name="username" rules={[{ required: true, message: '请输入用户名' }]}>
+                  <Input prefix={<UserOutlined />} placeholder="请输入用户名" />
+                </Form.Item>
+                <Form.Item label="邮箱" name="email" rules={[{ required: true, message: '请输入邮箱' }, { type: 'email', message: '邮箱格式不正确' }]}>
+                  <Input placeholder="请输入邮箱" />
+                </Form.Item>
+                <Form.Item label="所在地" name="region" rules={[{ required: true, message: '请选择所在地' }]}>
+                  <Cascader options={cascaderOptions} placeholder="请选择省市" />
+                </Form.Item>
+              </Form>
+            </Row>
+            <Row label="水平表单（label 左右对齐）">
+              <Form
+                layout="horizontal"
+                labelAlign="left"
+                labelCol={{ span: 4 }}
+                wrapperCol={{ span: 14 }}
+                style={{ width: '100%', maxWidth: 560 }}
+                initialValues={{ notify: true }}
+                onFinish={(v) => message.success('提交成功：' + JSON.stringify(v))}
+              >
+                <Form.Item label="项目名称" name="projectName" rules={[{ required: true, message: '请输入项目名称' }]}>
+                  <Input placeholder="请输入项目名称" />
+                </Form.Item>
+                <Form.Item label="负责人" name="owner" rules={[{ required: true, message: '请选择负责人' }]}>
+                  <Select placeholder="请选择" options={[{ label: '张三', value: 'zhangsan' }, { label: '李四', value: 'lisi' }, { label: '王五', value: 'wangwu' }]} />
+                </Form.Item>
+                <Form.Item label="项目类型" name="type" rules={[{ required: true, message: '请选择项目类型' }]}>
+                  <Select placeholder="请选择" options={[{ label: 'Web 应用', value: 'web' }, { label: '移动端', value: 'mobile' }, { label: '桌面端', value: 'desktop' }]} />
+                </Form.Item>
+                <Form.Item label="开启通知" name="notify" valuePropName="checked">
+                  <Switch checkedChildren="开" unCheckedChildren="关" />
+                </Form.Item>
+              </Form>
             </Row>
           </ShowCard>
 
