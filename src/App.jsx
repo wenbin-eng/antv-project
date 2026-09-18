@@ -1013,7 +1013,7 @@ function App() {
 
           <ShowCard title="Menu 导航菜单">
             <Row label="垂直菜单（默认）">
-              <Menu mode="vertical" defaultSelectedKeys={['userList']} defaultOpenKeys={['system', 'content', 'user']} items={menuItems} style={{ width: 256 }} />
+              <Menu mode="inline" defaultSelectedKeys={['userList']} defaultOpenKeys={['system', 'content', 'user']} items={menuItems} style={{ width: 256 }} />
             </Row>
             <Row label="水平菜单">
               <Menu mode="horizontal" defaultSelectedKeys={['dashboard']} items={menuHorizontalItems} style={{ width: '100%' }} />
