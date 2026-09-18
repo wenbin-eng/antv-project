@@ -1,5 +1,5 @@
 ﻿/* Input 组件样式（占位，待填充 token 映射） */
-.ant-input {
+input.ant-input {
   padding: 0 var(--spacing-3);
   height: 32px;
   font-size: var(--font-size-md);
@@ -13,7 +13,7 @@
   &::placeholder {
     color: var(--color-text-placeholder);
   }
-  
+
   &.ant-input-lg {
     height: 40px;
     padding: 0 var(--spacing-3);
@@ -87,4 +87,41 @@
   }
 }
 
+/* textarea style start*/
+.ant-input-textarea-affix-wrapper,
+.ant-flex-align-center {
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+  padding: 0px !important;
+  height: auto;
+
+  textarea {
+    color: var(--color-text-primary);
+    caret-color: var(--brand-50);
+    padding: 6px 16px;
+  }
+
+  .ant-input-suffix {
+    font-size: var(--font-size-base);
+
+    .ant-input-data-count {
+      color: var(--color-text-secondary);
+    }
+  }
+
+  &.ant-input-affix-wrapper-focused {
+    border-color: var(--brand-50);
+  }
+}
+.dark {
+  .ant-input-textarea-affix-wrapper,
+  .ant-flex-align-center {
+    border-color: var(--color-border);
+
+    &.ant-input-affix-wrapper-focused {
+      border-color: var(--brand-40);
+    }
+  }
+}
+/* textarea style end*/
 

@@ -1,1 +1,52 @@
 ﻿/* Tree 组件样式（占位，待填充 token 映射） */
+.ant-tree {
+	color: var(--color-text-primary);
+
+	.ant-tree-list {
+		.ant-tree-list-holder {
+			.ant-tree-list-holder-inner {
+				.ant-tree-treenode {
+					margin-bottom: var(--spacing-0);
+					line-height: var(--spacing-7);
+					padding: var(--spacing-1) 0;
+				}
+
+				.ant-tree-switcher {
+					width: var(--spacing-4);
+					height: var(--spacing-4);
+					line-height: var(--spacing-4);
+					margin-right: var(--spacing-2);
+					align-self: center;
+
+					&:hover {
+						background: var(--color-fill);
+						border-radius: var(--radius-base);
+					}
+
+					&::before {
+						width: var(--spacing-4);
+						height: var(--spacing-4);
+					}
+				}
+
+				.ant-tree-checkbox {
+					margin-top: var(--spacing-0);
+					align-self: center;
+					margin-right: var(--spacing-2);
+				}
+
+				.ant-tree-node-content-wrapper {
+
+					&:hover {
+						background: var(--color-fill);
+						border-radius: var(--radius-base);
+					}
+
+					&.ant-tree-node-selected {
+						background: var(--color-select);
+					}
+				}
+			}
+		}
+	}
+}
