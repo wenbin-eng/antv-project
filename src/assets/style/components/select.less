@@ -32,6 +32,22 @@
             --ant-select-border-color: var(--color-border-disabled)
         }
 
+        &.ant-select-status-error {
+            --ant-select-border-color: var(--color-error);
+
+            &:not(.ant-select-disabled):hover {
+                --ant-select-border-color: var(--color-error-hover);
+            }
+        }
+
+        &.ant-select-status-warning {
+            --ant-select-border-color: var(--color-warning);
+
+            &:not(.ant-select-disabled):hover {
+                --ant-select-border-color: var(--color-warning-hover);
+            }
+        }
+
     }
 
 
@@ -92,6 +108,8 @@
 .ant-select-dropdown {
     border-radius: var(--radius-md);
     background-color: var(--color-bg-4);
+    color: var(--color-text-primary);
+    box-shadow: var(--shadow-base);
 
     .ant-select-item-option-disabled {
         color: var(--color-text-disabled);
@@ -99,9 +117,9 @@
 
     .ant-select-item {
         padding: 5px var(--spacing-2);
-        
-        &:not(.ant-select-item-option-disabled){
-            color:var(--color-text-primary);
+
+        &:not(.ant-select-item-option-disabled) {
+            color: var(--color-text-primary);
         }
     }
 

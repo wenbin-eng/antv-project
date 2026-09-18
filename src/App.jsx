@@ -763,8 +763,8 @@ function App() {
               <TreeSelect treeCheckable placeholder="请选择" style={{ width: 280 }} treeData={treeSelectData} />
             </Row>
             <Row label="带图标">
-              <TreeSelect placeholder="请选择" style={{ width: 200 }} treeData={treeSelectIconData} />
-              <TreeSelect treeCheckable placeholder="请选择" style={{ width: 280 }} treeData={treeSelectIconData} />
+              <TreeSelect treeIcon placeholder="请选择" style={{ width: 200 }} treeData={treeSelectIconData} />
+              <TreeSelect treeCheckable treeIcon placeholder="请选择" style={{ width: 280 }} treeData={treeSelectIconData} />
             </Row>
             <Row label="尺寸变体">
               <TreeSelect size="large" defaultValue="fe" style={{ width: 140 }} treeData={treeSelectData} />
