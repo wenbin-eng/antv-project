@@ -239,6 +239,17 @@ function App() {
     { title: '完成', content: '流程结束', status: 'wait' }
   ]
 
+  /* —— Steps panel —— */
+  const [panelStep, setPanelStep] = useState(0)
+  const panelStepItems = [
+    { title: '填写信息', content: '填写申请表单', panel: <Paragraph>请填写申请人的基本信息，包括姓名、部门、申请事由等。</Paragraph> },
+    { title: '确认信息', content: '确认信息无误', panel: <Paragraph>请确认填写的信息无误，提交后将进入审核流程，无法修改。</Paragraph> },
+    { title: '审核中', content: '等待主管审批', status: 'error', panel: <Paragraph>您的申请已提交，正在等待主管审批，请耐心等待审核结果。</Paragraph> },
+    { title: '完成', content: '流程已完成', panel: <Paragraph>申请流程已完成，结果已通知您。如有疑问请联系系统管理员。</Paragraph> }
+  ]
+  const panelNext = () => setPanelStep((p) => Math.min(p + 1, panelStepItems.length - 1))
+  const panelPrev = () => setPanelStep((p) => Math.max(p - 1, 0))
+
   /* —— Menu —— */
   const menuItems = [
     { key: 'home', label: '首页', icon: <HomeOutlined /> },
@@ -943,6 +954,9 @@ function App() {
           <ShowCard title="Steps 步骤条">
             <Row label="自定义节点步骤条">
               <Steps current={2} style={{ width: '100%' }} items={stepItems} />
+              <Steps current={2} style={{ width: '100%' }} items={stepItems} size="small" />
+              <Steps current={2} style={{ width: '100%' }} titlePlacement="vertical" items={stepItems} />
+              <Steps current={2} style={{ width: '100%' }} titlePlacement="vertical" size="small" items={stepItems} />
             </Row>
             <Row label="点状步骤条">
               <Steps current={1} style={{ width: '100%' }} items={[
@@ -965,6 +979,29 @@ function App() {
                 { title: '测试', content: '测试验证阶段', status: 'wait' },
                 { title: '上线', content: '正式发布上线', status: 'wait' }
               ]} />
+            </Row>
+            <Row label="panel 类型步骤条（可交互）">
+              <div style={{ width: '100%' }}>
+                <Steps
+                  type="panel"
+                  current={panelStep}
+                  onChange={setPanelStep}
+                  items={panelStepItems}
+                  style={{ width: '100%' }}
+                />
+                <div style={{ minHeight: 120, padding: '24px 16px', margin: '16px 0', background: 'var(--color-bg-1)', border: '1px solid var(--color-border-separator)', borderRadius: 8 }}>
+                  {panelStepItems[panelStep].panel}
+                </div>
+                <Flex justify="space-between" align="center">
+                  <Button disabled={panelStep === 0} onClick={panelPrev}>上一步</Button>
+                  <Space>
+                    <Text type="secondary">第 {panelStep + 1} / {panelStepItems.length} 步</Text>
+                    {panelStep < panelStepItems.length - 1
+                      ? <Button type="primary" icon={<RightOutlined />} iconPlacement="end" onClick={panelNext}>下一步</Button>
+                      : <Button type="primary" icon={<CheckOutlined />} disabled>已完成</Button>}
+                  </Space>
+                </Flex>
+              </div>
             </Row>
           </ShowCard>
 
