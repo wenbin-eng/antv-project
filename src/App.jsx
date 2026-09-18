@@ -681,7 +681,7 @@ function App() {
 
           <ShowCard title="InputNumber 数字输入框">
             <Row label="默认数字输入框">
-              <InputNumber defaultValue={42} placeholder="请输入数字" />
+              <InputNumber defaultValue={42} placeholder="请输入数字" mode="spinner" />
             </Row>
           </ShowCard>
 
