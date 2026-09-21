@@ -331,3 +331,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #dededf;
 }
+
+.ant-wave {
+  display: none !important
+}
