@@ -1,22 +1,27 @@
 ﻿/* Timeline 组件样式（占位，待填充 token 映射） */
-.ant-steps {
-  .ant-steps-item {
-    .ant-steps-item-wrapper {
-      column-gap: var(--spacing-2);
+.ant-timeline {
+  .ant-timeline-item {
+    padding-bottom: 1rem;
 
-      .ant-steps-item-icon {
-        font-size: var(--font-size-md);
+    .ant-timeline-item-head {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+  }
+
+  &.ant-timeline-start {
+    .ant-timeline-item {
+      .ant-timeline-item-tail {
+        inset-inline-start: 0.375rem;
       }
+    }
+  }
 
-      .ant-steps-item-section {
-        gap: var(--spacing-8) !important;
-
-        .ant-steps-item-header {
-          .ant-steps-item-rail {
-            margin-top: var(--spacing-1);
-            margin-bottom: var(--spacing-1);
-          }
-        }
+  &.ant-timeline-alternate,
+  &.ant-timeline-right {
+    .ant-timeline-item {
+      .ant-timeline-item-head {
+        margin-inline-start: -0.375rem;
       }
     }
   }
