@@ -233,10 +233,10 @@ function App() {
 
   /* —— Steps —— */
   const stepItems = [
-    { title: '提交申请', content: '填写申请表单', status: 'finish' },
-    { title: '部门审核', content: '主管审批中', status: 'process' },
-    { title: '财务确认', content: '等待处理', status: 'wait' },
-    { title: '完成', content: '流程结束', status: 'wait' }
+    { title: '提交申请', description: '填写申请表单' },
+    { title: '部门审核', description: '主管审批中' },
+    { title: '财务确认', description: '等待处理' },
+    { title: '完成', description: '流程结束' }
   ]
 
   /* —— Steps panel —— */
@@ -953,31 +953,31 @@ function App() {
 
           <ShowCard title="Steps 步骤条">
             <Row label="自定义节点步骤条">
-              <Steps current={2} style={{ width: '100%' }} items={stepItems} />
+              <Steps current={1} style={{ width: '100%' }} items={stepItems} />
               <Steps current={2} style={{ width: '100%' }} items={stepItems} size="small" />
-              <Steps current={2} style={{ width: '100%' }} titlePlacement="vertical" items={stepItems} />
-              <Steps current={2} style={{ width: '100%' }} titlePlacement="vertical" size="small" items={stepItems} />
+              <Steps current={1} style={{ width: '100%' }} labelPlacement="vertical" items={stepItems} />
+              <Steps current={2} style={{ width: '100%' }} labelPlacement="vertical" size="small" items={stepItems} />
             </Row>
             <Row label="点状步骤条">
-              <Steps current={1} style={{ width: '100%' }} items={[
+              <Steps progressDot current={1} style={{ width: '100%' }} items={[
                 { title: '已下单', status: 'finish' },
                 { title: '配送中', status: 'process' },
                 { title: '已签收', status: 'wait' }
               ]} />
             </Row>
             <Row label="垂直步骤条">
-              <Steps current={1} orientation="vertical" style={{ width: 300 }} items={[
-                { title: '创建项目', content: '初始化项目配置', status: 'finish' },
-                { title: '开发阶段', content: '前后端并行开发', status: 'process' },
-                { title: '部署上线', content: '生产环境发布', status: 'wait' }
+              <Steps current={1} direction="vertical" style={{ width: 300 }} items={[
+                { title: '创建项目', description: '初始化项目配置', status: 'finish' },
+                { title: '开发阶段', description: '前后端并行开发', status: 'process' },
+                { title: '部署上线', description: '生产环境发布', status: 'wait' }
               ]} />
             </Row>
-            <Row label="面板步骤条（带描述）">
+            {/* <Row label="面板步骤条（带描述）">
               <Steps current={1} style={{ width: '100%' }} items={[
-                { title: '立项', content: '项目立项审批', status: 'finish' },
-                { title: '开发', content: '功能开发阶段', status: 'process' },
-                { title: '测试', content: '测试验证阶段', status: 'wait' },
-                { title: '上线', content: '正式发布上线', status: 'wait' }
+                { title: '立项', description: '项目立项审批', status: 'finish' },
+                { title: '开发', description: '功能开发阶段', status: 'process' },
+                { title: '测试', description: '测试验证阶段', status: 'wait' },
+                { title: '上线', description: '正式发布上线', status: 'wait' }
               ]} />
             </Row>
             <Row label="panel 类型步骤条（可交互）">
@@ -1002,7 +1002,7 @@ function App() {
                   </Space>
                 </Flex>
               </div>
-            </Row>
+            </Row> */}
           </ShowCard>
 
           <ShowCard title="Pagination 分页">

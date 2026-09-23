@@ -3,10 +3,10 @@
   border-radius: var(--radius-base);
 }
 input.ant-input {
-  padding: 0 var(--spacing-3);
-  height: 32px;
+  padding: 0 0.75rem;
+  height: 2rem;
   font-size: var(--font-size-md);
-  line-height: 24px;
+  line-height: 1.5rem;
   border-radius: var(--radius-base);
   color: var(--color-text-primary);
   border-color: var(--color-border);
@@ -18,14 +18,14 @@ input.ant-input {
   }
 
   &.ant-input-lg {
-    height: 40px;
-    padding: 0 var(--spacing-3);
+    height: 2.5rem;
+    padding: 0 0.75rem;
     font-size: var(--font-size-md);
     border-radius: var(--radius-base);
   }
 
   &.ant-input-sm {
-    padding: 0 var(--spacing-3);
+    padding: 0 0.75rem;
     height: 28px;
     font-size: var(--font-size-base);
     border-radius: var(--radius-base);
@@ -33,14 +33,14 @@ input.ant-input {
 }
 
 .ant-input-affix-wrapper {
-  padding: 0 var(--spacing-3);
-  height: 32px;
-  border-radius: 4px;
+  padding: 0 0.75rem;
+  height: 2rem;
+  border-radius: var(--radius-base);
   .ant-input {
     height: 100%;
 
     &[type="password"] {
-      letter-spacing: var(--spacing-1);
+      letter-spacing: 0.5rem;
       color: var(--color-icon-primary);
     }
   }
@@ -101,7 +101,7 @@ input.ant-input {
   textarea {
     color: var(--color-text-primary);
     caret-color: var(--brand-50);
-    padding: 6px 16px;
+    padding: 0.3125rem 0.75rem 1rem;
   }
 
   .ant-input-suffix {
@@ -116,6 +116,12 @@ input.ant-input {
     border-color: var(--brand-50);
   }
 }
+
+.ant-input-textarea-show-count .ant-input-data-count {
+  bottom: 0px;
+  right: 0.75rem;
+  background-color: var(--color-fill-subtle);
+}
 .dark {
   .ant-input-textarea-affix-wrapper,
   .ant-flex-align-center {
@@ -124,6 +130,9 @@ input.ant-input {
     &.ant-input-affix-wrapper-focused {
       border-color: var(--brand-40);
     }
+  }
+  .ant-input-textarea-show-count .ant-input-data-count {
+    background-color: var(--color-bg-1);
   }
 }
 /* textarea style end*/
