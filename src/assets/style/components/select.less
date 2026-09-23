@@ -5,6 +5,11 @@
 .ant-select {
     // 变更圆角
     --ant-select-border-radius: var(--radius-base);
+    &.ant-select-lg .ant-select-selector,
+    &.ant-select-sm .ant-select-selector,
+    .ant-select-selector {
+        border-radius: var(--radius-base);
+    }
     background: var(--color-bg-4);
     color: var(--color-text-primary);
 
