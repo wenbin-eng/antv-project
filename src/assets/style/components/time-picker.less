@@ -1,21 +1,18 @@
-﻿/* TimePicker 组件样式（占位，待填充 token 映射） */
-.ant-picker.ant-picker-css-var {
-  --ant-color-border: var(--gray-20);
-  --ant-border-radius: 4px;
-  --ant-date-picker-padding-block-sm: 1px;
-  --ant-date-picker-padding-inline: 12px;
-  --ant-date-picker-padding-inline-sm: 12px;
-  --ant-date-picker-padding-inline-lg: 12px;
-  --ant-color-text-quaternary: var(--gray-50);
-  --ant-date-picker-active-border-color: var(--brand-50);
-  --ant-date-picker-active-shadow: 0 0 0 1px var(--brand-10);
-  --ant-date-picker-hover-border-color: var(--gray-0);
-
-
+﻿/* TimePicker/DatePicker 组件样式（antd 5 常规属性覆盖，原 --ant-* 变量方案改写） */
+.ant-picker.ant-picker {
   color: var(--color-text-primary);
+  border-color: var(--gray-20);
+  border-radius: var(--radius-base);
+  padding-inline: 0.75rem;
 
+  &:not(.ant-picker-disabled):hover {
+    border-color: var(--gray-0);
+  }
+
+  &:focus-within,
   &.ant-picker-focused {
-    --ant-color-text-quaternary: var(--gray-90);
+    border-color: var(--brand-50);
+    box-shadow: 0 0 0 1px var(--brand-10);
   }
 
   &.ant-picker-disabled {
@@ -40,56 +37,87 @@
       color: var(--color-text-placeholder);
     }
   }
+
+  .ant-picker-suffix,
+  .ant-picker-clear {
+    color: var(--gray-50);
+  }
+
+  &.ant-picker-focused {
+    .ant-picker-suffix,
+    .ant-picker-clear {
+      color: var(--gray-90);
+    }
+  }
+}
+
+.ant-picker.ant-picker-small {
+  padding: 1px 0.75rem;
+}
+
+.ant-picker.ant-picker-large {
+  padding-inline: 0.75rem;
+  border-radius: var(--radius-base);
 }
 
 .ant-picker-range {
   .ant-picker-active-bar {
     bottom: 4px;
-    height: 22px;
+    height: 1.375rem;
     background: var(--brand-05);
     border-radius: 2px;
   }
 
-  .ant-picker-input>input {
-    padding-left: 4px;
-  }
   .ant-picker-range-separator {
-    padding: 0px;
-  }
-  .ant-picker-separator {
-    text-align: center;
-    span {
-      display:none;
-    }
+    /* antd 5：'~' 为裸文本节点，font-size: 0 隐藏；连字符字形贴基线会偏下，改用绘制短线并 flex 居中 */
+    display: inline-flex;
+    align-items: center;
+    padding: 0 0.25rem;
+    font-size: 0px;
     &::before{
-      content: '-';
-      color: var(--color-text-primary);
+      content: '';
+      display: block;
+      width: 0.375rem;
+      height: 1px;
+      background-color: var(--color-text-primary);
+    }
+    .ant-picker-separator {
+      display: none;
     }
   }
-}
-.ant-picker-large {
-  border-radius: var(--radius-base);
 }
 
 .dark {
-  .ant-picker.ant-picker-css-var {
-    --ant-color-border: var(--gray-50);
-    --ant-color-text-quaternary: var(--gray-30);
-    --ant-date-picker-active-border-color: var(--brand-40);
-    --ant-date-picker-active-shadow: 0 0 0 1px var(--brand-80);
-    --ant-date-picker-hover-border-color: var(--brand-40);
-
+  .ant-picker.ant-picker {
     color: var(--color-text-primary);
+    border-color: var(--gray-50);
+
+    &:not(.ant-picker-disabled):hover {
+      border-color: var(--brand-40);
+    }
+
+    &:focus-within,
+    &.ant-picker-focused {
+      border-color: var(--brand-40);
+      box-shadow: 0 0 0 1px var(--brand-80);
+    }
+
+    .ant-picker-suffix,
+    .ant-picker-clear {
+      color: var(--gray-30);
+    }
 
     &.ant-picker-focused {
-      --ant-color-text-quaternary: var(--gray-10);
+      .ant-picker-suffix,
+      .ant-picker-clear {
+        color: var(--gray-10);
+      }
     }
 
     &.ant-picker-disabled {
       background-color: rgb(from var(--gray-05) r g b / 0.2);
       border-color: var(--gray-20);
     }
-
   }
 
   .ant-picker-range .ant-picker-active-bar {

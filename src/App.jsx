@@ -4,6 +4,7 @@ import {
   App as AntApp,
   theme,
   Card,
+  Avatar,
   Typography,
   Space,
   Flex,
@@ -185,14 +186,19 @@ function App() {
   /* —— Table —— */
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
   const baseColumns = [
-    { title: '姓名', dataIndex: 'name', fixed: 'left', width: 100 },
+    { title: '姓名', dataIndex: 'name', fixed: 'left', width: 120, render: (t) => (
+      <Space size={8}>
+        <Avatar size={24} style={{ backgroundColor: 'var(--brand-50)', fontSize: 12 }}>{t[0]}</Avatar>
+        {t}
+      </Space>
+    ) },
     { title: '年龄', dataIndex: 'age', width: 80 },
     { title: '部门', dataIndex: 'department' },
     { title: '职位', dataIndex: 'position' },
-    { title: '邮箱', dataIndex: 'email' },
+    { title: '邮箱', dataIndex: 'email', render: (t) => <Text copyable={{ text: t }}>{t}</Text> },
     { title: '电话', dataIndex: 'phone' },
     { title: '入职日期', dataIndex: 'joinDate' },
-    { title: '薪资', dataIndex: 'salary' },
+    { title: '薪资', dataIndex: 'salary', render: (t) => <Progress percent={Math.round(Number(t) / 35000 * 100)} size="small" style={{ maxWidth: 120 }} /> },
     { title: '状态', dataIndex: 'status', fixed: 'right', width: 100, render: (t) => <Tag color={t === '在职' ? 'success' : t === '休假' ? 'warning' : 'default'}>{t}</Tag> }
   ]
 
@@ -586,8 +592,32 @@ function App() {
           </ShowCard>
 
           <ShowCard title="Table 表格">
-            <Row label="基础表格">
+            <Row label="尺寸变体">
+              <Text type="secondary" style={{ fontSize: 13, width: '100%' }}>大尺寸（large，默认）</Text>
               <Table
+                size="large"
+                rowKey="key"
+                columns={baseColumns}
+                dataSource={tableData}
+                rowSelection={{ type: 'checkbox', selectedRowKeys, onChange: setSelectedRowKeys }}
+                scroll={{ x: 1300 }}
+                pagination={{ pageSize: 5 }}
+                style={{ width: '100%' }}
+              />
+              <Text type="secondary" style={{ fontSize: 13, width: '100%' }}>中尺寸（middle）</Text>
+              <Table
+                size="middle"
+                rowKey="key"
+                columns={baseColumns}
+                dataSource={tableData}
+                rowSelection={{ type: 'checkbox', selectedRowKeys, onChange: setSelectedRowKeys }}
+                scroll={{ x: 1300 }}
+                pagination={{ pageSize: 5 }}
+                style={{ width: '100%' }}
+              />
+              <Text type="secondary" style={{ fontSize: 13, width: '100%' }}>小尺寸（small）</Text>
+              <Table
+                size="small"
                 rowKey="key"
                 columns={baseColumns}
                 dataSource={tableData}

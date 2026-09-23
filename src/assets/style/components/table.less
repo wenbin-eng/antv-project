@@ -56,7 +56,7 @@
 				color: var(--color-text-primary);
 				background-color: var(--gray-05);
 				border-top: none !important;
-				border-bottom: none !important;
+        border-bottom: 1px solid var(--gray-05);
         font-size: var(--font-size-md);
         font-weight: var(--font-weight-normal);
 				&::before {
@@ -74,7 +74,12 @@
 		.ant-table-tbody {
 			&>tr:not(.ant-table-measure-row)>td {
 				height: 2.5rem;
-				line-height: calc(2.5rem - 1px);
+				line-height: 1.5714;
+				vertical-align: middle;
+				/* 子元素顶部对齐行框顶，高内容铺满行框，消除 strut 基线对齐多出的高度 */
+				&>* {
+					vertical-align: top;
+				}
 				padding: 0 0.5rem;
 				box-sizing: border-box;
 				color: var(--color-text-primary);
@@ -112,7 +117,7 @@
 		}
 		.ant-table-tbody > tr:not(.ant-table-measure-row) > td {
 			height: 2rem;
-			line-height: calc(2rem - 1px);
+			line-height: 1.5714;
 			padding: 0 0.5rem;
 		}
 	}
@@ -124,7 +129,7 @@
 		}
 		.ant-table-tbody > tr:not(.ant-table-measure-row) > td {
 			height: 1.75rem;
-			line-height: calc(1.75rem - 1px);
+			line-height: 1.5714;
 			padding: 0 0.5rem;
 		}
 	}
@@ -140,6 +145,7 @@
 					&::before {
 						background-color: var(--gray-50) !important;
 					}
+          border-bottom: 1px solid rgb(from var(--gray-05) r g b / 0.1);
 				}
 			}
 			.ant-table-tbody {
