@@ -4,7 +4,9 @@
   font-size: var(--font-size-md);
 	border-radius: var(--radius-base);
   font-weight: var(--font-weight-normal);
-  min-width: calc(var(--spacing-4) * 5.5);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  min-width: 6rem;
 	box-shadow: none !important;
 	gap:4px;
 }
@@ -73,19 +75,22 @@
 }
 
 .ant-btn.ant-btn-sm {
-  height: 28px;
+  height: 1.75rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-size: var(--font-size-base);
 }
 
 .ant-btn.ant-btn-lg {
-  height: 36px;
-  padding: var(--spacing-0) var(--spacing-5);
-  min-width: 96px;
+  height: 2.25rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
   font-size: var(--font-size-md);
 }
 
 .ant-btn.ant-btn-icon-only {
-  width: 32px !important;
-  height: 32px !important;
+  width: 2rem !important;
+  height: 2rem !important;
   min-width: auto !important;
   border: none !important;
   background-color: transparent !important;
@@ -96,8 +101,8 @@
   }
 
   &.ant-btn-sm {
-    width: 24px !important;
-    height: 24px !important;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
     .anticon {
       font-size: var(--font-size-md);
     }
@@ -111,7 +116,7 @@
 
 .ant-btn.ant-btn-variant-link {
   min-width: unset;
-  line-height: 22px;
+  line-height: var(--line-height-sm);
   padding: var(--spacing-0);
   border: none !important;
   background-color: transparent;

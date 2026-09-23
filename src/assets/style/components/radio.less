@@ -1,58 +1,75 @@
-﻿/* Radio 组件样式（占位，待填充 token 映射） */
+﻿/* Radio 组件样式（token 映射，antd 5 结构：可视圆为 .ant-radio-inner，内点为 .ant-radio-inner::after，
+   状态类以 .ant-radio 为准（defaultChecked 时 wrapper-checked 不会更新；radio 无 label 类名）） */
+
 .ant-radio-wrapper {
-	&:hover {
-		.ant-radio {
-			border-color: var(--brand-40);
-			&.ant-radio-checked {
-				background-color: var(--brand-40);
-			}
-		}
-	}
-	
-	&.ant-radio-wrapper-disabled {
-		.ant-radio-label {
-			color: var(--color-text-disabled);
-		}
-		.ant-radio {
-			background-color: rgb(from var(--gray-90) r g b / 0.05);
-			border-color: var(--color-border-disabled);
-			&.ant-radio-checked {
-				background-color: var(--brand-20);
-				&::after {
-					background-color: var(--gray-0);
-				}
-			}
-		}
-	}
-  .ant-radio {
-		&.ant-radio-checked {
-			background-color: var(--brand-50);
-			border-color: transparent;
-		}
-		background-color: var(--gray-0);
-		border-color: var(--gray-40);
-	}
-	.ant-radio-label {
-		color: var(--color-text-primary);
-  	font-size: var(--font-size-md);
-	}
+  color: var(--color-text-primary);
+  font-size: var(--font-size-md);
+  &:hover {
+    .ant-radio:not(.ant-radio-checked):not(.ant-radio-disabled) {
+      .ant-radio-inner {
+        border-color: var(--brand-40);
+      }
+    }
+  }
+  &.ant-radio-wrapper-disabled {
+    color: var(--color-text-disabled);
+    .ant-radio.ant-radio-disabled {
+      .ant-radio-inner {
+        background-color: rgb(from var(--gray-90) r g b / 0.05);
+        border-color: var(--color-border-disabled);
+      }
+      &.ant-radio-checked {
+        .ant-radio-inner {
+          background-color: var(--brand-20);
+          &::after {
+            background-color: var(--gray-0);
+          }
+        }
+      }
+    }
+  }
+  .ant-radio:not(.ant-radio-checked):not(.ant-radio-disabled) {
+    .ant-radio-inner {
+      background-color: var(--gray-0);
+      border-color: var(--gray-40);
+    }
+  }
+  &:hover {
+    .ant-radio-checked:not(.ant-radio-disabled) {
+      .ant-radio-inner {
+        background-color: var(--brand-40);
+      }
+    }
+  }
+  .ant-radio-checked:not(.ant-radio-disabled) {
+    .ant-radio-inner {
+      background-color: var(--brand-50);
+      border-color: transparent;
+    }
+  }
 }
 .dark {
-	.ant-radio {
-		background-color: var(--gray-100);
-		border-color: var(--gray-50);
-	}
-	.ant-radio-wrapper.ant-radio-wrapper-disabled {
-		.ant-radio {
-			background-color: rgb(from var(--gray-05) r g b / 0.2);
-			border-color: var(--gray-50);
-			&.ant-radio-checked {
-				background-color: var(--brand-70);
-				border-color: transparent;
-				&::after {
-					background-color:  rgb(from var(--gray-05) r g b / 0.3);
-				}
-			}
-		}
-	}
+  .ant-radio-wrapper {
+    .ant-radio:not(.ant-radio-checked):not(.ant-radio-disabled) {
+      .ant-radio-inner {
+        background-color: var(--gray-100);
+        border-color: var(--gray-50);
+      }
+    }
+    .ant-radio.ant-radio-disabled {
+      .ant-radio-inner {
+        background-color: rgb(from var(--gray-05) r g b / 0.2);
+        border-color: var(--gray-50);
+      }
+      &.ant-radio-checked {
+        .ant-radio-inner {
+          background-color: var(--brand-70);
+          border-color: transparent;
+          &::after {
+            background-color: rgb(from var(--gray-05) r g b / 0.3);
+          }
+        }
+      }
+    }
+  }
 }

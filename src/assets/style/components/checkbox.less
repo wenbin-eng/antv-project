@@ -1,61 +1,71 @@
-/* Checkbox 组件样式（token 映射，转换自根目录 checkbox.css） */
+/* Checkbox 组件样式（token 映射，antd 5 结构：可视框为 .ant-checkbox-inner，
+   状态类以 .ant-checkbox 为准（defaultChecked 时 wrapper-checked 不会更新）） */
 
 .ant-checkbox-wrapper {
   color: var(--color-text-primary);
   font-size: var(--font-size-md);
-  &:not(.ant-checkbox-wrapper-checked) {
-    &:hover {
-      .ant-checkbox {
+  &:hover {
+    .ant-checkbox:not(.ant-checkbox-checked) {
+      .ant-checkbox-inner {
         border-color: var(--brand-40) !important;
       }
     }
-    .ant-checkbox-disabled {
-      &.ant-checkbox {
-        background-color: rgb(from var(--gray-100) r g b / 0.05);
-        border-color: var(--color-border-disabled) !important;
-      }
-      &+.ant-checkbox-label {
-        color: var(--color-text-disabled);
-      }
+  }
+  .ant-checkbox.ant-checkbox-disabled:not(.ant-checkbox-checked) {
+    .ant-checkbox-inner {
+      background-color: rgb(from var(--gray-100) r g b / 0.05);
+      border-color: var(--color-border-disabled) !important;
     }
-    .ant-checkbox {
+    +.ant-checkbox-label {
+      color: var(--color-text-disabled);
+    }
+  }
+  .ant-checkbox:not(.ant-checkbox-checked) {
+    .ant-checkbox-inner {
       border-color: var(--gray-40);
       background-color: var(--gray-0);
     }
   }
-  &.ant-checkbox-wrapper-checked {
-     &:hover {
-      .ant-checkbox {
+  &:hover {
+    .ant-checkbox-checked:not(.ant-checkbox-disabled) {
+      .ant-checkbox-inner {
         background-color: var(--brand-40) !important;
       }
     }
-    .ant-checkbox-disabled {
-      &.ant-checkbox {
-        background-color: var(--brand-20) !important;
-      }
-      &+.ant-checkbox-label {
-        color: var(--color-text-disabled);
-      }
+  }
+  .ant-checkbox-checked.ant-checkbox-disabled {
+    .ant-checkbox-inner {
+      background-color: var(--brand-20) !important;
       &:after {
         border-color: var(--gray-0);
       }
     }
-    .ant-checkbox {
+    +.ant-checkbox-label {
+      color: var(--color-text-disabled);
+    }
+  }
+  .ant-checkbox-checked {
+    .ant-checkbox-inner {
       background-color: var(--brand-50);
       border-color:transparent ;
     }
   }
   .ant-checkbox-indeterminate.ant-checkbox-indeterminate {
-    background-color: var(--brand-50) !important;
-    border-color:transparent !important;
-    &:hover {
+    .ant-checkbox-inner {
+      background-color: var(--brand-50) !important;
+      border-color:transparent !important;
+      &::after {
+        width: 10px;
+        height: 2px;
+        background-color: var(--gray-0);
+        border: 0;
+        border-radius: 2px;
+      }
+    }
+    &:hover .ant-checkbox-inner {
       background-color: var(--brand-40) !important;
     }
-    &::after {
-      height: 2px;
-      background-color: var(--gray-0);
-    }
-    &.ant-checkbox-disabled {
+    &.ant-checkbox-disabled .ant-checkbox-inner {
       background-color: var(--brand-20) !important;
       border-color:transparent !important;
     }
@@ -63,40 +73,38 @@
 }
 .dark {
   .ant-checkbox-wrapper {
-    &:not(.ant-checkbox-wrapper-checked) {
-       .ant-checkbox {
+    .ant-checkbox:not(.ant-checkbox-checked) {
+      .ant-checkbox-inner {
         border-color: var(--gray-50);
         background-color: var(--gray-100);
       }
     }
-    .ant-checkbox-disabled {
-      &.ant-checkbox {
+    .ant-checkbox.ant-checkbox-disabled:not(.ant-checkbox-checked) {
+      .ant-checkbox-inner {
         background-color: rgb(from var(--gray-05) r g b / 0.2);
         border-color: var(--gray-60) !important;
       }
     }
-    &.ant-checkbox-wrapper-checked {
-      .ant-checkbox-disabled {
-        &.ant-checkbox {
-          background-color: var(--brand-70) !important;
-          border-color: transparent !important;
-        }
-        
+    .ant-checkbox-checked.ant-checkbox-disabled {
+      .ant-checkbox-inner {
+        background-color: var(--brand-70) !important;
+        border-color: transparent !important;
         &:after {
           border-color: rgb(from var(--gray-05) r g b / 0.3);
         }
       }
     }
-    .ant-checkbox-indeterminate.ant-checkbox-indeterminate {
-      border-color:transparent !important;
-      &::after {
-        background-color: rgb(from var(--gray-05) r g b / 0.3);
+    .ant-checkbox-indeterminate.ant-checkbox-indeterminate  {
+      .ant-checkbox-inner {
+        border-color:transparent !important;
+        &::after {
+          background-color: rgb(from var(--gray-05) r g b / 0.3);
+        }
       }
-      &.ant-checkbox-disabled {
+      &.ant-checkbox-disabled .ant-checkbox-inner {
         background-color: var(--brand-70) !important;
+        border-color:transparent !important;
       }
     }
   }
 }
-
-
