@@ -1,5 +1,5 @@
 ﻿.ant-select-sm {
-    --ant-select-height: 28px;
+    --ant-select-height: 1.75rem;
 }
 
 .ant-select {
@@ -24,7 +24,7 @@
 
             &.ant-select-focused {
                 --ant-select-border-color: var(--color-border-focus);
-                box-shadow: 0 0 0 1px var(--color-border-active);
+                // box-shadow: 0 0 0 1px var(--color-border-active);
             }
         }
 
@@ -94,8 +94,8 @@
 
     // 后缀图标
     .ant-select-suffix svg {
-        width: 10px;
-        height: 10px;
+        width: 0.625rem;
+        height: 0.625rem;
     }
 }
 
@@ -116,7 +116,7 @@
     }
 
     .ant-select-item {
-        padding: 5px var(--spacing-2);
+        padding: 0.3125rem 0.5rem;
 
         &:not(.ant-select-item-option-disabled) {
             color: var(--color-text-primary);
@@ -131,6 +131,7 @@
     .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
         background-color: var(--color-select);
         color: var(--color-text-on);
+        font-weight: normal;
     }
 
     .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
@@ -143,10 +144,10 @@
 }
 
 .ant-select-dropdown-list-holder-inner {
-    gap: var(--spacing-1);
+    gap: 0.25rem;
 }
 
 .ant-select-multiple .ant-select-content .ant-select-selection-item {
-    margin-inline-end: var(--spacing-2);
+    margin-inline-end: 0.5rem;
     background: var(--color-hover);
 }
