@@ -4,6 +4,14 @@
 .ant-checkbox-wrapper {
   color: var(--color-text-primary);
   font-size: var(--font-size-md);
+  .ant-checkbox-inner {
+    width: 1rem;
+    height: 1rem;
+    &::after {
+      width: 0.357rem;
+      height: 0.571rem;
+    }
+  }
   &:hover {
     .ant-checkbox:not(.ant-checkbox-checked) {
       .ant-checkbox-inner {
