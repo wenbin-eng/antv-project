@@ -566,18 +566,18 @@ function App() {
 
           <ShowCard title="Timeline 时间轴">
             <Row label="默认左侧对齐">
-              <Timeline mode="start" style={{ width: '100%' }} items={[
-                { color: 'green', icon: <CheckCircleOutlined />, content: <div><Text strong>需求评审</Text><br /><Text type="secondary">完成产品需求文档评审</Text></div> },
-                { color: 'blue', icon: <FileOutlined />, content: <div><Text strong>设计阶段</Text><br /><Text type="secondary">UI/UX设计稿输出</Text></div> },
-                { color: 'yellow', icon: <SettingOutlined />, content: <div><Text strong>开发中</Text><br /><Text type="secondary">前端与后端并行开发</Text></div> },
-                { color: 'gray', content: <div><Text strong>测试阶段</Text><br /><Text type="secondary">待进行功能与性能测试</Text></div> }
+              <Timeline mode="left" style={{ width: '100%' }} items={[
+                { color: 'green', icon: <CheckCircleOutlined />, children: <div><Text strong>需求评审</Text><br /><Text type="secondary">完成产品需求文档评审</Text></div> },
+                { color: 'blue', icon: <FileOutlined />, children: <div><Text strong>设计阶段</Text><br /><Text type="secondary">UI/UX设计稿输出</Text></div> },
+                { color: 'yellow', icon: <SettingOutlined />, children: <div><Text strong>开发中</Text><br /><Text type="secondary">前端与后端并行开发</Text></div> },
+                { color: 'gray', children: <div><Text strong>测试阶段</Text><br /><Text type="secondary">待进行功能与性能测试</Text></div> }
               ]} />
             </Row>
             <Row label="交替模式">
               <Timeline mode="alternate" style={{ width: '100%' }} items={[
-                { color: 'blue', content: <div><Text strong>创建项目</Text><br /><Text type="secondary">初始化项目仓库和基础框架</Text></div> },
-                { color: 'green', content: <div><Text strong>功能开发</Text><br /><Text type="secondary">完成核心功能模块开发</Text></div> },
-                { color: 'yellow', content: <div><Text strong>部署上线</Text><br /><Text type="secondary">生产环境部署与验证</Text></div> }
+                { color: 'blue', children: <div><Text strong>创建项目</Text><br /><Text type="secondary">初始化项目仓库和基础框架</Text></div> },
+                { color: 'green', children: <div><Text strong>功能开发</Text><br /><Text type="secondary">完成核心功能模块开发</Text></div> },
+                { color: 'yellow', children: <div><Text strong>部署上线</Text><br /><Text type="secondary">生产环境部署与验证</Text></div> }
               ]} />
             </Row>
           </ShowCard>
