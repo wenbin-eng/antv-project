@@ -44,7 +44,10 @@ import {
   Drawer,
   Empty,
   Form,
-  Cascader
+  Cascader,
+  Anchor,
+  Splitter,
+  ColorPicker
 } from 'antd'
 import {
   SearchOutlined,
@@ -157,6 +160,46 @@ const treeSelectIconData = [
       { title: '品牌组', value: 'brand', icon: <FolderOutlined /> }
     ]}
   ]}
+]
+
+const cascaderDemoOptions = [
+  { value: 'zhejiang', label: '浙江', children: [
+    { value: 'hangzhou', label: '杭州', children: [
+      { value: 'xihu', label: '西湖区' },
+      { value: 'binjiang', label: '滨江区' }
+    ]},
+    { value: 'ningbo', label: '宁波', children: [
+      { value: 'haishu', label: '海曙区' },
+      { value: 'jiangbei', label: '江北区' }
+    ]}
+  ]},
+  { value: 'jiangsu', label: '江苏', children: [
+    { value: 'nanjing', label: '南京', children: [
+      { value: 'xuanwu', label: '玄武区' },
+      { value: 'gulou', label: '鼓楼区' }
+    ]},
+    { value: 'suzhou', label: '苏州', children: [
+      { value: 'gusu', label: '姑苏区' },
+      { value: 'wuzhong', label: '吴中区' }
+    ]}
+  ]},
+  { value: 'guangdong', label: '广东', children: [
+    { value: 'guangzhou', label: '广州', children: [
+      { value: 'tianhe', label: '天河区' },
+      { value: 'yuexiu', label: '越秀区' }
+    ]},
+    { value: 'shenzhen', label: '深圳', children: [
+      { value: 'nanshan', label: '南山区' },
+      { value: 'futian', label: '福田区' }
+    ]}
+  ]}
+]
+
+const anchorItems = [
+  { key: 'basic', href: '#anchor-basic', title: '基础用法' },
+  { key: 'multiple', href: '#anchor-multiple', title: '多选模式' },
+  { key: 'size', href: '#anchor-size', title: '尺寸变体' },
+  { key: 'disabled', href: '#anchor-disabled', title: '禁用状态' }
 ]
 
 /* ============================================================ 辅助组件 ============================================================ */
@@ -426,6 +469,48 @@ function PageContent({ dark, onToggleDark }) {
             </Row>
             <Row label="禁用状态">
               <Button type="primary" icon={<SearchOutlined />} disabled>搜索</Button>
+            </Row>
+          </ShowCard>
+
+          <ShowCard title="Splitter 分隔栏">
+            <Row label="水平分隔">
+              <div style={{ width: '100%', maxWidth: 480, height: 120, boxShadow: '0 0 0 1px var(--color-border-separator)', borderRadius: 6, overflow: 'hidden' }}>
+                <Splitter>
+                  <Splitter.Panel collapsible>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}><Text>左侧面板</Text></div>
+                  </Splitter.Panel>
+                  <Splitter.Panel>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}><Text>右侧面板</Text></div>
+                  </Splitter.Panel>
+                </Splitter>
+              </div>
+            </Row>
+            <Row label="三栏分隔（带可折叠）">
+              <div style={{ width: '100%', maxWidth: 480, height: 120, boxShadow: '0 0 0 1px var(--color-border-separator)', borderRadius: 6, overflow: 'hidden' }}>
+                <Splitter>
+                  <Splitter.Panel collapsible>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}><Text>导航</Text></div>
+                  </Splitter.Panel>
+                  <Splitter.Panel min={80}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}><Text>内容区</Text></div>
+                  </Splitter.Panel>
+                  <Splitter.Panel collapsible>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}><Text>属性</Text></div>
+                  </Splitter.Panel>
+                </Splitter>
+              </div>
+            </Row>
+            <Row label="垂直分隔">
+              <div style={{ width: '100%', maxWidth: 480, height: 200, boxShadow: '0 0 0 1px var(--color-border-separator)', borderRadius: 6, overflow: 'hidden' }}>
+                <Splitter layout="vertical">
+                  <Splitter.Panel>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}><Text>上方面板</Text></div>
+                  </Splitter.Panel>
+                  <Splitter.Panel>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}><Text>下方面板</Text></div>
+                  </Splitter.Panel>
+                </Splitter>
+              </div>
             </Row>
           </ShowCard>
 
@@ -797,6 +882,57 @@ function PageContent({ dark, onToggleDark }) {
             </Row>
           </ShowCard>
 
+          <ShowCard title="Cascader 级联选择">
+            <Row label="基础用法">
+              <Cascader options={cascaderDemoOptions} placeholder="请选择省市区" style={{ width: 220 }} />
+            </Row>
+            <Row label="默认选中">
+              <Cascader options={cascaderDemoOptions} defaultValue={['zhejiang', 'hangzhou', 'xihu']} style={{ width: 220 }} />
+            </Row>
+            <Row label="多选模式">
+              <Cascader multiple options={cascaderDemoOptions} placeholder="请选择多个" style={{ width: 280 }} />
+            </Row>
+            <Row label="可搜索">
+              <Cascader showSearch options={cascaderDemoOptions} placeholder="搜索省市区" style={{ width: 220 }} />
+            </Row>
+            <Row label="尺寸变体">
+              <Cascader size="large" options={cascaderDemoOptions} placeholder="大尺寸" style={{ width: 160 }} />
+              <Cascader options={cascaderDemoOptions} placeholder="中尺寸" style={{ width: 160 }} />
+              <Cascader size="small" options={cascaderDemoOptions} placeholder="小尺寸" style={{ width: 160 }} />
+            </Row>
+            <Row label="禁用状态">
+              <Cascader disabled options={cascaderDemoOptions} placeholder="禁用" style={{ width: 220 }} />
+            </Row>
+          </ShowCard>
+
+          <ShowCard title="ColorPicker 颜色选择器">
+            <Row label="基础用法">
+              <ColorPicker />
+            </Row>
+            <Row label="默认颜色">
+              <ColorPicker defaultValue="#0067D1" />
+            </Row>
+            <Row label="显示文字">
+              <ColorPicker showText defaultValue="#0067D1" />
+            </Row>
+            <Row label="带预设色板">
+              <ColorPicker
+                presets={[
+                  { label: '品牌色', colors: ['#0067D1', '#09AA71', '#FCC800', '#F5483B', '#722ED1'] },
+                  { label: '灰阶', colors: ['#000000', '#333333', '#666666', '#999999', '#CCCCCC', '#FFFFFF'] }
+                ]}
+              />
+            </Row>
+            <Row label="禁用状态">
+              <ColorPicker disabled defaultValue="#0067D1" />
+            </Row>
+            <Row label="尺寸变体">
+              <ColorPicker size="large" defaultValue="#0067D1" />
+              <ColorPicker defaultValue="#0067D1" />
+              <ColorPicker size="small" defaultValue="#0067D1" />
+            </Row>
+          </ShowCard>
+
           <ShowCard title="Slider 滑动输入条">
             <Row label="基础滑块">
               <Slider value={sliderValue} onChange={setSliderValue} style={{ width: 300 }} />
@@ -1036,6 +1172,39 @@ function PageContent({ dark, onToggleDark }) {
             </Row>
             <Row label="折叠菜单">
               <Menu mode="inline" inlineCollapsed defaultSelectedKeys={['home']} items={menuCollapsedItems} style={{ width: 80 }} />
+            </Row>
+          </ShowCard>
+
+          <ShowCard title="Anchor 锚点">
+            <Row label="基础锚点（点击右侧锚点跳转）">
+              <div style={{ height: 240, overflow: 'auto', padding: '0 16px', boxShadow: '0 0 0 1px var(--color-border-separator)', borderRadius: 6 }}>
+                <div id="anchor-basic" style={{ height: 240, display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px dashed var(--color-border-separator)' }}>
+                  <Text strong style={{ fontSize: 16 }}>基础用法</Text>
+                </div>
+                <div id="anchor-multiple" style={{ height: 240, display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px dashed var(--color-border-separator)' }}>
+                  <Text strong style={{ fontSize: 16 }}>多选模式</Text>
+                </div>
+                <div id="anchor-size" style={{ height: 240, display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px dashed var(--color-border-separator)' }}>
+                  <Text strong style={{ fontSize: 16 }}>尺寸变体</Text>
+                </div>
+                <div id="anchor-disabled" style={{ height: 240, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Text strong style={{ fontSize: 16 }}>禁用状态</Text>
+                </div>
+                <Anchor
+                  affix={false}
+                  items={anchorItems}
+                  style={{ position: 'sticky', top: 0, float: 'right', background: 'var(--color-bg-1)', padding: '4px 8px', borderRadius: 6, marginTop: -240 }}
+                  offsetTop={32}
+                />
+              </div>
+            </Row>
+            <Row label="静态锚点（不带 affix）">
+              <Anchor affix={false} items={[
+                { key: 'a1', href: '#anchor-basic', title: '基础用法' },
+                { key: 'a2', href: '#anchor-multiple', title: '多选模式' },
+                { key: 'a3', href: '#anchor-size', title: '尺寸变体' },
+                { key: 'a4', href: '#anchor-disabled', title: '禁用状态' }
+              ]} />
             </Row>
           </ShowCard>
 
