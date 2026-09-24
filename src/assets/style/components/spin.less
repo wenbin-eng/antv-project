@@ -1,1 +1,26 @@
-﻿/* Spin 组件样式（占位，待填充 token 映射） */
+﻿/* Spin 组件样式（自定义指示符：loading.svg，由 ConfigProvider spin.indicator 全局注入） */
+.ant-spin { 
+  width: 0.875rem;
+  height: 0.875rem;
+  &.ant-spin-sm {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+  &.ant-spin-lg {
+    width: 3rem;
+    height: 3rem;
+  } 
+  .custom-spin-indicator {
+    display: block;
+    width: 100%;
+    height: 100%;
+    animation: custom-spin-rotate 1.5s linear infinite;
+  }
+  
+}
+
+@keyframes custom-spin-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

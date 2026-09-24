@@ -79,6 +79,8 @@ import {
 } from '@ant-design/icons'
 import zhCN from 'antd/locale/zh_CN'
 import dayjs from 'dayjs'
+import loadingImg from './assets/style/image/loading.svg'
+import emptyImg from './assets/style/image/empty.svg'
 
 const { Title, Text, Paragraph } = Typography
 
@@ -1263,14 +1265,10 @@ function PageContent({ dark, onToggleDark }) {
           </ShowCard>
 
           <ShowCard title="Empty 空状态">
-            <Row label="基础用法">
+            <Row label="基础用法" >
               <Empty />
-              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
             </Row>
-            <Row label="自定义描述">
-              <Empty description="暂无订单记录" />
-              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="搜索结果为空" />
-            </Row>
+           
           </ShowCard>
 
           <ShowCard title="Spin 加载中">
@@ -1398,6 +1396,8 @@ function App() {
       locale={zhCN}
       cssVar
       hashed={false}
+      spin={{ indicator: <img src={loadingImg} className="custom-spin-indicator" alt="" /> }}
+      empty={{ image: emptyImg }}
       theme={{
         algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
         token: { colorPrimary: '#0067D1', borderRadius: 6, fontFamily: 'var(--font-family)' }
