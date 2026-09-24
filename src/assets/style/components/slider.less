@@ -1,107 +1,111 @@
 ﻿/* Slider 组件样式（占位，待填充 token 映射） */
 .ant-slider {
-	.ant-slider-rail {
-		background-color: var(--gray-10);
-	}
+    .ant-slider-rail {
+        background-color: var(--gray-10);
+    }
 
 
-	.ant-slider-track {
-		background-color: var(--brand-50) !important;
-	}
+    .ant-slider-track {
+        background-color: var(--brand-50) !important;
+    }
 
-	.ant-slider-handle {}
+    .ant-slider-handle {}
 
-	.ant-slider-handle::after {
-		content: "";
-		position: absolute;
-		inset-block-start: 0;
-		inset-inline-start: 0;
-		font-size: 14px;
-		box-shadow: 0 0 0 2px var(--brand-50);
-		outline: 0px solid transparent;
-		border-radius: 50%;
-		cursor: pointer;
-	}
+    .ant-slider-handle::after {
+        content: "";
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        font-size: var(--font-size-md);
+        box-shadow: 0 0 0 2px var(--brand-50);
+        outline: 0px solid transparent;
+        border-radius: 50%;
+        cursor: pointer;
+    }
 
-	.ant-slider-mark {
-		.ant-slider-mark-text {
-			font-size: 14px;
-			color: var(--gray-100);
-		}
-	}
+    .ant-slider-mark {
+        .ant-slider-mark-text {
+            font-size: var(--font-size-md);
+            color: var(--gray-100);
+        }
+    }
 }
 
 .ant-slider:hover .ant-slider-rail {
-	background-color: var(--gray-10);
+    background-color: var(--gray-10);
 }
 
 .ant-slider:hover .ant-slider-handle::after {
-	content: "";
-	position: absolute;
-	inset-block-start: 0;
-	inset-inline-start: 0;
-	font-size: 14px;
-	box-shadow: 0 0 0 2px var(--brand-50);
-	outline: 0px solid transparent;
-	border-radius: 50%;
-	cursor: pointer;
+    content: "";
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    font-size: 14px;
+    box-shadow: 0 0 0 2px var(--brand-50);
+    outline: 0px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .ant-slider:hover .ant-slider-handle:not(.ant-slider-handle-disabled)::after {
-	box-shadow: 0 0 0 2px var(--brand-50);
+    box-shadow: 0 0 0 2px var(--brand-50);
 }
 
 .dark {
-	.ant-slider {
-		.ant-slider-rail {
-			background-color: color-mix(in srgb, var(--gray-05) 15%, transparent);
-		}
+    .ant-slider {
+        .ant-slider-rail {
+            background-color: color-mix(in srgb, var(--gray-05) 15%, transparent);
+        }
 
 
-		.ant-slider-track {
-			background-color: var(--brand-50) !important;
-		}
+        .ant-slider-track {
+            background-color: var(--brand-50) !important;
+        }
 
-		.ant-slider-handle {}
+        .ant-slider-handle {}
 
-		.ant-slider-handle::after {
-			content: "";
-			position: absolute;
-			inset-block-start: 0;
-			inset-inline-start: 0;
-			font-size: 14px;
-			background-color: var(--gray-0);
-			box-shadow: 0 0 0 2px var(--brand-70);
-			outline: 0px solid transparent;
-			border-radius: 50%;
-			cursor: pointer;
-		}
+        .ant-slider-handle::after {
+            content: "";
+            position: absolute;
+            inset-block-start: 0;
+            inset-inline-start: 0;
+            background-color: var(--gray-0);
+            box-shadow: 0 0 0 2px var(--brand-70);
+            outline: 0px solid transparent;
+            border-radius: 50%;
+            cursor: pointer;
+        }
 
-		.ant-slider-mark {
-			.ant-slider-mark-text {
-				font-size: 14px;
-				color: var(--gray-0);
-			}
-		}
-	}
+        .ant-slider-mark {
+            .ant-slider-mark-text {
+                color: var(--gray-0);
+            }
+        }
 
-	.ant-slider:hover .ant-slider-rail {
-		background-color: color-mix(in srgb, var(--gray-05) 15%, transparent);
-	}
+        .ant-slider-step {
+            .ant-slider-dot-active  {
+                background-color: var(--gray-0);
+                border: 1px solid var(--brand-70);
+            }
+        }
+    }
 
-	.ant-slider:hover .ant-slider-handle::after {
-		content: "";
-		position: absolute;
-		inset-block-start: 0;
-		inset-inline-start: 0;
-		font-size: 14px;
-		box-shadow: 0 0 0 2px var(--brand-50);
-		outline: 0px solid transparent;
-		border-radius: 50%;
-		cursor: pointer;
-	}
+    .ant-slider:hover .ant-slider-rail {
+        background-color: color-mix(in srgb, var(--gray-05) 15%, transparent);
+    }
 
-	.ant-slider:hover .ant-slider-handle:not(.ant-slider-handle-disabled)::after {
-		box-shadow: 0 0 0 2px var(--brand-50);
-	}
+    .ant-slider:hover .ant-slider-handle::after {
+        content: "";
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        box-shadow: 0 0 0 2px var(--brand-50);
+        outline: 0px solid transparent;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .ant-slider:hover .ant-slider-handle:not(.ant-slider-handle-disabled)::after {
+        box-shadow: 0 0 0 2px var(--brand-50);
+    }
 }
