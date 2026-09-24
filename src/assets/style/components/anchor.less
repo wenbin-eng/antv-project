@@ -1,0 +1,46 @@
+.ant-anchor-wrapper {
+  &:not(.ant-anchor-wrapper-horizontal) {
+    .ant-anchor {
+      line-height: 1.5rem;
+      &::before {
+        border-color: var(--color-border-separator);
+        border-radius: 1px;
+      }
+
+      .ant-anchor-ink {
+        background-color: var(--border-primary);
+        border-radius: 1px;
+      }
+
+      .ant-anchor-link {
+        &.ant-anchor-link-active {
+          .ant-anchor-link-title {
+              &.ant-anchor-link-title-active {
+                &:hover {
+                  color: var(--color-link);
+                }
+              }
+            }
+          
+          .ant-anchor-link-title {
+            &.ant-anchor-link-title-active {
+              color: var(--color-link);
+            }
+          }
+        }
+
+        .ant-anchor-link-title {
+          color: var(--color-text-secondary);
+        }
+
+        .ant-anchor-link-title {
+          &:hover {
+            color: var(--color-text-primary);
+          }
+          
+        }
+        
+      }
+    }
+  }
+}

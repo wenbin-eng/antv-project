@@ -197,7 +197,11 @@ const cascaderDemoOptions = [
 
 const anchorItems = [
   { key: 'basic', href: '#anchor-basic', title: '基础用法' },
-  { key: 'multiple', href: '#anchor-multiple', title: '多选模式' },
+  { key: 'multiple', href: '#anchor-multiple', title: '多选模式', children: [
+    {key: 'multiple-1', href: "#anchor-multiple-1", title: '模式一'},
+    {key: 'multiple-2', href: "#anchor-multiple-2", title: '模式二'},
+    {key: 'multiple-3', href: "#anchor-multiple-3", title: '模式三'}
+  ] },
   { key: 'size', href: '#anchor-size', title: '尺寸变体' },
   { key: 'disabled', href: '#anchor-disabled', title: '禁用状态' }
 ]
@@ -1176,26 +1180,44 @@ function PageContent({ dark, onToggleDark }) {
           </ShowCard>
 
           <ShowCard title="Anchor 锚点">
-            <Row label="基础锚点（点击右侧锚点跳转）">
-              <div style={{ height: 240, overflow: 'auto', padding: '0 16px', boxShadow: '0 0 0 1px var(--color-border-separator)', borderRadius: 6 }}>
-                <div id="anchor-basic" style={{ height: 240, display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px dashed var(--color-border-separator)' }}>
-                  <Text strong style={{ fontSize: 16 }}>基础用法</Text>
+            <Row label="侧边锚点（滚动内容自动高亮）">
+              <div style={{ display: 'flex', gap: 24, width: '100%' }}>
+                {/* 左侧滚动内容区 */}
+                <div id="anchor-scroll-container" style={{ flex: 1, height: 320, overflowY: 'auto', boxShadow: '0 0 0 1px var(--color-border-separator)', borderRadius: 8 }}>
+                  <div id="anchor-basic" style={{ height: 320, display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px dashed var(--color-border-separator)' }}>
+                    <Text strong style={{ fontSize: 16 }}>基础用法</Text>
+                  </div>
+                  <div id="anchor-multiple" style={{ borderBottom: '1px dashed var(--color-border-separator)' }}>
+                    <div style={{ height: 64, display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px dashed var(--color-border-separator)' }}>
+                      <Text strong style={{ fontSize: 16 }}>多选模式</Text>
+                    </div>
+                    <div id="anchor-multiple-1" style={{ height: 240, display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px dashed var(--color-border-separator)' }}>
+                      <Text>模式一</Text>
+                    </div>
+                    <div id="anchor-multiple-2" style={{ height: 240, display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px dashed var(--color-border-separator)' }}>
+                      <Text>模式二</Text>
+                    </div>
+                    <div id="anchor-multiple-3" style={{ height: 240, display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px dashed var(--color-border-separator)' }}>
+                      <Text>模式三</Text>
+                    </div>
+                  </div>
+                  <div id="anchor-size" style={{ height: 320, display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px dashed var(--color-border-separator)' }}>
+                    <Text strong style={{ fontSize: 16 }}>尺寸变体</Text>
+                  </div>
+                  <div id="anchor-disabled" style={{ height: 320, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Text strong style={{ fontSize: 16 }}>禁用状态</Text>
+                  </div>
                 </div>
-                <div id="anchor-multiple" style={{ height: 240, display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px dashed var(--color-border-separator)' }}>
-                  <Text strong style={{ fontSize: 16 }}>多选模式</Text>
+                {/* 右侧锚点导航 */}
+                <div style={{ flexShrink: 0 }}>
+                  <Anchor
+                    affix={false}
+                    items={anchorItems}
+                    getContainer={() => document.getElementById('anchor-scroll-container')}
+                    offsetTop={16}
+                    targetOffset={32}
+                  />
                 </div>
-                <div id="anchor-size" style={{ height: 240, display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px dashed var(--color-border-separator)' }}>
-                  <Text strong style={{ fontSize: 16 }}>尺寸变体</Text>
-                </div>
-                <div id="anchor-disabled" style={{ height: 240, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <Text strong style={{ fontSize: 16 }}>禁用状态</Text>
-                </div>
-                <Anchor
-                  affix={false}
-                  items={anchorItems}
-                  style={{ position: 'sticky', top: 0, float: 'right', background: 'var(--color-bg-1)', padding: '4px 8px', borderRadius: 6, marginTop: -240 }}
-                  offsetTop={32}
-                />
               </div>
             </Row>
             <Row label="静态锚点（不带 affix）">
