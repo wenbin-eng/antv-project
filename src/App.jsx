@@ -27,6 +27,7 @@ import {
   Select,
   TreeSelect,
   Slider,
+  Spin,
   Switch,
   Rate,
   Breadcrumb,
@@ -41,6 +42,7 @@ import {
   Tooltip,
   Affix,
   Drawer,
+  Empty,
   Form,
   Cascader
 } from 'antd'
@@ -173,15 +175,9 @@ const Row = ({ label, children }) => (
   </div>
 )
 
-/* ============================================================ App ============================================================ */
-function App() {
-  const { message } = AntApp.useApp()
-  const [dark, setDark] = useState(false)
-
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', dark)
-    document.documentElement.classList.toggle('light', !dark)
-  }, [dark])
+/* ============================================================ 页面内容（须为 AntApp 后代才能 useApp） ============================================================ */
+function PageContent({ dark, onToggleDark }) {
+  const { message, notification } = AntApp.useApp()
 
   /* —— Table —— */
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
@@ -390,24 +386,14 @@ function App() {
   const [treeChecked, setTreeChecked] = useState(['user-view', 'sys-basic'])
 
   return (
-    <ConfigProvider
-      locale={zhCN}
-      cssVar
-      hashed={false}
-      theme={{
-        algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
-        token: { colorPrimary: '#0067D1', borderRadius: 6, fontFamily: 'var(--font-family)' }
-      }}
-    >
-      <AntApp>
-        <div style={{ margin: '0 auto', padding: '32px 24px' }}>
+    <div style={{ margin: '0 auto', padding: '32px 24px' }}>
           {/* 标题 */}
           <Flex justify="space-between" align="center" wrap="wrap" gap={16} style={{ marginBottom: 8 }}>
             <Title level={2} style={{ margin: 0 }}>Ant Design 组件展示</Title>
             <Affix offsetTop={40}>
               <Space align="center">
                 <Text type="secondary">暗色</Text>
-                <Switch checked={dark} onChange={setDark} />
+                <Switch checked={dark} onChange={onToggleDark} />
               </Space>
             </Affix>
           </Flex>
@@ -1085,6 +1071,57 @@ function App() {
             </Row>
           </ShowCard>
 
+          <ShowCard title="Empty 空状态">
+            <Row label="基础用法">
+              <Empty />
+              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+            </Row>
+            <Row label="自定义描述">
+              <Empty description="暂无订单记录" />
+              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="搜索结果为空" />
+            </Row>
+          </ShowCard>
+
+          <ShowCard title="Spin 加载中">
+            <Row label="尺寸变体">
+              <Spin size="small" />
+              <Spin />
+              <Spin size="large" />
+            </Row>
+          </ShowCard>
+
+          <ShowCard title="Message 全局提示">
+            <Row label="基础类型">
+              <Button onClick={() => message.success('成功提示：操作已完成')}>Success</Button>
+              <Button onClick={() => message.info('信息提示：这是一条普通通知')}>Info</Button>
+              <Button onClick={() => message.warning('警告提示：请注意潜在风险')}>Warning</Button>
+              <Button onClick={() => message.error('错误提示：操作执行失败')}>Error</Button>
+            </Row>
+            <Row label="加载与手动关闭">
+              <Button onClick={() => { const hide = message.loading('正在加载中...', 0); setTimeout(() => { hide(); message.success('加载完成') }, 2500) }}>Loading 后自动成功</Button>
+              <Button onClick={() => message.destroy()}>关闭全部提示</Button>
+            </Row>
+          </ShowCard>
+
+          <ShowCard title="Notification 通知提醒框">
+            <Row label="基础类型">
+              <Button onClick={() => notification.success({ message: '任务完成', description: '数据同步已完成，共更新 128 条记录。' })}>Success</Button>
+              <Button onClick={() => notification.info({ message: '新消息', description: '您有一条新的系统通知待查看。' })}>Info</Button>
+              <Button onClick={() => notification.warning({ message: '存储空间不足', description: '剩余空间不足 10%，请及时清理。' })}>Warning</Button>
+              <Button onClick={() => notification.error({ message: '服务异常', description: '无法连接到服务器，请稍后重试。' })}>Error</Button>
+            </Row>
+            <Row label="弹出位置">
+              <Button onClick={() => notification.open({ message: '左上角', description: 'placement: topLeft', placement: 'topLeft' })}>topLeft</Button>
+              <Button onClick={() => notification.open({ message: '右上角', description: 'placement: topRight（默认）', placement: 'topRight' })}>topRight</Button>
+              <Button onClick={() => notification.open({ message: '左下角', description: 'placement: bottomLeft', placement: 'bottomLeft' })}>bottomLeft</Button>
+              <Button onClick={() => notification.open({ message: '右下角', description: 'placement: bottomRight', placement: 'bottomRight' })}>bottomRight</Button>
+            </Row>
+            <Row label="带操作按钮">
+              <Button onClick={() => notification.open({ message: '版本更新', description: '新版本 v2.4.0 已发布，是否立即更新？', btn: <Button type="primary" size="small" onClick={() => notification.destroy()}>立即更新</Button> })}>带按钮通知</Button>
+              <Button onClick={() => notification.destroy()}>关闭全部通知</Button>
+            </Row>
+          </ShowCard>
+
           <ShowCard title="Modal 对话框">
             <Row label="基础对话框">
               <Button type="primary" icon={<PlusOutlined />} onClick={() => setModalBasicOpen(true)}>打开对话框</Button>
@@ -1151,8 +1188,32 @@ function App() {
               <Tag icon={<CheckCircleOutlined />} color="processing">演示</Tag>
               <Tag icon={<BellOutlined />} color="success">在线</Tag>
             </Space>
-          </Flex>
-        </div>
+           </Flex>
+    </div>
+  )
+}
+
+/* ============================================================ App 外层：主题状态 + ConfigProvider + AntApp 上下文 ============================================================ */
+function App() {
+  const [dark, setDark] = useState(false)
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', dark)
+    document.documentElement.classList.toggle('light', !dark)
+  }, [dark])
+
+  return (
+    <ConfigProvider
+      locale={zhCN}
+      cssVar
+      hashed={false}
+      theme={{
+        algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
+        token: { colorPrimary: '#0067D1', borderRadius: 6, fontFamily: 'var(--font-family)' }
+      }}
+    >
+      <AntApp>
+        <PageContent dark={dark} onToggleDark={setDark} />
       </AntApp>
     </ConfigProvider>
   )
