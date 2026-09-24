@@ -1,0 +1,83 @@
+/* Notification 组件样式（占位，待填充 token 映射） */
+.ant-notification {
+    .ant-notification-notice-wrapper {
+        .ant-notification-notice {
+            padding: var(--spacing-3) var(--spacing-4);
+            width: 24rem;
+            max-width: calc(100vw - 3rem);
+            word-wrap: break-word;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .ant-notification-notice-description {
+            color: var(--gray-50);
+            margin-top: var(--spacing-2);
+        }
+
+        .ant-notification-notice-with-icon .ant-notification-notice-message {
+            margin-inline-start: 36px;
+            font-size: var(--spacing-4);
+        }
+
+        .ant-notification-notice-message {
+            color: var(--gray-90);
+        }
+
+        .ant-notification-notice-description {
+            color: var(--gray-50);
+            margin-top: var(--spacing-2);
+        }
+
+        .ant-notification-notice-icon {
+            font-size: var(--font-size-lg);
+        }
+
+        .ant-notification-notice-icon-success.anticon {
+            color: var(--mint-50);
+        }
+
+        .ant-notification-notice-icon-info.anticon {
+            color: var(--blue-50);
+        }
+
+        .ant-notification-notice-icon-warning.anticon {
+            color: var(--yellow-50);
+
+        }
+
+        .ant-notification-notice-icon-error.anticon {
+            color: var(--red-50);
+        }
+
+        .ant-notification-notice-close {
+            color: var(--gray-90);
+        }
+    }
+}
+
+.dark {
+    .ant-notification {
+        .ant-notification-notice-wrapper {
+            background-color: var(--gray-70);
+
+            .ant-notification-notice-description {
+                color: var(--gray-20);
+            }
+
+            .ant-notification-notice-message {
+                color: var(--gray-0);
+            }
+
+            .ant-notification-notice-description {
+                color: var(--gray-20);
+            }
+
+            .ant-notification-notice-close {
+                color: var(--gray-0);
+            }
+        }
+    }
+
+
+}

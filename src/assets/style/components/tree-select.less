@@ -1,120 +1,129 @@
-﻿.ant-tree-select-dropdown {
-    padding: var(--spacing-1);
+﻿.ant-select {
+  &:not(.ant-select-customize-input) .ant-select-selector {
+    border-color: var(--color-border);
+  }
+}
 
-    .ant-select-tree {
+.ant-tree-select-dropdown {
+  padding: 0.25rem;
+
+  .ant-select-tree {
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-4);
+
+    .ant-select-tree-treenode {
+      align-items: center;
+      margin-bottom: unset;
+      padding: 0.25rem 0;
+
+      .ant-select-tree-checkbox {
+        margin-block-start: unset;
+        align-self: unset;
+        border: 1px solid var(--color-icon-tertiary);
+        border-radius: var(--radius-xs);
+        background-color: var(--color-fill-subtle);
         color: var(--color-text-primary);
-        background-color: var(--color-bg-4);
 
-        .ant-select-tree-treenode {
-            line-height: 22px;
-            align-items: center;
-            margin-bottom: unset;
-            padding: 4px 0;
-
-            .ant-select-tree-checkbox {
-                margin-block-start: unset;
-                align-self: unset;
-                border: 1px solid var(--color-icon-tertiary);
-                border-radius: var(--radius-xs);
-                background-color: var(--color-fill-subtle);
-                color: var(--color-text-primary);
-
-                &.ant-select-tree-checkbox-checked {
-                    background-color: var(--color-brand);
-                    border-color: var(--color-brand);
-
-                    &+.ant-select-tree-node-content-wrapper {
-                        background-color: var(--color-select);
-
-                        &:hover {
-                            background-color: var(--color-select);
-                        }
-                    }
-                }
-
-                &.ant-select-tree-checkbox-indeterminate {
-                    &:after {
-                        background-color: var(--color-brand);
-                    }
-
-                    &+.ant-select-tree-node-content-wrapper {
-                        background-color: var(--color-select);
-
-                        &:hover {
-                            background-color: var(--color-select);
-                        }
-                    }
-                }
-
-                &.ant-select-tree-checkbox-disabled {
-                    border: 1px solid var(--color-border-disabled);
-                    background-color: var(--color-fill-disabled-subtle);
-                }
-            }
-
-
-            &.ant-select-tree-treenode-disabled {
-                .ant-select-tree-node-content-wrapper {
-                    color: var(--color-text-disabled);
-                }
-            }
-
-            &:not(.ant-select-tree-treenode-disabled) {
-                .ant-select-tree-node-content-wrapper {
-                    &.ant-select-tree-node-selected {
-                        color: var(--color-text-on);
-                        background-color: var(--color-select);
-
-                        &:hover {
-                            color: var(--color-text-on);
-                            background-color: var(--color-select);
-                        }
-                    }
-
-
-                    &:hover {
-                        color: var(--color-text-primary);
-                        background-color: var(--color-hover);
-                    }
-                }
-            }
-
-            .ant-select-tree-node-content-wrapper {
-                min-height: unset;
-                border-radius: var(--radius-base);
-                padding: 3px 8px 3px 4px;
-
-                .ant-select-tree-iconEle {
-                    width: 14px;
-                    height: 14px;
-                    vertical-align: baseline;
-                    margin-right: 8px;
-                }
-            }
-
-            &::before {
-                display: none;
-            }
-
-            .ant-select-tree-switcher {
-                width: 16px;
-                height: 16px;
-                display: inline-flex;
-                justify-content: center;
-                align-self: unset;
-                margin-inline-end: 8px;
-
-                .ant-select-tree-switcher-icon {
-                    height: 10px;
-                    margin: auto;
-                }
-
-                &:before {
-                    display: none;
-                }
-
-            }
+        .ant-select-tree-checkbox-inner {
+          border: none;
         }
+
+        &.ant-select-tree-checkbox-checked {
+          background-color: var(--color-brand);
+          border-color: var(--color-brand);
+
+          &+.ant-select-tree-node-content-wrapper {
+            background-color: var(--color-select);
+
+            &:hover {
+              background-color: var(--color-select);
+            }
+          }
+        }
+
+        &.ant-select-tree-checkbox-indeterminate {
+          &:after {
+            background-color: var(--color-brand);
+          }
+
+          &+.ant-select-tree-node-content-wrapper {
+            background-color: var(--color-select);
+
+            &:hover {
+              background-color: var(--color-select);
+            }
+          }
+        }
+
+        &.ant-select-tree-checkbox-disabled {
+          border: 1px solid var(--color-border-disabled);
+          background-color: var(--color-fill-disabled-subtle);
+        }
+      }
+
+
+      &.ant-select-tree-treenode-disabled {
+        .ant-select-tree-node-content-wrapper {
+          color: var(--color-text-disabled);
+        }
+      }
+
+      &:not(.ant-select-tree-treenode-disabled) {
+        .ant-select-tree-node-content-wrapper {
+          &.ant-select-tree-node-selected {
+            color: var(--color-text-on);
+            background-color: var(--color-select);
+
+            &:hover {
+              color: var(--color-text-on);
+              background-color: var(--color-select);
+            }
+          }
+
+
+          &:hover {
+            color: var(--color-text-primary);
+            background-color: var(--color-hover);
+          }
+        }
+      }
+
+      .ant-select-tree-node-content-wrapper {
+        min-height: unset;
+        border-radius: var(--radius-base);
+        padding: 0.1875rem 0.5rem 0.1875rem 0.25rem;
+
+        .ant-select-tree-iconEle {
+          width: 0.875rem;
+          height: 0.875rem;
+          vertical-align: baseline;
+          margin-right: 0.5rem;
+        }
+      }
+
+      &::before {
+        display: none;
+      }
+
+      .ant-select-tree-switcher {
+        width: 1rem;
+        height: 1rem;
+        display: inline-flex;
+        justify-content: center;
+        align-self: unset;
+        margin-inline-end: 0.5rem;
+
+        .ant-select-tree-switcher-icon {
+          height: 0.625rem;
+          margin: auto;
+        }
+
+        &:before {
+          display: none;
+        }
+
+      }
     }
+  }
 
 }

@@ -1,1 +1,67 @@
 ﻿/* ColorPicker 组件样式（占位，待填充 token 映射） */
+.ant-color-picker-trigger {
+    min-width: 2rem;
+    min-height: 2rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray-20);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gray-0);
+
+    .ant-color-picker-color-block {
+        position: relative;
+        border-radius: var(--radius-base);
+        width: var(--font-size-3xl);
+        height: var(--font-size-3xl);
+    }
+
+
+}
+
+.ant-color-picker-trigger:hover {
+    border-color: var(--gray-90);
+}
+
+.ant-color-picker-trigger.ant-color-picker-trigger-active {
+    /* 1. 设置实线的主边框（内边框/整体边框）颜色 */
+    border-color: var(--brand-50);
+    border-inline-end-width: 1px;
+
+    /* 2. 外边框（外发光晕）颜色，将 #B8D9F9 转换为带透明度的 rgba，效果更自然 */
+    box-shadow: 0 0 0 2px #B8D9F9;
+
+    outline: 0;
+}
+
+.ant-color-picker-trigger-disabled {
+    border-color: var(--gray-20) !important;
+    background-color: color-mix(in srgb, #191919 5%, transparent) !important;
+}
+
+.dark {
+
+    /* ColorPicker 组件样式（占位，待填充 token 映射） */
+    .ant-color-picker-trigger {
+        border: 1px solid var(--gray-50);
+        background: transparent;
+
+    }
+
+    .ant-color-picker-trigger:hover {
+        border-color: var(--gray-05);
+    }
+
+    .ant-color-picker-trigger.ant-color-picker-trigger-active {
+        /* 1. 设置实线的主边框（内边框/整体边框）颜色 */
+        border-color: var(--brand-40);
+        /* 2. 外边框（外发光晕）颜色，将 #B8D9F9 转换为带透明度的 rgba，效果更自然 */
+        box-shadow: 0 0 0 2px var(--brand-80);
+    }
+
+    .ant-color-picker-trigger-disabled {
+        border-color: var(--gray-40) !important;
+        background-color: color-mix(in srgb, var(--gray-05) 20%, transparent) !important;
+    }
+}
