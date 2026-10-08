@@ -81,6 +81,7 @@ import zhCN from 'antd/locale/zh_CN'
 import dayjs from 'dayjs'
 import loadingImg from './assets/style/image/loading.svg'
 import emptyImg from './assets/style/image/empty.svg'
+import FormSizeCompare from './FormSizeCompare'
 
 const { Title, Text, Paragraph } = Typography
 
@@ -225,7 +226,7 @@ const Row = ({ label, children }) => (
 )
 
 /* ============================================================ 页面内容（须为 AntApp 后代才能 useApp） ============================================================ */
-function PageContent({ dark, onToggleDark }) {
+function PageContent({ dark, onToggleDark, page, onPageChange }) {
   const { message, notification } = AntApp.useApp()
 
   /* —— Table —— */
@@ -441,6 +442,14 @@ function PageContent({ dark, onToggleDark }) {
             <Title level={2} style={{ margin: 0 }}>Ant Design 组件展示</Title>
             <Affix offsetTop={40}>
               <Space align="center">
+                <Segmented
+                  value={page}
+                  onChange={(v) => onPageChange(v)}
+                  options={[
+                    { label: '组件展示', value: 'showcase' },
+                    { label: '表单尺寸对比', value: 'form-size' }
+                  ]}
+                />
                 <Text type="secondary">暗色</Text>
                 <Switch checked={dark} onChange={onToggleDark} />
               </Space>
@@ -1393,6 +1402,7 @@ function PageContent({ dark, onToggleDark }) {
 /* ============================================================ App 外层：主题状态 + ConfigProvider + AntApp 上下文 ============================================================ */
 function App() {
   const [dark, setDark] = useState(false)
+  const [page, setPage] = useState('showcase')
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark)
@@ -1413,7 +1423,11 @@ function App() {
       }}
     >
       <AntApp>
-        <PageContent dark={dark} onToggleDark={setDark} />
+        {page === 'form-size' ? (
+          <FormSizeCompare dark={dark} onToggleDark={setDark} page={page} onPageChange={setPage} />
+        ) : (
+          <PageContent dark={dark} onToggleDark={setDark} page={page} onPageChange={setPage} />
+        )}
       </AntApp>
     </ConfigProvider>
   )
