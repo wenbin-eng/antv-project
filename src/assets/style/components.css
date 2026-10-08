@@ -299,22 +299,122 @@ input.ant-input.ant-input-sm {
 }
 /* textarea style end*/
 
-/* InputNumber 组件样式（占位，待填充 token 映射） */
+/* InputNumber 组件样式 */
 .ant-input-number {
+  width: 150px;
   height: 32px;
   border-color: var(--gray-20);
   box-shadow: none;
+  border-radius: var(--radius-base);
+  /* 操作按钮容器：展开为全宽水平布局（row-reverse 使 down 落在左侧、up 落在右侧） */
+  /* 输入框区域 */
 }
-.ant-input-number .ant-input-number-action-down {
-  padding-left: var(--spacing-2);
-  padding-right: var(--spacing-2);
+.ant-input-number .ant-input-number-handler-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100%;
+  opacity: 1 !important;
+  background: transparent !important;
+  border-radius: inherit;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: stretch;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+  transition: none !important;
+  /* 单个按钮 */
+  /* 减号按钮（左侧）— 分割线在右侧 */
+  /* 加号按钮（右侧）— 分割线在左侧 */
 }
-.ant-input-number .ant-input-number-action-up {
-  padding-left: var(--spacing-2);
-  padding-right: var(--spacing-2);
+.ant-input-number .ant-input-number-handler-wrap .ant-input-number-handler {
+  pointer-events: auto;
+  position: relative;
+  flex: none;
+  width: 32px;
+  height: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none !important;
+  border-radius: 0;
+  color: var(--gray-60);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s;
+  /* 隐藏默认上下箭头图标 */
+}
+.ant-input-number .ant-input-number-handler-wrap .ant-input-number-handler:hover {
+  height: 100% !important;
+  color: var(--gray-90);
+}
+.ant-input-number .ant-input-number-handler-wrap .ant-input-number-handler .ant-input-number-handler-up-inner,
+.ant-input-number .ant-input-number-handler-wrap .ant-input-number-handler .ant-input-number-handler-down-inner {
+  display: none !important;
+}
+.ant-input-number .ant-input-number-handler-wrap .ant-input-number-handler-down::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  inset-inline-end: 0;
+  width: 1px;
+  height: 16px;
+  transform: translateY(-50%);
+  background-color: var(--gray-20);
+}
+.ant-input-number .ant-input-number-handler-wrap .ant-input-number-handler-down::after {
+  content: '\2212';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+}
+.ant-input-number .ant-input-number-handler-wrap .ant-input-number-handler-up::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  inset-inline-start: 0;
+  width: 1px;
+  height: 16px;
+  transform: translateY(-50%);
+  background-color: var(--gray-20);
+}
+.ant-input-number .ant-input-number-handler-wrap .ant-input-number-handler-up::after {
+  content: '+';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+}
+.ant-input-number .ant-input-number-input-wrap {
+  position: relative;
+  z-index: 1;
 }
 .ant-input-number .ant-input-number-input {
   font-size: 14px;
+  text-align: center;
+  padding-inline: 32px;
+}
+/* 覆盖 antd 默认 hover/focused 时改变 handler-wrap 宽度/透明度的行为 */
+.ant-input-number:hover .ant-input-number-handler-wrap,
+.ant-input-number-focused .ant-input-number-handler-wrap,
+.ant-input-number-outlined .ant-input-number-handler-wrap {
+  width: 100% !important;
+  opacity: 1 !important;
+  background: transparent !important;
+}
+/* 覆盖 antd 在 outlined 变体下给 down 按钮设置的上边框分隔线 */
+.ant-input-number-outlined .ant-input-number-handler-down,
+.ant-input-number-filled .ant-input-number-handler-down,
+.ant-input-number-underlined .ant-input-number-handler-down {
+  border-block-start: none !important;
 }
 .ant-input-number-outlined:hover {
   border-color: var(--gray-100);
@@ -329,24 +429,33 @@ input.ant-input.ant-input-sm {
   border: 1px solid var(--gray-50);
 }
 .dark {
-  /* InputNumber 组件样式（占位，待填充 token 映射） */
+  /* InputNumber 组件样式 — element-ui 风格（暗色） */
 }
 .dark .ant-input-number {
   color: var(--gray-0);
+  width: 150px;
   height: 32px;
   border-color: var(--gray-20);
   box-shadow: none;
 }
-.dark .ant-input-number .ant-input-number-action-down {
-  padding-left: var(--spacing-2);
-  padding-right: var(--spacing-2);
+.dark .ant-input-number .ant-input-number-handler-wrap {
+  background: transparent !important;
 }
-.dark .ant-input-number .ant-input-number-action-up {
-  padding-left: var(--spacing-2);
-  padding-right: var(--spacing-2);
+.dark .ant-input-number .ant-input-number-handler-wrap .ant-input-number-handler {
+  color: var(--gray-20);
+}
+.dark .ant-input-number .ant-input-number-handler-wrap .ant-input-number-handler:hover {
+  color: var(--gray-0);
+}
+.dark .ant-input-number .ant-input-number-handler-wrap .ant-input-number-handler-down::before {
+  background-color: var(--gray-70);
+}
+.dark .ant-input-number .ant-input-number-handler-wrap .ant-input-number-handler-up::before {
+  background-color: var(--gray-70);
 }
 .dark .ant-input-number .ant-input-number-input {
   font-size: 14px;
+  color: var(--gray-0);
 }
 .dark .ant-input-number-outlined:hover {
   border-color: var(--gray-0);
