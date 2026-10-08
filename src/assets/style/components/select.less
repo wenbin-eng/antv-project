@@ -9,6 +9,7 @@
     &.ant-select-sm .ant-select-selector,
     .ant-select-selector {
         border-radius: var(--radius-base);
+        color: var(--color-text-primary);
     }
     background: var(--color-bg-4);
     color: var(--color-text-primary);
@@ -102,7 +103,31 @@
         width: 0.625rem;
         height: 0.625rem;
     }
+
+    &.ant-select-open,
+    &.ant-select-lg.ant-select-single.ant-select-open,
+    &.ant-select-sm.ant-select-single.ant-select-open  {
+        .ant-select-selection-item {
+            color: var(--color-text-primary);
+        }
+    }
 }
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input,
+.ant-select-single .ant-select-selector,
+.ant-select-single.ant-select-sm .ant-select-selector,
+// .ant-select-single.ant-select-lg .ant-select-selector,
+.ant-select-dropdown .ant-select-item {
+    font-size: var(--font-size-md);
+}
+.ant-select-multiple {
+    font-size: var(--font-size-md);
+}
+
+.ant-select-single.ant-select-lg .ant-select-selector {
+    font-size: var(--font-size-lg);
+}
+
 
 //多选标签图标
 .ant-select-multiple .ant-select-content .ant-select-selection-item-remove {
@@ -115,13 +140,16 @@
     background-color: var(--color-bg-4);
     color: var(--color-text-primary);
     box-shadow: var(--shadow-base);
+    padding: 0.25rem;
 
     .ant-select-item-option-disabled {
         color: var(--color-text-disabled);
     }
 
     .ant-select-item {
-        padding: 0.3125rem 0.5rem;
+        padding: 0 0.5rem;
+        display: flex;
+        align-items: center;
 
         &:not(.ant-select-item-option-disabled) {
             color: var(--color-text-primary);
@@ -142,17 +170,18 @@
     .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
         background-color: var(--color-hover);
     }
+
+    .rc-virtual-list-holder-inner {
+       gap: 0.25rem;
+    }
 }
 
 .ant-select-single:not(.ant-select-customize).ant-select-open .ant-select-content-has-value {
     opacity: unset;
 }
 
-.ant-select-dropdown-list-holder-inner {
-    gap: 0.25rem;
-}
-
 .ant-select-multiple .ant-select-content .ant-select-selection-item {
     margin-inline-end: 0.5rem;
     background: var(--color-hover);
 }
+
