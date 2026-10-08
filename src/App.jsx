@@ -1268,7 +1268,15 @@ function PageContent({ dark, onToggleDark }) {
             <Row label="基础用法" >
               <Empty />
             </Row>
-           
+            <Row label="表格数据为空">
+              <Table
+                rowKey="key"
+                columns={baseColumns.slice(0, 4)}
+                dataSource={[]}
+                pagination={false}
+                style={{ width: '100%' }}
+              />
+            </Row>
           </ShowCard>
 
           <ShowCard title="Spin 加载中">
@@ -1398,6 +1406,7 @@ function App() {
       hashed={false}
       spin={{ indicator: <img src={loadingImg} className="custom-spin-indicator" alt="" /> }}
       empty={{ image: emptyImg }}
+      renderEmpty={(componentName) => (componentName === 'Table.filter' ? null : <Empty />)}
       theme={{
         algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
         token: { colorPrimary: '#0067D1', borderRadius: 6, fontFamily: 'var(--font-family)' }

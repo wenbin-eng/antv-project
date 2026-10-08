@@ -3,22 +3,23 @@
   color: var(--color-text-primary);
   border-color: var(--gray-20);
   border-radius: var(--radius-base);
-  padding-inline: 0.75rem;
-
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  height: 2rem;
   &:not(.ant-picker-disabled):hover {
-    border-color: var(--gray-0);
+    border-color: var(--gray-90);
   }
 
   &:focus-within,
   &.ant-picker-focused {
-    border-color: var(--brand-50);
+    border-color: var(--brand-50) !important;
     box-shadow: 0 0 0 1px var(--brand-10);
   }
 
   &.ant-picker-disabled {
     color: var(--color-text-disabled) !important;
     background-color: rgb(from var(--gray-90) r g b / 0.05);
-    border-color: var(--gray-20);
+    border-color: var(--gray-20) !important;
 
     .ant-picker-input>input {
       color: var(--color-text-disabled);
@@ -32,7 +33,7 @@
   .ant-picker-input>input {
     z-index: 1;
     color: var(--color-text-primary);
-
+    font-size: var(--font-size-md);
     &::placeholder {
       color: var(--color-text-placeholder);
     }
@@ -52,11 +53,14 @@
 }
 
 .ant-picker.ant-picker-small {
-  padding: 1px 0.75rem;
+  height: 1.75rem;
+  .ant-picker-input>input { 
+    font-size: var(--font-size-base);
+  }
 }
 
 .ant-picker.ant-picker-large {
-  padding-inline: 0.75rem;
+  height: 2.5rem;
   border-radius: var(--radius-base);
 }
 
@@ -93,7 +97,7 @@
     border-color: var(--gray-50);
 
     &:not(.ant-picker-disabled):hover {
-      border-color: var(--brand-40);
+      border-color: var(--gray-05);
     }
 
     &:focus-within,
