@@ -5,27 +5,26 @@
     border-color: var(--color-border);
     box-shadow: none;
     border-radius: var(--radius-base);
+    font-size: var(--font-size-md);
 
     &.ant-input-number-lg {
        height: 2.5rem; 
-
-       .ant-input-number-input-wrap {
-            height: 100%;
-            .ant-input-number-input {
-                padding: 0;
-                height: 100%;
-            }
+       font-size: var(--font-size-md);
+        .ant-input-number-input {
+            padding: 0;
+            height: calc(2.5rem - 2px);
+            font-size: var(--font-size-md);
         }
     }
 
     &.ant-input-number-sm {
         height: 1.75rem;
-        .ant-input-number-input-wrap {
-            height: 100%;
-            .ant-input-number-input {
-                padding: 0;
-                height: 100%;
-            }
+        font-size: var(--font-size-base);
+        
+        .ant-input-number-input {
+            padding: 0;
+            height: calc(1.75rem - 2px);
+            font-size: var(--font-size-base);
         }
     }
 
@@ -133,6 +132,8 @@
     }
 
     .ant-input-number-input {
+        padding: 0;
+        height: calc(2rem - 2px);
         font-size: var(--font-size-md);
         text-align: center;
         padding-inline: 2rem;
