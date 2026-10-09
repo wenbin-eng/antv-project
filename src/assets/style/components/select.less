@@ -1,8 +1,4 @@
-﻿.ant-select-sm {
-    --ant-select-height: 1.75rem;
-}
-
-.ant-select {
+﻿.ant-select {
     // 变更圆角
     --ant-select-border-radius: var(--radius-base);
     &.ant-select-lg .ant-select-selector,
@@ -123,7 +119,21 @@
 
         &:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
             font-size: var(--font-size-md);
-            height: calc(2.5rem - 2px);
+            height: 2.375rem;
+        }
+
+        .ant-select-selector {
+            font-size: var(--font-size-md);
+
+            .ant-select-selection-placeholder {
+                font-size: var(--font-size-md);
+                line-height: 2.375rem;
+            }
+            .ant-select-selection-wrap {
+                &::after {
+                   line-height: 2.375rem; 
+                }
+            }
         }
     }
 
@@ -133,29 +143,52 @@
 
         &:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
             font-size: var(--font-size-base);
-            height: calc(1.75rem - 2px);
+            height: 1.375rem;
         }
+
+        .ant-select-selector {
+            font-size: var(--font-size-base);
+
+            .ant-select-selection-placeholder {
+                font-size: var(--font-size-base);
+                line-height: 1.375rem;
+            }
+            .ant-select-selection-wrap {
+                &::after {
+                   line-height: 1.375rem; 
+                }
+            }
+        }
+        
     }
 
     &:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
         font-size: var(--font-size-md);
-        height: calc(2rem - 2px);
+        height: 1.875rem;
+    }
+
+    .ant-select-selector {
+        font-size: var(--font-size-md);
+
+        .ant-select-selection-placeholder {
+            font-size: var(--font-size-md);
+            line-height: 1.875rem;
+        }
+        .ant-select-selection-wrap {
+            &::after {
+                line-height: 1.875rem;
+            }
+        }
     }
 }
 
 
 .ant-select-single:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input,
-.ant-select-single .ant-select-selector,
-.ant-select-single.ant-select-sm .ant-select-selector,
-// .ant-select-single.ant-select-lg .ant-select-selector,
 .ant-select-dropdown .ant-select-item {
     font-size: var(--font-size-md);
 }
-.ant-select-multiple {
-    font-size: var(--font-size-md);
-}
 
-.ant-select-single.ant-select-lg .ant-select-selector {
+.ant-select-multiple {
     font-size: var(--font-size-md);
 }
 
