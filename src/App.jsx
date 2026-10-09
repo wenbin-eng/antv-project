@@ -168,7 +168,7 @@ const cascaderDemoOptions = [
   { value: 'zhejiang', label: '浙江', children: [
     { value: 'hangzhou', label: '杭州', children: [
       { value: 'xihu', label: '西湖区' },
-      { value: 'binjiang', label: '滨江区' }
+      { value: 'binjiang', label: '滨江区', disabled: true }
     ]},
     { value: 'ningbo', label: '宁波', children: [
       { value: 'haishu', label: '海曙区' },
@@ -196,6 +196,10 @@ const cascaderDemoOptions = [
     ]}
   ]}
 ]
+
+const cascaderOnChange = function() {
+  console.log('aaa')
+}
 
 const anchorItems = [
   { key: 'basic', href: '#anchor-basic', title: '基础用法' },
@@ -897,6 +901,11 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
           <ShowCard title="Cascader 级联选择">
             <Row label="基础用法">
               <Cascader options={cascaderDemoOptions} placeholder="请选择省市区" style={{ width: 220 }} />
+            </Row>
+            <Row label="包裹形态">
+              <Cascader options={cascaderDemoOptions} onChange={cascaderOnChange}>
+                <Button>选择地区</Button>
+              </Cascader>
             </Row>
             <Row label="默认选中">
               <Cascader options={cascaderDemoOptions} defaultValue={['zhejiang', 'hangzhou', 'xihu']} style={{ width: 220 }} />
