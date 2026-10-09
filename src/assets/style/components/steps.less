@@ -58,7 +58,6 @@
 //     border-color: transparent;
 // }
 
-
 .ant-steps {
   .ant-steps-item {
     &.ant-steps-item-process {
@@ -95,8 +94,12 @@
         .ant-steps-item-icon {
             border-color: var(--color-border);
             color: var(--color-text-placeholder);
-            background-color: var(--color-fill); 
-          }
+            background-color: var(--color-fill);
+
+            >.ant-steps-icon {
+              color: var(--color-text-placeholder);
+            }
+        }
         .ant-steps-item-content {
           .ant-steps-item-title {
             color: var(--color-text-secondary);
