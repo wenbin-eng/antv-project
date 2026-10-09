@@ -40,7 +40,6 @@ import {
   Modal,
   Popover,
   Tooltip,
-  Affix,
   Drawer,
   Empty,
   Form,
@@ -440,20 +439,18 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
           {/* 标题 */}
           <Flex justify="space-between" align="center" wrap="wrap" gap={16} style={{ marginBottom: 8 }}>
             <Title level={2} style={{ margin: 0 }}>Ant Design 组件展示</Title>
-            <Affix offsetTop={40}>
-              <Space align="center">
-                <Segmented
-                  value={page}
-                  onChange={(v) => onPageChange(v)}
-                  options={[
-                    { label: '组件展示', value: 'showcase' },
-                    { label: '表单尺寸对比', value: 'form-size' }
-                  ]}
-                />
-                <Text type="secondary">暗色</Text>
-                <Switch checked={dark} onChange={onToggleDark} />
-              </Space>
-            </Affix>
+            <Space align="center">
+              <Segmented
+                value={page}
+                onChange={(v) => onPageChange(v)}
+                options={[
+                  { label: '组件展示', value: 'showcase' },
+                  { label: '表单尺寸对比', value: 'form-size' }
+                ]}
+              />
+              <Text type="secondary">暗色</Text>
+              <Switch checked={dark} onChange={onToggleDark} />
+            </Space>
           </Flex>
           <Paragraph type="secondary">参考 componentShowcase.json，按 5 大类别展示常用组件的各种形态。</Paragraph>
 
