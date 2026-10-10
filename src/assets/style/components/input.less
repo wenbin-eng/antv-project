@@ -19,13 +19,11 @@ input.ant-input {
 
   &.ant-input-lg {
     height: 2.5rem;
-    padding: 0 0.75rem;
     font-size: var(--font-size-md);
     border-radius: var(--radius-base);
   }
 
   &.ant-input-sm {
-    padding: 0 0.75rem;
     height: 1.75rem;
     font-size: var(--font-size-base);
     border-radius: var(--radius-base);
@@ -36,8 +34,21 @@ input.ant-input {
   padding: 0 0.75rem;
   height: 2rem;
   border-radius: var(--radius-base);
+  font-size: var(--font-size-md);
+
+  &.ant-input-affix-wrapper-sm {
+    height: 1.75rem;
+    font-size: var(--font-size-base)
+  }
+
+  &.ant-input-affix-wrapper-lg {
+    height: 2.5rem;
+    font-size: var(--font-size-md);
+  }
+
   .ant-input {
     height: 100%;
+    padding: 0;
 
     &[type="password"] {
       letter-spacing: 0.5rem;

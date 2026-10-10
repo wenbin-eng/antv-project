@@ -817,6 +817,35 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
               <Input defaultValue="中尺寸" style={{ width: 150 }} />
               <Input size="small" defaultValue="小尺寸" style={{ width: 150 }} />
             </Row>
+
+            <Row label="搜索框">
+              <Input
+                style={{ width: "17rem" }}
+                size="large"
+                placeholder="搜索规则名称、编号或监控对象"
+                defaultValue='搜索框'
+                onChange={(e) => setKeyword(e.target.value)}
+                allowClear
+                suffix={<SearchOutlined style={{ fontSize: '0.875rem' }} />}
+              />
+              <Input
+                style={{ width: "17rem" }}
+                placeholder="搜索规则名称、编号或监控对象"
+                defaultValue='搜索框'
+                onChange={(e) => setKeyword(e.target.value)}
+                allowClear
+                suffix={<SearchOutlined style={{ fontSize: '0.875rem' }} />}
+              />
+              <Input
+                style={{ width: "17rem" }}
+                size="small"
+                placeholder="搜索规则名称、编号或监控对象"
+                defaultValue='搜索框'
+                onChange={(e) => setKeyword(e.target.value)}
+                allowClear
+                suffix={<SearchOutlined style={{ fontSize: '0.875rem' }} />}
+              />
+            </Row>
           </ShowCard>
 
           <ShowCard title="TextArea 文本域">
