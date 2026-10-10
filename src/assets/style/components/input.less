@@ -1,6 +1,7 @@
 ﻿/* Input 组件样式（占位，待填充 token 映射） */
 .ant-input {
   border-radius: var(--radius-base);
+  font-size: var(--font-size-md);
 }
 input.ant-input {
   padding: 0 0.75rem;
@@ -53,6 +54,12 @@ input.ant-input {
     &[type="password"] {
       letter-spacing: 0.5rem;
       color: var(--color-icon-primary);
+    }
+  }
+
+  textarea {
+    &.ant-input {
+      padding: 0.3125rem 0.75rem 1rem;
     }
   }
 
