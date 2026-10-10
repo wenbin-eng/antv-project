@@ -5,8 +5,16 @@
   color: var(--color-text-primary);
   font-size: var(--font-size-md);
   .ant-radio-inner {
-	width: 1rem;
-	height: 1rem;
+    width: 1rem;
+    height: 1rem;
+    &::after {
+      width: 1rem;
+      height: 1rem;
+      border-radius: 1rem;
+      margin-block-start: -0.5rem;
+      margin-inline-start: -0.5rem;
+    }
+    
   }
   &:hover {
     .ant-radio:not(.ant-radio-checked):not(.ant-radio-disabled) {
@@ -50,6 +58,9 @@
       background-color: var(--brand-50);
       border-color: transparent;
     }
+  }
+  .ant-radio-checked .ant-radio-inner::after {
+    transform: scale(0.4375);
   }
 }
 .dark {

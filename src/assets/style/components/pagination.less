@@ -1,6 +1,8 @@
 ﻿/* Pagination 组件样式（占位，待填充 token 映射） */
-.ant-pagination {
+.ant-pagination,.ant-pagination.ant-pagination-mini {
     font-size: 0.875rem;
+    /* flex 容器默认 stretch 会把固定高度的子项顶对齐，统一垂直居中 */
+    align-items: center;
 
     .ant-pagination-total-text {
         color: var(--gray-90);
@@ -13,9 +15,14 @@
         height: 1.5rem !important;
         min-width: 1.5rem;
         margin-inline-end: 0.5rem;
+        /* antd 默认 line-height 32px 会把 icon 行框撑出 24px 盒子 */
+        line-height: 1.5rem;
 
         .ant-pagination-item-link {
             width: 1.5rem !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             .anticon {
                 width: 0.625rem;
@@ -27,28 +34,26 @@
 
     .ant-pagination-item {
         margin-right: 0.5rem;
-        color: var(--gray-90);
         width: 2rem;
         height: 2rem;
-        line-height: 2rem;
-    }
-
-    .ant-pagination-item a:hover {
-        text-decoration: none;
-        background-color: color-mix(in srgb, var(--gray-90) 5%, transparent);
-        color: var(--gray-90);
+        /* 减去上下 1px 边框，数字垂直居中（antd 惯例 itemSize-2） */
+        line-height: calc(2rem - 2px);
+        background: transparent;
+        &:not(.ant-pagination-item-active):hover {
+            background-color: rgb(from var(--gray-90) r g b / 0.05);
+        }
+        a {
+            color: var(--gray-90);
+        }
     }
 
     .ant-pagination-item-active {
         background-color: var(--brand-05);
         border: none;
         font-weight: var(--font-weight-normal);
-        color: var(--brand-50);
-    }
-
-    .ant-pagination-item-active:hover a {
-        color: var(--brand-50);
-        font-weight: var(--font-weight-normal);
+        a {
+             color: var(--brand-50);
+        }
     }
 
     .ant-pagination-options {
@@ -81,7 +86,7 @@
 .dark {
 
     /* Pagination 组件样式（占位，待填充 token 映射） */
-    .ant-pagination {
+    .ant-pagination,.ant-pagination.ant-pagination-mini {
 
         .ant-pagination-total-text {
             color: var(--gray-0);
@@ -89,40 +94,42 @@
 
         .ant-pagination-prev,
         .ant-pagination-next {
-            // .ant-pagination-item-link {
+            /* antd 把箭头颜色直接写在 button 上(浅色主题 rgba(0,0,0,0.88))，
+               本工程深色只切 .dark class + CSS 变量时 antd 不会重新生成，需手动覆盖 */
+            button {
+                color: var(--gray-0);
+            }
 
-            //     .anticon {}
-            // }
+            &.ant-pagination-disabled {
+                button {
+                    color: var(--gray-40);
+                }
+            }
 
+            &:hover {
+                .ant-pagination-item-link {
+                    background-color: rgb(from var(--gray-05) r g b / 0.2);
+                }
+            }
         }
 
         .ant-pagination-item {
-            color: var(--gray-0);
-        }
-
-        .ant-pagination-item a:hover {
-            background-color: color-mix(in srgb, var(--brand-05) 20%, transparent);
-            color: var(--gray-0);
+            &:not(.ant-pagination-item-active):hover {
+                background-color: rgb(from var(--gray-05) r g b / 0.2);
+            }
+            a {
+                color: var(--gray-0);
+            }
+            
         }
 
         .ant-pagination-item-active {
-            background-color: color-mix(in srgb, var(--brand-50) 40%, transparent);
+            background-color: rgb(from var(--brand-50) r g b / 0.4);
             font-weight: var(--font-weight-normal);
-            color: var(--gray-0) !important;
+            a {
+                color: var(--gray-0);
+            }
         }
-
-        .ant-pagination-item-active a {
-            background-color: color-mix(in srgb, var(--brand-50) 40%, transparent);
-            font-weight: var(--font-weight-normal);
-            color: var(--gray-0) !important;
-        }
-
-        .ant-pagination-item-active:hover a {
-            color: var(--gray-0);
-            background-color: color-mix(in srgb, var(--brand-50) 40%, transparent);
-            font-weight: var(--font-weight-normal);
-        }
-
 
         .ant-pagination-options {
 

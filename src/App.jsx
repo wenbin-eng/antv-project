@@ -1211,6 +1211,21 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
             <Row label="显示总数">
               <Pagination defaultCurrent={3} total={85} showTotal={(t) => `共 ${t} 条`} showSizeChanger showQuickJumper />
             </Row>
+            <Row label="mini 基础形态">
+              <Pagination size="small" defaultCurrent={3} total={85} />
+            </Row>
+            <Row label="mini 显示总数">
+              <Pagination size="small" defaultCurrent={3} total={85} showTotal={(t) => `共 ${t} 条`} />
+            </Row>
+            <Row label="mini 尺寸切换">
+              <Pagination size="small" defaultCurrent={3} total={85} showSizeChanger />
+            </Row>
+            <Row label="mini 快速跳转">
+              <Pagination size="small" defaultCurrent={3} total={85} showQuickJumper />
+            </Row>
+            <Row label="mini 全部功能">
+              <Pagination size="small" defaultCurrent={3} total={85} showTotal={(t) => `共 ${t} 条`} showSizeChanger showQuickJumper />
+            </Row>
           </ShowCard>
 
           <ShowCard title="Menu 导航菜单">
