@@ -39,6 +39,15 @@
             &:not(.ant-select-disabled):hover {
                 --ant-select-border-color: var(--color-error-hover);
             }
+
+            &:not(.ant-select-customize-input) .ant-select-selector {
+                border: 1px solid var(--color-error);
+                background: var(--color-fill-subtle);
+            }
+
+            &:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer):hover .ant-select-selector {
+                border-color: var(--color-error);
+            }
         }
 
         &.ant-select-status-warning {

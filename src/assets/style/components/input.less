@@ -105,6 +105,17 @@ input.ant-input {
   &.ant-input-status-error:not(.ant-input-disabled) {
     border-color: var(--color-error);
     background-color: var( --color-fill-subtle);
+
+    &:hover {
+      border-color: var(--color-error);
+      background-color: var( --color-fill-subtle);
+    }
+
+    &:focus,
+    &:focus-within {
+      border-color: var(--color-error);
+      background-color: var( --color-fill-subtle);
+    }
   }
 
   &:focus,
