@@ -1,7 +1,7 @@
 ﻿/* Table 组件样式（token 映射；单元格高度按尺寸区分，rem：大 2.5rem / 中 2rem / 小 1.75rem） */
 .ant-table {
   font-family: var(--font-family) !important;
-  background-color: transparent !important;
+  
 	.ant-table-content {
 		border-start-start-radius: 0 !important;
 		border-start-end-radius: 0 !important;
@@ -130,11 +130,11 @@
 				text-overflow: ellipsis;
 				white-space: nowrap;
 				color: var(--color-text-primary);
-				background-color: var(--gray-05);
+				background-color: var(--gray-05) !important;
 				border-top: none !important;
-        border-bottom: 1px solid var(--gray-05);
-        font-size: var(--font-size-md);
-        font-weight: var(--font-weight-normal);
+				border-bottom: 1px solid var(--gray-05);
+				font-size: var(--font-size-md);
+				font-weight: var(--font-weight-normal);
 				&::before {
 					background-color: var(--gray-20) !important;
 					height: 1em !important;
@@ -159,7 +159,7 @@
 				padding: 0 0.5rem;
 				box-sizing: border-box;
 				color: var(--color-text-primary);
-        font-size: var(--font-size-md);
+        		font-size: var(--font-size-md);
 				border-bottom: 1px solid var(--gray-05);
 			}
 			&>tr:not(.ant-table-measure-row):not(.ant-table-expanded-row)>td {
@@ -169,10 +169,10 @@
 			}
 			.ant-table-row {
 				&>.ant-table-cell-row-hover {
-					background-color: rgb(from var(--gray-90) r g b / 0.05) !important;
+					background-color: var(--brand-10) !important;
 				}
 				&.ant-table-row-selected >.ant-table-cell {
-					background-color: initial;
+					background-color: var(--brand-05);
 				}
 			}
 			.ant-table-expanded-row {
@@ -182,6 +182,25 @@
 			}
 			.ant-table-column-sort {
 				background: initial;
+			}
+		}
+		.ant-table-cell {
+			&.ant-table-cell-fix-right {
+				background-color: var(--gray-0);
+				overflow: visible !important;
+				&::after {
+					position: absolute;
+					top: 0;
+					bottom: -1px;
+					left: 1px;
+					width: 1.25rem;
+					content: "";
+					transition: box-shadow 0.3s;
+					transform: translate(-100%);
+					pointer-events:none;
+					background: none !important;
+					box-shadow: inset -8px 0 12px -8px rgb(from var(--gray-90) r g b / 0.3);
+				}
 			}
 		}
 	}
@@ -210,32 +229,34 @@
 		}
 	}
 }
-
+.ant-table-wrapper .ant-table-ping-left:not(.ant-table-has-fix-left) .ant-table-container::before {
+	box-shadow: none;
+}
 .dark {
 	.ant-table {
 		.ant-table-content {
 			.ant-table-thead {
 				&>tr>th {
 					color: var(--color-text-primary);
-					background-color: var(--gray-70);
+					background-color: var(--gray-70) !important;
 					&::before {
 						background-color: var(--gray-50) !important;
 					}
-          border-bottom: 1px solid rgb(from var(--gray-05) r g b / 0.1);
+          			border-bottom: 1px solid rgb(from var(--gray-05) r g b / 0.1);
 				}
 			}
 			.ant-table-tbody {
 				&>tr>td {
 					color: var(--color-text-primary);
 					border-bottom: 1px solid rgb(from var(--gray-05) r g b / 0.1);
-					background-color: transparent;
+					
 				}
 				.ant-table-row {
 					&>.ant-table-cell-row-hover {
-						background-color: rgb(from var(--gray-70) r g b / 0.4) !important;
+						background-color: rgb(from var(--brand-50) r g b / 0.4) !important;
 					}
 					&.ant-table-row-selected >.ant-table-cell {
-						background-color: initial;
+						background-color: rgb(from var(--brand-50) r g b / 0.2)
 					}
 				}
 				.ant-table-expanded-row {
@@ -244,6 +265,14 @@
 					}
 				}
 			}
+			.ant-table-cell {
+			&.ant-table-cell-fix-right {
+				background-color: var(--gray-70) !important;
+				&::after {
+					box-shadow: inset -8px 0 12px -8px rgb(from var(--gray-100) r g b / 0.7);
+				}
+			}
+		}
 		}
 	}
 }
