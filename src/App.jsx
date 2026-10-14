@@ -1486,8 +1486,8 @@ function App() {
   return (
     <ConfigProvider
       locale={zhCN}
-      // cssVar
-      // hashed={false}
+      cssVar
+      hashed={false}
       spin={{ indicator: <img src={loadingImg} className="custom-spin-indicator" alt="" /> }}
       empty={{ image: emptyImg }}
       renderEmpty={(componentName) => (componentName === 'Table.filter' ? null : <Empty />)}
