@@ -90,6 +90,16 @@ const tableData = [
   { key: '2', name: '李四', age: 32, department: '市场部', position: '产品经理', status: '在职', email: 'lisi@example.com', phone: '13800002222', joinDate: '2018-07-01', salary: '30000' },
   { key: '3', name: '王五', age: 26, department: '设计部', position: 'UI设计师', status: '休假', email: 'wangwu@example.com', phone: '13800003333', joinDate: '2022-01-10', salary: '20000' },
   { key: '4', name: '赵六', age: 35, department: '研发部', position: '后端工程师', status: '在职', email: 'zhaoliu@example.com', phone: '13800004444', joinDate: '2017-09-20', salary: '28000' },
+  { key: '5', name: '孙七', age: 29, department: '运营部', position: '运营主管', status: '在职', email: 'sunqi@example.com', phone: '13800005555', joinDate: '2019-11-05', salary: '26000' },
+  { key: '1', name: '张三', age: 28, department: '研发部', position: '前端工程师', status: '在职', email: 'zhangsan@example.com', phone: '13800001111', joinDate: '2020-03-15', salary: '25000' },
+  { key: '2', name: '李四', age: 32, department: '市场部', position: '产品经理', status: '在职', email: 'lisi@example.com', phone: '13800002222', joinDate: '2018-07-01', salary: '30000' },
+  { key: '3', name: '王五', age: 26, department: '设计部', position: 'UI设计师', status: '休假', email: 'wangwu@example.com', phone: '13800003333', joinDate: '2022-01-10', salary: '20000' },
+  { key: '4', name: '赵六', age: 35, department: '研发部', position: '后端工程师', status: '在职', email: 'zhaoliu@example.com', phone: '13800004444', joinDate: '2017-09-20', salary: '28000' },
+  { key: '5', name: '孙七', age: 29, department: '运营部', position: '运营主管', status: '在职', email: 'sunqi@example.com', phone: '13800005555', joinDate: '2019-11-05', salary: '26000' },
+  { key: '1', name: '张三', age: 28, department: '研发部', position: '前端工程师', status: '在职', email: 'zhangsan@example.com', phone: '13800001111', joinDate: '2020-03-15', salary: '25000' },
+  { key: '2', name: '李四', age: 32, department: '市场部', position: '产品经理', status: '在职', email: 'lisi@example.com', phone: '13800002222', joinDate: '2018-07-01', salary: '30000' },
+  { key: '3', name: '王五', age: 26, department: '设计部', position: 'UI设计师', status: '休假', email: 'wangwu@example.com', phone: '13800003333', joinDate: '2022-01-10', salary: '20000' },
+  { key: '4', name: '赵六', age: 35, department: '研发部', position: '后端工程师', status: '在职', email: 'zhaoliu@example.com', phone: '13800004444', joinDate: '2017-09-20', salary: '28000' },
   { key: '5', name: '孙七', age: 29, department: '运营部', position: '运营主管', status: '在职', email: 'sunqi@example.com', phone: '13800005555', joinDate: '2019-11-05', salary: '26000' }
 ]
 
@@ -688,7 +698,11 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
                 dataSource={tableData}
                 rowSelection={{ type: 'checkbox', selectedRowKeys, onChange: setSelectedRowKeys }}
                 scroll={{ x: 1300 }}
-                pagination={{ pageSize: 5 }}
+                pagination={{ pageSize: 5, total: tableData.length,
+                  showSizeChanger: { getPopupContainer: () => document.body },
+                  showQuickJumper: true,
+                  showTotal: (total, range) => `共${total}条`
+                 }}
                 style={{ width: '100%' }}
               />
               <Text type="secondary" style={{ fontSize: 13, width: '100%' }}>中尺寸（middle）</Text>
@@ -699,7 +713,11 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
                 dataSource={tableData}
                 rowSelection={{ type: 'checkbox', selectedRowKeys, onChange: setSelectedRowKeys }}
                 scroll={{ x: 1300 }}
-                pagination={{ pageSize: 5 }}
+                pagination={{ pageSize: 5, total: tableData.length,
+                  showSizeChanger: { getPopupContainer: () => document.body },
+                  showQuickJumper: true,
+                  showTotal: (total, range) => `共${total}条`
+                 }}
                 style={{ width: '100%' }}
               />
               <Text type="secondary" style={{ fontSize: 13, width: '100%' }}>小尺寸（small）</Text>
@@ -710,7 +728,11 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
                 dataSource={tableData}
                 rowSelection={{ type: 'checkbox', selectedRowKeys, onChange: setSelectedRowKeys }}
                 scroll={{ x: 1300 }}
-                pagination={{ pageSize: 5 }}
+                pagination={{ pageSize: 5, total: tableData.length,
+                  showSizeChanger: { getPopupContainer: () => document.body },
+                  showQuickJumper: true,
+                  showTotal: (total, range) => `共${total}条`
+                 }}
                 style={{ width: '100%' }}
               />
             </Row>
@@ -1211,7 +1233,7 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
 
           <ShowCard title="Pagination 分页">
             <Row label="显示总数">
-              <Pagination defaultCurrent={3} total={85} showTotal={(t) => `共 ${t} 条`} showSizeChanger showQuickJumper />
+              <Pagination defaultCurrent={3} total={85} showTotal={(t) => `共 ${t} 条`} showSizeChanger={{ getPopupContainer: () => document.body }} showQuickJumper />
             </Row>
             <Row label="mini 基础形态">
               <Pagination size="small" defaultCurrent={3} total={85} />
@@ -1220,13 +1242,13 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
               <Pagination size="small" defaultCurrent={3} total={85} showTotal={(t) => `共 ${t} 条`} />
             </Row>
             <Row label="mini 尺寸切换">
-              <Pagination size="small" defaultCurrent={3} total={85} showSizeChanger />
+              <Pagination size="small" defaultCurrent={3} total={85} showSizeChanger={{ getPopupContainer: () => document.body }} />
             </Row>
             <Row label="mini 快速跳转">
               <Pagination size="small" defaultCurrent={3} total={85} showQuickJumper />
             </Row>
             <Row label="mini 全部功能">
-              <Pagination size="small" defaultCurrent={3} total={85} showTotal={(t) => `共 ${t} 条`} showSizeChanger showQuickJumper />
+              <Pagination size="small" defaultCurrent={3} total={85} showTotal={(t) => `共 ${t} 条`} showSizeChanger={{ getPopupContainer: () => document.body }} showQuickJumper />
             </Row>
           </ShowCard>
 
@@ -1464,8 +1486,8 @@ function App() {
   return (
     <ConfigProvider
       locale={zhCN}
-      cssVar
-      hashed={false}
+      // cssVar
+      // hashed={false}
       spin={{ indicator: <img src={loadingImg} className="custom-spin-indicator" alt="" /> }}
       empty={{ image: emptyImg }}
       renderEmpty={(componentName) => (componentName === 'Table.filter' ? null : <Empty />)}

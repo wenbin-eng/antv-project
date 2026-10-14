@@ -3,14 +3,24 @@
     font-size: 0.875rem;
     /* flex 容器默认 stretch 会把固定高度的子项顶对齐，统一垂直居中 */
     align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
     .ant-pagination-total-text {
         color: var(--gray-90);
-        margin-right: 0.5rem;
+        margin-right: auto;
+        order: -1;
+    }
+
+    .ant-pagination-jump-prev,
+    .ant-pagination-jump-next {
+        order: 1;
     }
 
     .ant-pagination-prev,
     .ant-pagination-next {
+        order: 1;
         margin-right: 0.5rem;
         height: 1.5rem !important;
         min-width: 1.5rem;
@@ -33,6 +43,7 @@
     }
 
     .ant-pagination-item {
+        order: 1;
         margin-right: 0.5rem;
         width: 2rem;
         height: 2rem;
@@ -57,7 +68,7 @@
     }
 
     .ant-pagination-options {
-        margin-inline-start: 0;
+        display: contents;
 
         .ant-select-dropdown {
             .ant-select-item {
@@ -68,12 +79,27 @@
             }
 
         }
+    }
 
+    .ant-pagination-options-size-changer {
+        order: 0;
+        margin-inline-end: 0.5rem;
+    }
+
+    .ant-pagination-options-quick-jumper {
+        order: 2;
+        margin-inline-start: 0.5rem;
+
+        input {
+            color: var(--gray-90);
+            font-size: 0.875rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .ant-pagination-options-size-changer,
         .ant-pagination-options-quick-jumper {
-            input {
-                color: var(--gray-90);
-                font-size: 0.875rem;
-            }
+            display: none;
         }
     }
 }
