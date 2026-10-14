@@ -637,7 +637,9 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
 
           <ShowCard title="Segmented 分段控制器">
             <Row label="尺寸变体">
+              <Segmented size="large" options={['选项一', '选项二', '选项三']} defaultValue="选项一" />
               <Segmented options={['选项一', '选项二', '选项三']} defaultValue="选项一" />
+              <Segmented size="small" options={['选项一', '选项二', '选项三']} defaultValue="选项一" />
             </Row>
             <Row label="文字带图标">
               <Segmented value={segValue} onChange={setSegValue} options={[
