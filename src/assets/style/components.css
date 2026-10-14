@@ -2027,16 +2027,27 @@ input.ant-input.ant-input-sm {
   font-size: 0.875rem;
   /* flex 容器默认 stretch 会把固定高度的子项顶对齐，统一垂直居中 */
   align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 .ant-pagination .ant-pagination-total-text,
 .ant-pagination.ant-pagination-mini .ant-pagination-total-text {
   color: var(--gray-90);
-  margin-right: 0.5rem;
+  margin-right: auto;
+  order: -1;
+}
+.ant-pagination .ant-pagination-jump-prev,
+.ant-pagination.ant-pagination-mini .ant-pagination-jump-prev,
+.ant-pagination .ant-pagination-jump-next,
+.ant-pagination.ant-pagination-mini .ant-pagination-jump-next {
+  order: 1;
 }
 .ant-pagination .ant-pagination-prev,
 .ant-pagination.ant-pagination-mini .ant-pagination-prev,
 .ant-pagination .ant-pagination-next,
 .ant-pagination.ant-pagination-mini .ant-pagination-next {
+  order: 1;
   margin-right: 0.5rem;
   height: 1.5rem !important;
   min-width: 1.5rem;
@@ -2062,6 +2073,7 @@ input.ant-input.ant-input-sm {
 }
 .ant-pagination .ant-pagination-item,
 .ant-pagination.ant-pagination-mini .ant-pagination-item {
+  order: 1;
   margin-right: 0.5rem;
   width: 2rem;
   height: 2rem;
@@ -2089,16 +2101,34 @@ input.ant-input.ant-input-sm {
 }
 .ant-pagination .ant-pagination-options,
 .ant-pagination.ant-pagination-mini .ant-pagination-options {
-  margin-inline-start: 0;
+  display: contents;
 }
 .ant-pagination .ant-pagination-options .ant-select-dropdown .ant-select-item .ant-select-item-option-content,
 .ant-pagination.ant-pagination-mini .ant-pagination-options .ant-select-dropdown .ant-select-item .ant-select-item-option-content {
   font-weight: var(--font-weight-normal) !important;
 }
-.ant-pagination .ant-pagination-options .ant-pagination-options-quick-jumper input,
-.ant-pagination.ant-pagination-mini .ant-pagination-options .ant-pagination-options-quick-jumper input {
+.ant-pagination .ant-pagination-options-size-changer,
+.ant-pagination.ant-pagination-mini .ant-pagination-options-size-changer {
+  order: 0;
+  margin-inline-end: 0.5rem;
+}
+.ant-pagination .ant-pagination-options-quick-jumper,
+.ant-pagination.ant-pagination-mini .ant-pagination-options-quick-jumper {
+  order: 2;
+  margin-inline-start: 0.5rem;
+}
+.ant-pagination .ant-pagination-options-quick-jumper input,
+.ant-pagination.ant-pagination-mini .ant-pagination-options-quick-jumper input {
   color: var(--gray-90);
   font-size: 0.875rem;
+}
+@media (max-width: 480px) {
+  .ant-pagination .ant-pagination-options-size-changer,
+  .ant-pagination.ant-pagination-mini .ant-pagination-options-size-changer,
+  .ant-pagination .ant-pagination-options-quick-jumper,
+  .ant-pagination.ant-pagination-mini .ant-pagination-options-quick-jumper {
+    display: none;
+  }
 }
 .dark {
   /* Pagination 组件样式（占位，待填充 token 映射） */
