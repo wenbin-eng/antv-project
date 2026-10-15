@@ -702,7 +702,7 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
                 scroll={{ x: 1300 }}
                 pagination={{ pageSize: 5, total: tableData.length,
                   showSizeChanger: { getPopupContainer: () => document.body },
-                  showQuickJumper: true,
+                  showQuickJumper: { goButton: '跳转' },
                   showTotal: (total, range) => `共${total}条`
                  }}
                 style={{ width: '100%' }}
@@ -717,7 +717,7 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
                 scroll={{ x: 1300 }}
                 pagination={{ pageSize: 5, total: tableData.length,
                   showSizeChanger: { getPopupContainer: () => document.body },
-                  showQuickJumper: true,
+                  showQuickJumper: { goButton: '跳转' },
                   showTotal: (total, range) => `共${total}条`
                  }}
                 style={{ width: '100%' }}
@@ -732,7 +732,7 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
                 scroll={{ x: 1300 }}
                 pagination={{ pageSize: 5, total: tableData.length,
                   showSizeChanger: { getPopupContainer: () => document.body },
-                  showQuickJumper: true,
+                  showQuickJumper: { goButton: '跳转' },
                   showTotal: (total, range) => `共${total}条`
                  }}
                 style={{ width: '100%' }}
@@ -1235,7 +1235,7 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
 
           <ShowCard title="Pagination 分页">
             <Row label="显示总数">
-              <Pagination defaultCurrent={3} total={85} showTotal={(t) => `共 ${t} 条`} showSizeChanger={{ getPopupContainer: () => document.body }} showQuickJumper />
+              <Pagination defaultCurrent={3} total={85} showTotal={(t) => `共 ${t} 条`} showSizeChanger={{ getPopupContainer: () => document.body }} showQuickJumper={{ goButton: '跳转' }} />
             </Row>
             <Row label="mini 基础形态">
               <Pagination size="small" defaultCurrent={3} total={85} />
@@ -1247,10 +1247,10 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
               <Pagination size="small" defaultCurrent={3} total={85} showSizeChanger={{ getPopupContainer: () => document.body }} />
             </Row>
             <Row label="mini 快速跳转">
-              <Pagination size="small" defaultCurrent={3} total={85} showQuickJumper />
+              <Pagination size="small" defaultCurrent={3} total={85} showQuickJumper={{ goButton: '跳转' }} />
             </Row>
             <Row label="mini 全部功能">
-              <Pagination size="small" defaultCurrent={3} total={85} showTotal={(t) => `共 ${t} 条`} showSizeChanger={{ getPopupContainer: () => document.body }} showQuickJumper />
+              <Pagination size="small" defaultCurrent={3} total={85} showTotal={(t) => `共 ${t} 条`} showSizeChanger={{ getPopupContainer: () => document.body }} showQuickJumper={{ goButton: '跳转' }} />
             </Row>
           </ShowCard>
 
