@@ -1,8 +1,10 @@
 ﻿/* Segmented 组件样式（占位，待填充 token 映射） */
 .ant-segmented {
   border-radius: var(--radius-md);
-  .ant-segmented-group {    gap: 0.25rem;
-    background: var(--color-fill);
+  padding: 0.125rem;
+  background: var(--color-fill);
+  .ant-segmented-group {    
+    gap: 0.25rem;
     color: var(--color-text-secondary);
     border-radius: var(--radius-md);
 
@@ -27,7 +29,7 @@
     .ant-segmented-item-selected {
       color: var(--gray-0);
       background: var(--brand-50);
-
+      border-radius: var(--radius-base);
       &:not(.ant-segmented-item-disabled):hover {
         color: var(--gray-0);
         background: var(--brand-40);
@@ -37,6 +39,13 @@
         color: var(--gray-0);
         background: var(--brand-20);
       }
+    }
+
+    /* 滑块（切换动效中滑动的元素）默认是 antd 的白色 itemSelectedBg，
+       改为与选中项一致的背景/圆角，滑动结束与 item-selected 无缝衔接 */
+    .ant-segmented-thumb {
+      background: var(--brand-50);
+      border-radius: var(--radius-base);
     }
   }
 
