@@ -701,7 +701,7 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
                 rowSelection={{ type: 'checkbox', selectedRowKeys, onChange: setSelectedRowKeys }}
                 scroll={{ x: 1300 }}
                 pagination={{ pageSize: 5, total: tableData.length,
-                  showSizeChanger: { getPopupContainer: () => document.body },
+                  showSizeChanger: true,
                   showQuickJumper: { goButton: '跳转' },
                   showTotal: (total, range) => `共${total}条`
                  }}
