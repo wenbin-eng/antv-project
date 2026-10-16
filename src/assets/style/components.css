@@ -2188,8 +2188,9 @@ input.ant-input.ant-input-sm {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: calc(2rem - 2px);
+  height: 2rem;
   padding: 0 0.75rem;
+  box-sizing: border-box;
   cursor: pointer;
   user-select: none;
   white-space: nowrap;
