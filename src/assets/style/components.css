@@ -2577,6 +2577,9 @@ input.ant-input.ant-input-sm {
 .ant-modal .ant-modal-body .ant-typography.ant-typography-link.ant-typography-secondary {
   color: var(--gray-90);
 }
+.ant-modal .ant-modal-close {
+  color: var(--color-text-primary);
+}
 .ant-btn.ant-btn-color-default {
   border-radius: var(--radius-base);
 }
