@@ -1608,6 +1608,9 @@ input.ant-input.ant-input-sm {
 .dark .ant-table .ant-table-content .ant-table-cell.ant-table-cell-fix-left {
   background-color: var(--gray-70) !important;
 }
+.dark .ant-table .ant-table-content .ant-table-cell .ant-table-placeholder {
+  background-color: transparent;
+}
 .dark .ant-table .ant-table-content .ant-table-cell.ant-table-cell-fix-right {
   background-color: var(--gray-70) !important;
 }
