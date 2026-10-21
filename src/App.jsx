@@ -244,8 +244,9 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
 
   /* —— Table —— */
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
+  const [tableModalOpen, setTableModalOpen] = useState(false)
   const baseColumns = [
-    { title: '姓名', dataIndex: 'name', fixed: 'left', width: 120, render: (t) => (
+    { title: '姓名', dataIndex: 'name', width: 120, render: (t) => (
       <Space size={8}>
         <Avatar size={24} style={{ backgroundColor: 'var(--brand-50)', fontSize: 12 }}>{t[0]}</Avatar>
         {t}
@@ -758,6 +759,25 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
                 pagination={false}
                 style={{ width: '100%' }}
               />
+            </Row>
+            <Row label="弹窗表格">
+              <Button type="primary" onClick={() => setTableModalOpen(true)}>打开弹窗表格</Button>
+              <Modal
+                title="弹窗表格"
+                open={tableModalOpen}
+                onCancel={() => setTableModalOpen(false)}
+                footer={null}
+                width={900}
+              >
+                <Table
+                  rowKey="key"
+                  columns={sortFilterColumns}
+                  dataSource={sortFilterData}
+                  sortDirections={['ascend', 'descend', 'ascend']}
+                  showSorterTooltip={false}
+                  pagination={{ pageSize: 5 }}
+                />
+              </Modal>
             </Row>
           </ShowCard>
 
