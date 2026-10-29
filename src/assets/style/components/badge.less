@@ -1,12 +1,16 @@
 ﻿/* Badge 组件样式（占位，待填充 token 映射） */
 .ant-badge {
+  color: var(--color-text-primary);
   .ant-badge-count {
+    /* 单数字 16×16（border-box 含 padding/border）：水平 padding 3px 保证 1 位数字不撑破；
+       多位数字宽度 = 内容 + padding 自动撑开；line-height 与 height 一致实现垂直居中 */
+    /* 水平 padding 4px；line-height 对齐内容盒高度（1rem - 上下 border 2px），文字精确垂直居中 */
+    box-sizing: border-box;
     min-width: 1rem;
-    border: none;
-    padding: 0.125rem 0.25rem;
+    height: 1rem;
+    padding: 0 0.25rem;
     font-size: var(--font-size-base);
-    line-height: 0.75rem;
-    height: 1.125rem;
+    line-height: calc(1rem - 2px);
     border: 1px solid var(--gray-0);
     box-shadow: 0 0 0 1px var(--gray-0);
     background-color: var(--color-error);
@@ -21,6 +25,7 @@
 }
 
 .dark {
+  color: var(--color-text-primary);
   .ant-badge {
     .ant-badge-count {
       border: 1px solid rgb(from var(--gray-0) r g b / 0);
