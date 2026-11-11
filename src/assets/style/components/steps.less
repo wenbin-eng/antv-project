@@ -135,6 +135,11 @@
             color: var(--color-text-primary);
           }
         }
+        .ant-steps-item-tail {
+          &::after {
+            background: var(--color-brand)
+          }
+        }
       }
       .ant-steps-item-icon {
         border-color: var(--color-border-focus);
@@ -152,6 +157,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+      .ant-steps-icon {
+        top: 0;
+      }
     }    
   }
   .ant-steps-item-content {
@@ -331,3 +340,7 @@
     }
   }
 }
+
+
+// .ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title::after
+// .ant-steps .ant-steps-item-icon .ant-steps-icon

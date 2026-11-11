@@ -6,6 +6,9 @@
   font-size: var(--font-size-base);
   background-color: var(--color-tag-bg-none);
   color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .ant-tag.ant-tag-processing {
@@ -70,11 +73,6 @@
 
 .ant-tag.ant-tag-disabled .anticon {
   color: var(--color-text-disabled);
-}
-
-.ant-tag>.anticon+span,
-.ant-tag>span+.anticon {
-  margin-left: 0.25rem;
 }
 
 .ant-tag .anticon {
