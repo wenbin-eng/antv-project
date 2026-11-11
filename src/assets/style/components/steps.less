@@ -148,9 +148,6 @@
       }
     }
 
-    .ant-steps-item-description {
-      font-size: var(--font-size-md);
-    }
     .ant-steps-item-icon {
       font-size: var(--font-size-md);
       margin-inline-end: 0.75rem;
@@ -166,7 +163,15 @@
       .ant-steps-icon {
         top: 0;
       }
-    }    
+    } 
+    .ant-steps-item-container {
+      .ant-steps-item-content {
+        .ant-steps-item-description {
+          font-size: var(--font-size-md);
+          color: var(--color-text-secondary);
+        }
+      }
+    }  
   }
   .ant-steps-item-content {
     color: var(--color-text-secondary);

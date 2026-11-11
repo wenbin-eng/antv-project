@@ -1853,6 +1853,7 @@ input.ant-input.ant-input-sm {
   font-size: var(--font-size-base);
   background-color: var(--color-error);
   color: var(--color-text-inverse);
+  box-shadow: none;
   /* 数字滚动结构：antd 固定 20px 高，滚动条与行盒对齐 16px 盒高，配合 align-items 精确垂直居中 */
 }
 .ant-badge .ant-badge-count > bdi > .ant-scroll-number-only {
@@ -1991,9 +1992,6 @@ input.ant-input.ant-input-sm {
   background-color: var(--color-info-primary-subtler);
   color: var(--color-border-focus);
 }
-.ant-steps .ant-steps-item .ant-steps-item-description {
-  font-size: var(--font-size-md);
-}
 .ant-steps .ant-steps-item .ant-steps-item-icon {
   font-size: var(--font-size-md);
   margin-inline-end: 0.75rem;
@@ -2008,6 +2006,10 @@ input.ant-input.ant-input-sm {
 }
 .ant-steps .ant-steps-item .ant-steps-item-icon .ant-steps-icon {
   top: 0;
+}
+.ant-steps .ant-steps-item .ant-steps-item-container .ant-steps-item-content .ant-steps-item-description {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
 }
 .ant-steps .ant-steps-item-content {
   color: var(--color-text-secondary);
@@ -2921,14 +2923,11 @@ input.ant-input.ant-input-sm {
   font-size: var(--font-size-md);
 }
 .ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item:hover {
-  background-color: rgb(from var(--gray-90) r g b / 0.05);
+  background-color: var(--color-hover);
 }
 .ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item-icon {
   font-size: var(--font-size-md);
   margin-right: 0.25rem;
-}
-.dark .ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item:hover {
-  background-color: var(--gray-70);
 }
 
 /* Menu 导航菜单样式（占位，待填充 token 映射） */
