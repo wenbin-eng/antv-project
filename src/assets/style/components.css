@@ -1289,6 +1289,9 @@ input.ant-input.ant-input-sm {
   font-size: var(--font-size-md);
   color: var(--gray-100);
 }
+.ant-slider .ant-slider-dot {
+  display: none;
+}
 .ant-slider-horizontal .ant-slider-handle {
   inset-block-start: -1px;
 }
@@ -2503,6 +2506,7 @@ input.ant-input.ant-input-sm {
 .ant-tree {
   color: var(--color-text-primary);
   font-size: var(--font-size-md);
+  background: none;
 }
 .ant-tree .ant-tree-list .ant-tree-list-holder .ant-tree-list-holder-inner .ant-tree-treenode {
   margin-bottom: var(--spacing-0);
