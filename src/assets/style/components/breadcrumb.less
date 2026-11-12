@@ -3,10 +3,35 @@
     .ant-breadcrumb-item {
         color: var(--gray-50);
         font-size: var(--font-size-md);
+        &:hover {
+            color: var(--brand-50);
+        }
+        /* href 型：ant-breadcrumb-link 类名直接在 <a> 上；普通型：<span class="ant-breadcrumb-link">。
+           统一：默认灰（与普通项一致）、hover 品牌蓝、任何状态无背景 */
+        .ant-breadcrumb-link,
+        .ant-breadcrumb-link a {
+            color: var(--gray-50);
+            background: transparent;
+            &:hover {
+                color: var(--brand-50);
+                background: transparent;
+            }
+        }
     }
 
+    /* 末项（当前页）：hover 颜色保持不变（含链接形态） */
     .ant-breadcrumb-item:last-child {
         color: var(--gray-90);
+        &:hover {
+            color: var(--gray-90);
+        }
+        .ant-breadcrumb-link,
+        .ant-breadcrumb-link a {
+            color: var(--gray-90);
+            &:hover {
+                color: var(--gray-90);
+            }
+        }
     }
 
     .ant-breadcrumb-separator {
@@ -23,10 +48,33 @@
         .ant-breadcrumb-item {
             color: var(--gray-20);
             font-size: var(--font-size-md);
+            &:hover {
+                color: var(--brand-30);
+            }
+            .ant-breadcrumb-link,
+            .ant-breadcrumb-link a {
+                color: var(--gray-20);
+                background: transparent;
+                &:hover {
+                    color: var(--brand-30);
+                    background: transparent;
+                }
+            }
         }
 
+        /* 末项（当前页）：hover 颜色保持不变（含链接形态） */
         .ant-breadcrumb-item:last-child {
             color: var(--gray-0);
+            &:hover {
+                color: var(--gray-0);
+            }
+            .ant-breadcrumb-link,
+            .ant-breadcrumb-link a {
+                color: var(--gray-0);
+                &:hover {
+                    color: var(--gray-0);
+                }
+            }
         }
 
         .ant-breadcrumb-separator {

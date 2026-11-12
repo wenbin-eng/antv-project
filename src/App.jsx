@@ -449,6 +449,13 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
   const [treeExpanded, setTreeExpanded] = useState(['hq', 'rd'])
   const [treeChecked, setTreeChecked] = useState(['user-view', 'sys-basic'])
 
+  /* —— Spin —— */
+  const [spinning, setSpinning] = useState(true)
+  const toggleSpinning = () => {
+    setSpinning(true)
+    setTimeout(() => setSpinning(false), 2000)
+  }
+
   return (
     <div style={{ margin: '0 auto', padding: '32px 24px' }}>
           {/* 标题 */}
@@ -1132,6 +1139,13 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
             <Row label="自定义分隔符">
               <Breadcrumb separator=">" items={[{ title: '系统管理' }, { title: '用户管理' }, { title: '用户详情' }]} />
             </Row>
+            <Row label="带链接">
+              <Breadcrumb items={[
+                { title: '首页', href: '#' },
+                { title: '产品中心', href: '#' },
+                { title: '详情页' },
+              ]} />
+            </Row>
           </ShowCard>
 
           <ShowCard title="Dropdown 下拉菜单">
@@ -1389,6 +1403,24 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
               <Spin size="small" />
               <Spin />
               <Spin size="large" />
+            </Row>
+            <Row label="嵌套加载（默认尺寸）">
+              <Spin spinning={spinning} style={{ width: 300 }}>
+                <div style={{ padding: 16, background: 'var(--color-fill-subtle)', borderRadius: 6 }}>
+                  <p style={{ margin: 0 }}>包裹内容的加载状态，指示符应水平垂直居中于该区域。</p>
+                </div>
+              </Spin>
+            </Row>
+            <Row label="嵌套加载（分尺寸）">
+              <Spin size="small" spinning={spinning} style={{ width: 120, marginRight: 16 }}>
+                <div style={{ padding: 12, background: 'var(--color-fill-subtle)', borderRadius: 6 }}>small</div>
+              </Spin>
+              <Spin size="large" spinning={spinning} style={{ width: 160 }}>
+                <div style={{ padding: 16, background: 'var(--color-fill-subtle)', borderRadius: 6 }}>large</div>
+              </Spin>
+            </Row>
+            <Row label="加载切换">
+              <Button onClick={toggleSpinning}>加载 2 秒</Button>
             </Row>
           </ShowCard>
 

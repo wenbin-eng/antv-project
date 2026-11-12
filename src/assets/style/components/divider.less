@@ -1,10 +1,30 @@
 ﻿/* Divider 组件样式（占位，待填充 token 映射） */
 .ant-divider {
   border-color: var(--gray-10);
+
+  /* 带文本分割线：文本两侧的线由 ::before/::after 画出（antd 为 inherit 继承父级色），
+     父级与伪元素都显式覆盖，确保与实线颜色一致 */
+  &.ant-divider-horizontal.ant-divider-with-text {
+    border-block-start-color: var(--gray-10);
+
+    &::before,
+    &::after {
+      border-block-start-color: var(--gray-10);
+    }
+  }
 }
 
 .dark {
   .ant-divider {
     border-color: var(--color-border-separator);
+
+    &.ant-divider-horizontal.ant-divider-with-text {
+      border-block-start-color: var(--color-border-separator);
+
+      &::before,
+      &::after {
+        border-block-start-color: var(--color-border-separator);
+      }
+    }
   }
 }

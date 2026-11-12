@@ -28,6 +28,14 @@
 			min-height: 1.25rem;
 		}
 	}
+
+	/* 去掉 hover 时的背景变化：保持各自正常态颜色 */
+	&:hover:not(.ant-switch-disabled) {
+		background-color: var(--gray-30);
+	}
+	&.ant-switch-checked:hover:not(.ant-switch-disabled) {
+		background-color: var(--brand-50);
+	}
 }
 
 .dark {
@@ -44,6 +52,14 @@
 			.ant-switch-handle::before {
 				background-color: rgb(from var(--gray-05) r g b / 0.3);
 			}
+		}
+
+		/* 去掉 hover 时的背景变化（暗色正常态颜色） */
+		&:hover:not(.ant-switch-disabled) {
+			background-color: var(--gray-60);
+		}
+		&.ant-switch-checked:hover:not(.ant-switch-disabled) {
+			background-color: var(--brand-50);
 		}
 	}
 }

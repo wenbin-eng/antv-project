@@ -1,5 +1,5 @@
 ﻿/* Spin 组件样式（自定义指示符：loading.svg，由 ConfigProvider spin.indicator 全局注入） */
-.ant-spin { 
+.ant-spin {
   width: 0.875rem;
   height: 0.875rem;
   &.ant-spin-sm {
@@ -9,14 +9,43 @@
   &.ant-spin-lg {
     width: 3rem;
     height: 3rem;
-  } 
+  }
+
+  /* 指示符尺寸必须写死：嵌套场景下 .ant-spin 被 antd 铺满 100%，
+     width/height: 100% 会让图片撑满整个容器 */
   .custom-spin-indicator {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 0.875rem;
+    height: 0.875rem;
     animation: custom-spin-rotate 1.5s linear infinite;
   }
-  
+
+  &.ant-spin-sm .custom-spin-indicator {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
+  &.ant-spin-lg .custom-spin-indicator {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+/* 嵌套加载（包裹内容）：antd 对自定义指示符不套用 dot 的居中规则，
+   复刻官方 .ant-spin-dot 的定位（50% + 半尺寸负 margin） */
+.ant-spin-nested-loading > div > .ant-spin .custom-spin-indicator {
+  position: absolute;
+  top: 50%;
+  inset-inline-start: 50%;
+  margin: -0.4375rem;
+}
+
+.ant-spin-nested-loading > div > .ant-spin.ant-spin-sm .custom-spin-indicator {
+  margin: -0.375rem;
+}
+
+.ant-spin-nested-loading > div > .ant-spin.ant-spin-lg .custom-spin-indicator {
+  margin: -1.5rem;
 }
 
 @keyframes custom-spin-rotate {
