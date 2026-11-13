@@ -54,6 +54,43 @@
           margin-top: var(--spacing-0);
           align-self: center;
           margin: 0 0.25rem;
+          color: var(--color-text-primary);
+          font-size: var(--font-size-md);
+          border-radius: var(--radius-xs);
+
+          .ant-tree-checkbox-inner {
+            border: 1px solid var(--color-icon-tertiary);
+            border-radius: var(--radius-xs);
+            background-color: var(--color-fill-subtle);
+            width: 1rem;
+            height: 1rem;
+          }
+
+          &.ant-tree-checkbox-checked {
+          .ant-tree-checkbox-inner {
+            background-color: var(--color-brand);
+            border-color: var(--color-brand);
+
+            &::after {
+              width: 0.357rem;
+              height: 0.571rem;
+            }
+          }
+        }
+
+        &.ant-tree-checkbox-indeterminate {
+          .ant-tree-checkbox-inner {
+            background-color: var(--color-brand);
+            border: 1px solid var(--color-brand);
+            &::after {
+              width: 10px;
+              height: 2px;
+              background-color: var(--gray-0);
+              border: 0;
+              border-radius: 2px;
+            }
+          }
+        }
 
           +span {
             padding-inline-end: 0;
