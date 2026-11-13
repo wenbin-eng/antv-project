@@ -7,6 +7,8 @@
     justify-content: space-between;
     flex-wrap: wrap;
     flex: 1;
+    color: var(--color-text-primary);
+    row-gap: 0.5rem;
 
     .ant-pagination-total-text {
         color: var(--color-text-primary);
@@ -188,8 +190,40 @@
             display: none;
         }
     }
+    
 }
 
+.ant-pagination.ant-pagination-simple {
+    flex: none;
+    .ant-pagination-simple-pager {
+        height: 2rem;
+        margin-inline-end: 0.5rem;
+        input {
+            color: var(--color-text-primary);
+            background-color: var(--color-fill-subtle);
+            width: 3.125rem;
+            padding: 0 0.375rem;
+            border-radius: var(--radius-base);
+            caret-color: var(--brand-50);
+
+            &:focus,
+            &:focus-within {
+                border-color: var(--color-border-focus);
+                box-shadow: 0 0 0 1px var(--color-border-active);
+                background-color: var(--color-fill-subtle);
+            }
+
+            &:hover {
+                border-color: var(--color-border-hover);
+                background-color: var(--color-fill-subtle);
+            }
+        }
+    }
+    .ant-pagination-prev .ant-pagination-item-link,
+    .ant-pagination-next .ant-pagination-item-link {
+        height: 1.5rem;
+    }
+}
 .ant-pagination.ant-pagination-mini {
     flex: none;
 }
