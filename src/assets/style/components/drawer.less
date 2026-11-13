@@ -49,12 +49,20 @@
 			}
 		}
 
-		/* 叉图标暗色配色，hover 同样保持不变 */
-		.ant-drawer-close,
-		.ant-drawer-close:hover {
-			color: var(--gray-10);
-			background: transparent;
-			text-decoration: none;
+		/* 叉图标暗色配色，hover 同样保持不变（补齐嵌套路径以压过亮色规则的 (0,6,0) 优先级） */
+		.ant-drawer-content-wrapper {
+			.ant-drawer-content {
+				.ant-drawer-header {
+					.ant-drawer-header-title {
+						.ant-drawer-close,
+						.ant-drawer-close:hover {
+							color: var(--gray-10);
+							background: transparent;
+							text-decoration: none;
+						}
+					}
+				}
+			}
 		}
 	}
 }

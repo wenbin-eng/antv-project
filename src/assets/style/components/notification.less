@@ -52,6 +52,21 @@
 
         .ant-notification-notice-close {
             color: var(--gray-90);
+
+            /* 去掉 hover 的图标变色与灰色背景块，保持正常态 */
+            &:hover {
+                color: var(--gray-90);
+                background: transparent;
+            }
+
+            /* 图标 14×14 */
+            .ant-notification-notice-close-icon {
+                font-size: var(--font-size-md);
+                .anticon svg {
+                    width: 0.875rem;
+                    height: 0.875rem;
+                }
+            }
         }
     }
 }
@@ -73,8 +88,10 @@
                 color: var(--gray-20);
             }
 
-            .ant-notification-notice-close {
-                color: var(--gray-0);
+            .ant-notification-notice-close,
+            .ant-notification-notice-close:hover {
+                color: var(--gray-10);
+                background: transparent;
             }
         }
     }

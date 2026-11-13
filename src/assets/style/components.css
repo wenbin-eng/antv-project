@@ -2177,16 +2177,15 @@ input.ant-input.ant-input-sm {
    内容超高时 50% 居中点落在真实中部，而非前 400px 的中部 */
 .ant-spin-nested-loading > div > .ant-spin {
   max-height: none;
-  /* 遮罩背景：antd 默认无背景（仅内容 opacity 压暗），改为铺满层上的半透明底色 */
-  background-color: rgb(from var(--gray-90) r g b / 0.3);
+  /* 遮罩背景走设计 token：亮色 gray-90@30%（rgba(25,25,25,0.3)），
+     暗色 gray-0@70%（rgba(255,255,255,0.7)），随明暗自动切换 */
+  background-color: rgba(25, 25, 25, 0.3);
 }
 /* 去掉 antd 的内容透明度压暗（.ant-spin-blur 默认 opacity 0.45），
-   压暗效果改由上面的遮罩背景承担，避免双重变暗；保留点击穿透禁用 */
+   并清掉部分定制构建在 blur 层自带的背景，压暗统一由遮罩背景承担，避免叠加变暗 */
 .ant-spin-nested-loading .ant-spin-container.ant-spin-blur {
   opacity: 1;
-}
-.dark .ant-spin-nested-loading > div > .ant-spin {
-  background-color: rgb(from var(--gray-100) r g b / 0.7);
+  background: transparent;
 }
 /* 嵌套态带文字提示（tip）：antd 把 .ant-spin-text 定位在 top:50% 且只调整默认 dot 的偏移，
    自定义指示符场景下文字与图标重叠。改为与指示符同基准（50%），margin 压到图标正下方
@@ -2216,6 +2215,13 @@ input.ant-input.ant-input-sm {
   to {
     transform: rotate(360deg);
   }
+}
+.dark .ant-spin-nested-loading > div > .ant-spin,
+.dark .spin-fullscreen {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.dark .ant-spin-nested-loading .ant-spin-container::after {
+  background-color: initial;
 }
 
 /* Steps 组件样式（占位，待填充 token 映射） */
@@ -3164,13 +3170,13 @@ input.ant-input.ant-input-sm {
   padding: 0 1.5rem 1.5rem;
 }
 .dark .ant-drawer {
-  /* 叉图标暗色配色，hover 同样保持不变 */
+  /* 叉图标暗色配色，hover 同样保持不变（补齐嵌套路径以压过亮色规则的 (0,6,0) 优先级） */
 }
 .dark .ant-drawer .ant-drawer-content-wrapper .ant-drawer-content {
   background-color: var(--gray-80);
 }
-.dark .ant-drawer .ant-drawer-close,
-.dark .ant-drawer .ant-drawer-close:hover {
+.dark .ant-drawer .ant-drawer-content-wrapper .ant-drawer-content .ant-drawer-header .ant-drawer-header-title .ant-drawer-close,
+.dark .ant-drawer .ant-drawer-content-wrapper .ant-drawer-content .ant-drawer-header .ant-drawer-header-title .ant-drawer-close:hover {
   color: var(--gray-10);
   background: transparent;
   text-decoration: none;
@@ -3205,11 +3211,19 @@ input.ant-input.ant-input-sm {
 .ant-modal .ant-modal-close {
   color: var(--gray-90);
   /* 去掉 hover 的图标变色与灰色背景块，保持正常态 */
+  /* 图标 14×14（antd 默认 16px） */
 }
 .ant-modal .ant-modal-close:hover {
   color: var(--gray-90);
   background: transparent;
   text-decoration: none;
+}
+.ant-modal .ant-modal-close .ant-modal-close-x {
+  font-size: var(--font-size-md);
+}
+.ant-modal .ant-modal-close .ant-modal-close-x .anticon svg {
+  width: 0.875rem;
+  height: 0.875rem;
 }
 .ant-btn.ant-btn-color-default {
   border-radius: var(--radius-base);
@@ -3671,6 +3685,9 @@ input.ant-input.ant-input-sm {
 .ant-message .ant-message-notice-wrapper .ant-message-notice-content .anticon {
   font-size: var(--font-size-md);
 }
+.dark .ant-message .ant-message-notice-wrapper .ant-message-notice-content {
+  background-color: var(--gray-70);
+}
 
 /* Notification 组件样式（占位，待填充 token 映射） */
 .ant-notification .ant-notification-notice-wrapper .ant-notification-notice {
@@ -3713,6 +3730,19 @@ input.ant-input.ant-input-sm {
 }
 .ant-notification .ant-notification-notice-wrapper .ant-notification-notice-close {
   color: var(--gray-90);
+  /* 去掉 hover 的图标变色与灰色背景块，保持正常态 */
+  /* 图标 14×14 */
+}
+.ant-notification .ant-notification-notice-wrapper .ant-notification-notice-close:hover {
+  color: var(--gray-90);
+  background: transparent;
+}
+.ant-notification .ant-notification-notice-wrapper .ant-notification-notice-close .ant-notification-notice-close-icon {
+  font-size: var(--font-size-md);
+}
+.ant-notification .ant-notification-notice-wrapper .ant-notification-notice-close .ant-notification-notice-close-icon .anticon svg {
+  width: 0.875rem;
+  height: 0.875rem;
 }
 .dark .ant-notification .ant-notification-notice-wrapper {
   background-color: var(--gray-70);
@@ -3726,6 +3756,8 @@ input.ant-input.ant-input-sm {
 .dark .ant-notification .ant-notification-notice-wrapper .ant-notification-notice-description {
   color: var(--gray-20);
 }
-.dark .ant-notification .ant-notification-notice-wrapper .ant-notification-notice-close {
-  color: var(--gray-0);
+.dark .ant-notification .ant-notification-notice-wrapper .ant-notification-notice-close,
+.dark .ant-notification .ant-notification-notice-wrapper .ant-notification-notice-close:hover {
+  color: var(--gray-10);
+  background: transparent;
 }

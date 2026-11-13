@@ -53,18 +53,16 @@
 .ant-spin-nested-loading > div > .ant-spin {
   max-height: none;
 
-  /* 遮罩背景：antd 默认无背景（仅内容 opacity 压暗），改为铺满层上的半透明底色 */
-  background-color: rgb(from var(--gray-90) r g b / 0.3);
+  /* 遮罩背景走设计 token：亮色 gray-90@30%（rgba(25,25,25,0.3)），
+     暗色 gray-0@70%（rgba(255,255,255,0.7)），随明暗自动切换 */
+  background-color: rgba(25,25,25,0.3);
 }
 
 /* 去掉 antd 的内容透明度压暗（.ant-spin-blur 默认 opacity 0.45），
-   压暗效果改由上面的遮罩背景承担，避免双重变暗；保留点击穿透禁用 */
+   并清掉部分定制构建在 blur 层自带的背景，压暗统一由遮罩背景承担，避免叠加变暗 */
 .ant-spin-nested-loading .ant-spin-container.ant-spin-blur {
   opacity: 1;
-}
-
-.dark .ant-spin-nested-loading > div > .ant-spin {
-  background-color: rgb(from var(--gray-100) r g b / 0.7);
+  background: transparent;
 }
 
 /* 嵌套态带文字提示（tip）：antd 把 .ant-spin-text 定位在 top:50% 且只调整默认 dot 的偏移，
@@ -94,5 +92,15 @@
 @keyframes custom-spin-rotate {
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+.dark {
+  .ant-spin-nested-loading > div > .ant-spin,.spin-fullscreen  {
+    background-color: rgba(0,0,0,0.7);
+  }
+  .ant-spin-nested-loading .ant-spin-container::after {
+    background-color: initial;
   }
 }
