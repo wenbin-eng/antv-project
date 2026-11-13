@@ -12,6 +12,10 @@
 .ant-divider.ant-divider-horizontal.ant-divider-with-text::before,
 .ant-divider.ant-divider-horizontal.ant-divider-with-text::after {
   border-block-start-color: var(--gray-10);
+  transform: initial;
+}
+.ant-divider .ant-divider-inner-text {
+  color: var(--color-text-primary);
 }
 .dark .ant-divider {
   border-color: var(--color-border-separator);
@@ -22,6 +26,9 @@
 .dark .ant-divider.ant-divider-horizontal.ant-divider-with-text::before,
 .dark .ant-divider.ant-divider-horizontal.ant-divider-with-text::after {
   border-block-start-color: var(--color-border-separator);
+}
+.dark .ant-divider .ant-divider-inner-text {
+  color: var(--color-text-primary);
 }
 
 /* Button 组件样式（token 映射） */
@@ -1183,7 +1190,7 @@ input.ant-input.ant-input-sm {
   transform: scale(0.4375);
 }
 .dark .ant-radio-wrapper .ant-radio:not(.ant-radio-checked):not(.ant-radio-disabled) .ant-radio-inner {
-  background-color: var(--gray-100);
+  background-color: rgb(from var(--gray-100) r g b / 0);
   border-color: var(--gray-50);
 }
 .dark .ant-radio-wrapper .ant-radio.ant-radio-disabled .ant-radio-inner {
@@ -1263,7 +1270,7 @@ input.ant-input.ant-input-sm {
 }
 .dark .ant-checkbox-wrapper .ant-checkbox:not(.ant-checkbox-checked) .ant-checkbox-inner {
   border-color: var(--gray-50);
-  background-color: var(--gray-100);
+  background-color: rgb(from var(--gray-100) r g b / 0);
 }
 .dark .ant-checkbox-wrapper .ant-checkbox.ant-checkbox-disabled:not(.ant-checkbox-checked) .ant-checkbox-inner {
   background-color: rgb(from var(--gray-05) r g b / 0.2);
@@ -2102,6 +2109,16 @@ input.ant-input.ant-input-sm {
    内容超高时 50% 居中点落在真实中部，而非前 400px 的中部 */
 .ant-spin-nested-loading > div > .ant-spin {
   max-height: none;
+  /* 遮罩背景：antd 默认无背景（仅内容 opacity 压暗），改为铺满层上的半透明底色 */
+  background-color: rgb(from var(--gray-90) r g b / 0.3);
+}
+/* 去掉 antd 的内容透明度压暗（.ant-spin-blur 默认 opacity 0.45），
+   压暗效果改由上面的遮罩背景承担，避免双重变暗；保留点击穿透禁用 */
+.ant-spin-nested-loading .ant-spin-container.ant-spin-blur {
+  opacity: 1;
+}
+.dark .ant-spin-nested-loading > div > .ant-spin {
+  background-color: rgb(from var(--gray-100) r g b / 0.7);
 }
 /* 嵌套态带文字提示（tip）：antd 把 .ant-spin-text 定位在 top:50% 且只调整默认 dot 的偏移，
    自定义指示符场景下文字与图标重叠。改为与指示符同基准（50%），margin 压到图标正下方
@@ -2619,16 +2636,16 @@ input.ant-input.ant-input-sm {
   background-color: var(--color-bg-4);
 }
 
-.ant-popover .ant-popover-container {
+.ant-popover .ant-popover-inner {
   padding: var(--spacing-4);
   background-color: var(--color-bg-4);
   border-radius: var(--radius-md);
 }
-.ant-popover .ant-popover-title {
+.ant-popover .ant-popover-inner .ant-popover-title {
   color: var(--color-text-primary);
   font-size: var(--font-size-lg);
 }
-.ant-popover .ant-popover-content {
+.ant-popover .ant-popover-inner .ant-popover-inner-content {
   color: var(--color-text-secondary);
   font-size: var(--font-size-md);
 }
@@ -3048,6 +3065,13 @@ input.ant-input.ant-input-sm {
 .ant-drawer .ant-drawer-content-wrapper .ant-drawer-content .ant-drawer-header .ant-drawer-header-title .ant-drawer-close {
   order: 2;
   margin-inline-start: auto;
+  color: var(--gray-90);
+  /* 去掉 hover 的图标变色与灰色背景块，保持正常态 */
+}
+.ant-drawer .ant-drawer-content-wrapper .ant-drawer-content .ant-drawer-header .ant-drawer-header-title .ant-drawer-close:hover {
+  color: var(--gray-90);
+  background: transparent;
+  text-decoration: none;
 }
 .ant-drawer .ant-drawer-content-wrapper .ant-drawer-content .ant-drawer-header .ant-drawer-header-title .ant-drawer-close .anticon {
   font-size: var(--font-size-md);
@@ -3059,8 +3083,17 @@ input.ant-input.ant-input-sm {
 .ant-drawer .ant-drawer-content-wrapper .ant-drawer-content .ant-drawer-body {
   padding: 0 1.5rem 1.5rem;
 }
+.dark .ant-drawer {
+  /* 叉图标暗色配色，hover 同样保持不变 */
+}
 .dark .ant-drawer .ant-drawer-content-wrapper .ant-drawer-content {
   background-color: var(--gray-80);
+}
+.dark .ant-drawer .ant-drawer-close,
+.dark .ant-drawer .ant-drawer-close:hover {
+  color: var(--gray-10);
+  background: transparent;
+  text-decoration: none;
 }
 
 /* Modal 组件样式（占位，待填充 token 映射） */
@@ -3090,7 +3123,13 @@ input.ant-input.ant-input-sm {
   color: var(--gray-90);
 }
 .ant-modal .ant-modal-close {
-  color: var(--color-text-primary);
+  color: var(--gray-90);
+  /* 去掉 hover 的图标变色与灰色背景块，保持正常态 */
+}
+.ant-modal .ant-modal-close:hover {
+  color: var(--gray-90);
+  background: transparent;
+  text-decoration: none;
 }
 .ant-btn.ant-btn-color-default {
   border-radius: var(--radius-base);
@@ -3124,6 +3163,12 @@ input.ant-input.ant-input-sm {
   color: var(--gray-0);
   border-bottom: var(--spacing-4);
   background-color: var(--gray-70);
+}
+.dark .ant-modal .ant-modal-close,
+.dark .ant-modal .ant-modal-close:hover {
+  color: var(--gray-10);
+  background: transparent;
+  text-decoration: none;
 }
 .dark .ant-modal .ant-modal-body .ant-typography.ant-typography-secondary,
 .dark .ant-modal .ant-modal-body .ant-typography.ant-typography-link.ant-typography-secondary {
@@ -3332,6 +3377,9 @@ input.ant-input.ant-input-sm {
   color: var(--gray-90) !important;
   background-color: rgb(from var(--gray-90) r g b / 0.05) !important;
 }
+.ant-menu-item-group-title {
+  color: var(--gray-90);
+}
 .ant-menu-light.ant-menu-inline .ant-menu-sub.ant-menu-inline,
 .ant-menu-light > .ant-menu.ant-menu-inline .ant-menu-sub.ant-menu-inline {
   background-color: initial;
@@ -3450,6 +3498,9 @@ input.ant-input.ant-input-sm {
   color: var(--gray-0);
 }
 .dark .ant-menu-vertical.ant-menu-light > .ant-menu-submenu > .ant-menu-submenu-title {
+  color: var(--gray-0);
+}
+.dark .ant-menu-item-group-title {
   color: var(--gray-0);
 }
 

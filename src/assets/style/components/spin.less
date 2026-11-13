@@ -52,6 +52,19 @@
    内容超高时 50% 居中点落在真实中部，而非前 400px 的中部 */
 .ant-spin-nested-loading > div > .ant-spin {
   max-height: none;
+
+  /* 遮罩背景：antd 默认无背景（仅内容 opacity 压暗），改为铺满层上的半透明底色 */
+  background-color: rgb(from var(--gray-90) r g b / 0.3);
+}
+
+/* 去掉 antd 的内容透明度压暗（.ant-spin-blur 默认 opacity 0.45），
+   压暗效果改由上面的遮罩背景承担，避免双重变暗；保留点击穿透禁用 */
+.ant-spin-nested-loading .ant-spin-container.ant-spin-blur {
+  opacity: 1;
+}
+
+.dark .ant-spin-nested-loading > div > .ant-spin {
+  background-color: rgb(from var(--gray-100) r g b / 0.7);
 }
 
 /* 嵌套态带文字提示（tip）：antd 把 .ant-spin-text 定位在 top:50% 且只调整默认 dot 的偏移，

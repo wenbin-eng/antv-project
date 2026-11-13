@@ -35,7 +35,14 @@
     }
 
     .ant-modal-close {
-        color: var(--color-text-primary);
+        color: var(--gray-90);
+
+        /* 去掉 hover 的图标变色与灰色背景块，保持正常态 */
+        &:hover {
+            color: var(--gray-90);
+            background: transparent;
+            text-decoration: none;
+        }
     }
 }
 
@@ -81,7 +88,13 @@
             color: var(--gray-0);
             border-bottom: var(--spacing-4);
             background-color: var(--gray-70);
+        }
 
+        .ant-modal-close,
+        .ant-modal-close:hover {
+            color: var(--gray-10);
+            background: transparent;
+            text-decoration: none;
         }
 
         .ant-modal-body {
