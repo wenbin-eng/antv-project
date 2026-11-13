@@ -1984,6 +1984,35 @@ input.ant-input.ant-input-sm {
 .ant-spin-nested-loading > div > .ant-spin.ant-spin-lg .custom-spin-indicator {
   margin: -1.5rem;
 }
+/* 放开 antd 遮罩层的 400px 上限（token contentHeight）：
+   内容超高时 50% 居中点落在真实中部，而非前 400px 的中部 */
+.ant-spin-nested-loading > div > .ant-spin {
+  max-height: none;
+}
+/* 嵌套态带文字提示（tip）：antd 把 .ant-spin-text 定位在 top:50% 且只调整默认 dot 的偏移，
+   自定义指示符场景下文字与图标重叠。改为与指示符同基准（50%），margin 压到图标正下方
+   （半图标高 + 8px 间距），并清掉 antd 对 sm/lg 文字的 padding-top 偏移。
+   注意不能用 top:100%——嵌套层铺满整个内容区，100% 是容器底边而非图标下方 */
+.ant-spin-nested-loading > div > .ant-spin.ant-spin-show-text .ant-spin-text {
+  position: absolute;
+  top: 50%;
+  inset-inline-start: 50%;
+  width: auto;
+  margin-top: 0.9375rem;
+  /* 7px 半图标 + 8px 间距 */
+  padding-top: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  line-height: 1.5714;
+}
+.ant-spin-nested-loading > div > .ant-spin.ant-spin-show-text.ant-spin-sm .ant-spin-text {
+  margin-top: 0.875rem;
+  /* 6px + 8px */
+}
+.ant-spin-nested-loading > div > .ant-spin.ant-spin-show-text.ant-spin-lg .ant-spin-text {
+  margin-top: 2rem;
+  /* 24px + 8px */
+}
 @keyframes custom-spin-rotate {
   to {
     transform: rotate(360deg);

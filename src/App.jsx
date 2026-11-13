@@ -1419,6 +1419,13 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
                 <div style={{ padding: 16, background: 'var(--color-fill-subtle)', borderRadius: 6 }}>large</div>
               </Spin>
             </Row>
+            <Row label="嵌套带文字提示">
+              <Spin tip="加载中..." spinning={spinning} style={{ width: 300 }}>
+                <div style={{ padding: 16, background: 'var(--color-fill-subtle)', borderRadius: 6 }}>
+                  <p style={{ margin: 0 }}>文字提示应显示在指示符正下方，与图标不重叠。</p>
+                </div>
+              </Spin>
+            </Row>
             <Row label="加载切换">
               <Button onClick={toggleSpinning}>加载 2 秒</Button>
             </Row>
