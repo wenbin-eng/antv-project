@@ -9,7 +9,7 @@
     flex: 1;
 
     .ant-pagination-total-text {
-        color: var(--gray-90);
+        color: var(--color-text-primary);
         margin-right: auto;
         order: -1;
     }
@@ -17,6 +17,14 @@
     .ant-pagination-jump-prev,
     .ant-pagination-jump-next {
         order: 1;
+
+        .ant-pagination-item-container {
+            .ant-pagination-item-ellipsis {
+                color: var(--color-text-primary);
+                letter-spacing: 0px;
+                text-indent: 0px;
+            }
+        }
     }
 
     .ant-pagination-prev,
@@ -109,6 +117,7 @@
         align-items: stretch;
         font-size: 0;
         line-height: 0;
+        height: 2rem;
 
         input {
             font-size: var(--font-size-md);
@@ -128,11 +137,13 @@
 
             &:hover {
                 border-color: var(--color-border-hover);
+                background-color: var(--color-fill-subtle);
             }
 
             &:focus {
                 border-color: var(--color-border-focus);
                 box-shadow: 0 0 0 1px var(--color-border-active);
+                background-color: var(--color-fill-subtle);
                 outline: none;
                 position: relative;
                 z-index: 1;
@@ -166,7 +177,6 @@
             &:hover {
                 border-color: var(--color-border-hover);
                 color: var(--brand-50);
-                background-color: var(--color-hover);
                 z-index: 1;
             }
         }
@@ -184,11 +194,6 @@
 
     /* Pagination 组件样式（占位，待填充 token 映射） */
     .ant-pagination,.ant-pagination.ant-pagination-mini {
-
-        .ant-pagination-total-text {
-            color: var(--gray-0);
-        }
-
         .ant-pagination-prev,
         .ant-pagination-next {
             /* antd 把箭头颜色直接写在 button 上(浅色主题 rgba(0,0,0,0.88))，

@@ -126,6 +126,7 @@
     .ant-steps-item-title {
       font-size: var(--font-size-lg);
       font-weight: 700;
+      line-height: 2rem;
     }
 
     &.ant-steps-item-finish {
@@ -172,6 +173,28 @@
         }
       }
     }  
+    &.ant-steps-item-custom  {
+      .ant-steps-item-container {
+        .ant-steps-item-icon {
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          .ant-steps-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.5rem;
+          }
+        }
+      }
+      &.ant-steps-item-process {
+        .ant-steps-item-icon {
+          .ant-steps-icon {
+            color: var(--color-text-inverse);
+          }
+        }
+      }
+    }
   }
   .ant-steps-item-content {
     color: var(--color-text-secondary);
