@@ -7,6 +7,10 @@
     border-radius: var(--radius-base);
     font-size: var(--font-size-md);
 
+    &::placeholder {
+        color: var(--color-text-placeholder);
+    }
+    
     &.ant-input-number-lg {
        height: 2.5rem; 
        font-size: var(--font-size-md);
@@ -172,7 +176,8 @@
     background: transparent !important;
 }
 
-.ant-input-number-outlined {
+.ant-input-number-outlined,
+.ant-input-number-outlined.ant-input-number-status-error:not(.ant-input-number-disabled) {
     background: var(--color-fill-subtle);
 }
 
@@ -186,6 +191,21 @@
     border-color: var(--color-border-hover);
     background: var(--color-fill-subtle);
 }
+
+.ant-input-number-outlined.ant-input-number-status-error:not(.ant-input-number-disabled):hover {
+    background: var(--color-fill-subtle);
+    border-color: var(--color-error);
+}
+
+.ant-input-number-outlined.ant-input-number-status-error:not(.ant-input-number-disabled):focus
+.ant-input-number-outlined.ant-input-number-status-error:not(.ant-input-number-disabled):focus-within,
+.ant-input-number-outlined.ant-input-number-status-error:not(.ant-input-number-disabled):active
+{
+    box-shadow: none;
+    background: var(--color-fill-subtle);
+    border-color: var(--color-error);
+}
+
 
 .ant-input-number-outlined:focus,
 .ant-input-number-outlined:focus-within,

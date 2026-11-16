@@ -372,6 +372,9 @@ input.ant-input.ant-input-sm {
   /* 操作按钮容器：展开为全宽水平布局（row-reverse 使 down 落在左侧、up 落在右侧） */
   /* 输入框区域 */
 }
+.ant-input-number::placeholder {
+  color: var(--color-text-placeholder);
+}
 .ant-input-number.ant-input-number-lg {
   height: 2.5rem;
   font-size: var(--font-size-md);
@@ -511,7 +514,8 @@ input.ant-input.ant-input-sm {
   opacity: 1 !important;
   background: transparent !important;
 }
-.ant-input-number-outlined {
+.ant-input-number-outlined,
+.ant-input-number-outlined.ant-input-number-status-error:not(.ant-input-number-disabled) {
   background: var(--color-fill-subtle);
 }
 .ant-input-number-outlined .ant-input-number-handler-down,
@@ -522,6 +526,16 @@ input.ant-input.ant-input-sm {
 .ant-input-number-outlined:hover {
   border-color: var(--color-border-hover);
   background: var(--color-fill-subtle);
+}
+.ant-input-number-outlined.ant-input-number-status-error:not(.ant-input-number-disabled):hover {
+  background: var(--color-fill-subtle);
+  border-color: var(--color-error);
+}
+.ant-input-number-outlined.ant-input-number-status-error:not(.ant-input-number-disabled):focus .ant-input-number-outlined.ant-input-number-status-error:not(.ant-input-number-disabled):focus-within,
+.ant-input-number-outlined.ant-input-number-status-error:not(.ant-input-number-disabled):active {
+  box-shadow: none;
+  background: var(--color-fill-subtle);
+  border-color: var(--color-error);
 }
 .ant-input-number-outlined:focus,
 .ant-input-number-outlined:focus-within,
@@ -2151,6 +2165,9 @@ input.ant-input.ant-input-sm {
 }
 .ant-progress.ant-progress-circle .ant-progress-text {
   color: var(--color-text-primary);
+}
+.ant-progress.ant-progress-circle .ant-progress-circle-trail {
+  stroke: var(--color-fill-disabled);
 }
 .dark .ant-progress.ant-progress-line.ant-progress-status-success .ant-progress-bg {
   background-color: var(--mint-40);
