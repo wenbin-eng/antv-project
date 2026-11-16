@@ -195,7 +195,10 @@
 
 .ant-pagination.ant-pagination-simple {
     flex: none;
+    /* 排列顺序：prev(1) → simple-pager(2) → options 子项(3) → next(4)，
+       options 为 display:contents 不生成 flex item，order 需写在其子项上 */
     .ant-pagination-simple-pager {
+        order: -1;
         height: 2rem;
         margin-inline-end: 0.5rem;
         input {
@@ -219,6 +222,15 @@
             }
         }
     }
+    .ant-pagination-options-size-changer,
+    .ant-pagination-options-quick-jumper {
+        order: 3;
+    }
+
+    .ant-pagination-next {
+        order: 4;
+    }
+
     .ant-pagination-prev .ant-pagination-item-link,
     .ant-pagination-next .ant-pagination-item-link {
         height: 1.5rem;
