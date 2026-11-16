@@ -8,7 +8,7 @@
         .ant-slider-handle {
             &::after {
                 box-shadow: 0 1px 4px #0003;
-                outline: 0px solid transparent;
+                outline: none;
                 width: 1rem;
                 height: 1rem;
                 inset-inline-start: 0px;
@@ -46,24 +46,17 @@
             width: 1rem;
             height: 1rem;
             font-size: var(--font-size-md);
+            background-color: var(--gray-0);
             box-shadow: 0 1px 4px #0003;
             outline: 0px solid transparent;
             border-radius: 50%;
             cursor: pointer;
+            transition: none;
         }
-        &:hover {
-            &::after {
-                outline: 0.25rem solid var(--brand-50);
-                box-shadow: none;
-                width: 1rem;
-                height: 1rem;
-                inset-inline-start: 0px;
-                inset-block-start: 0px;
-            }
-        }
+        
         &:active {
             &::after {
-                outline: 0.25rem solid var(--brand-50);
+                outline: none;
                 box-shadow: none;
                 width: 1rem;
                 height: 1rem;
@@ -72,6 +65,16 @@
             }
         }
         &:focus {
+            &::after {
+                outline: none;
+                box-shadow: none;
+                width: 1rem;
+                height: 1rem;
+                inset-inline-start: 0px;
+                inset-block-start: 0px;
+            }
+        }
+        &:hover {
             &::after {
                 outline: 0.25rem solid var(--brand-50);
                 box-shadow: none;
@@ -134,15 +137,22 @@
     .ant-slider:hover .ant-slider-handle::after {
         content: "";
         position: absolute;
+        width: 1rem;
+        height: 1rem;
         inset-block-start: 0;
         inset-inline-start: 0;
-        box-shadow: 0 0 0 2px var(--brand-50);
-        outline: 0px solid transparent;
+        box-shadow: none;
+        outline: none;
         border-radius: 50%;
         cursor: pointer;
     }
 
-    .ant-slider:hover .ant-slider-handle:not(.ant-slider-handle-disabled)::after {
-        box-shadow: 0 0 0 2px var(--brand-50);
+    .ant-slider .ant-slider-handle:not(.ant-slider-handle-disabled) {
+        &:hover {
+            &::after {
+                outline: 0.25rem solid var(--brand-50);
+                box-shadow: none;
+            }
+        }
     }
 }

@@ -1428,7 +1428,7 @@ input.ant-input.ant-input-sm {
 }
 .ant-slider:hover .ant-slider-handle::after {
   box-shadow: 0 1px 4px #0003;
-  outline: 0px solid transparent;
+  outline: none;
   width: 1rem;
   height: 1rem;
   inset-inline-start: 0px;
@@ -1461,21 +1461,15 @@ input.ant-input.ant-input-sm {
   width: 1rem;
   height: 1rem;
   font-size: var(--font-size-md);
+  background-color: var(--gray-0);
   box-shadow: 0 1px 4px #0003;
   outline: 0px solid transparent;
   border-radius: 50%;
   cursor: pointer;
-}
-.ant-slider .ant-slider-handle:hover::after {
-  outline: 0.25rem solid var(--brand-50);
-  box-shadow: none;
-  width: 1rem;
-  height: 1rem;
-  inset-inline-start: 0px;
-  inset-block-start: 0px;
+  transition: none;
 }
 .ant-slider .ant-slider-handle:active::after {
-  outline: 0.25rem solid var(--brand-50);
+  outline: none;
   box-shadow: none;
   width: 1rem;
   height: 1rem;
@@ -1483,6 +1477,14 @@ input.ant-input.ant-input-sm {
   inset-block-start: 0px;
 }
 .ant-slider .ant-slider-handle:focus::after {
+  outline: none;
+  box-shadow: none;
+  width: 1rem;
+  height: 1rem;
+  inset-inline-start: 0px;
+  inset-block-start: 0px;
+}
+.ant-slider .ant-slider-handle:hover::after {
   outline: 0.25rem solid var(--brand-50);
   box-shadow: none;
   width: 1rem;
@@ -1525,15 +1527,18 @@ input.ant-input.ant-input-sm {
 .dark .ant-slider:hover .ant-slider-handle::after {
   content: "";
   position: absolute;
+  width: 1rem;
+  height: 1rem;
   inset-block-start: 0;
   inset-inline-start: 0;
-  box-shadow: 0 0 0 2px var(--brand-50);
-  outline: 0px solid transparent;
+  box-shadow: none;
+  outline: none;
   border-radius: 50%;
   cursor: pointer;
 }
-.dark .ant-slider:hover .ant-slider-handle:not(.ant-slider-handle-disabled)::after {
-  box-shadow: 0 0 0 2px var(--brand-50);
+.dark .ant-slider .ant-slider-handle:not(.ant-slider-handle-disabled):hover::after {
+  outline: 0.25rem solid var(--brand-50);
+  box-shadow: none;
 }
 
 /* Rate 组件样式（占位，待填充 token 映射） */
