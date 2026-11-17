@@ -3,7 +3,10 @@
   border-radius: var(--radius-md);
   padding: 0.125rem;
   background: var(--color-fill);
-  width: initial !important;
+  &:not(.ant-segmented-block) {
+    width: fit-content !important;
+  }
+  
   .ant-segmented-group {    
     gap: 0.25rem;
     color: var(--color-text-secondary);
