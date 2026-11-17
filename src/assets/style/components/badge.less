@@ -15,11 +15,13 @@
     background-color: var(--color-error);
     color: var(--color-text-inverse);
     box-shadow: none;
+    font: var(--font-body-s);
 
     /* 数字滚动结构：antd 固定 20px 高，滚动条与行盒对齐 16px 盒高，配合 align-items 精确垂直居中 */
     > bdi > .ant-scroll-number-only {
-      height: 0.875rem;
-      line-height: 0.875rem;
+      display: flex;
+      align-items: center;
+      height: 1rem;
     }
   }
 

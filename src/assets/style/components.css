@@ -2110,11 +2110,13 @@ input.ant-input.ant-input-sm {
   background-color: var(--color-error);
   color: var(--color-text-inverse);
   box-shadow: none;
+  font: var(--font-body-s);
   /* 数字滚动结构：antd 固定 20px 高，滚动条与行盒对齐 16px 盒高，配合 align-items 精确垂直居中 */
 }
 .ant-badge .ant-badge-count > bdi > .ant-scroll-number-only {
-  height: 0.875rem;
-  line-height: 0.875rem;
+  display: flex;
+  align-items: center;
+  height: 1rem;
 }
 .ant-badge.ant-badge-status .ant-badge-status-text {
   color: var(--color-text-primary);
@@ -2359,6 +2361,7 @@ input.ant-input.ant-input-sm {
   height: 1.5rem;
   font-size: 1rem;
   line-height: 1.5rem;
+  display: contents;
 }
 .ant-steps .ant-steps-item.ant-steps-item-custom.ant-steps-item-process .ant-steps-item-icon .ant-steps-icon {
   color: var(--color-text-inverse);
