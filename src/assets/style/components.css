@@ -2113,6 +2113,11 @@ input.ant-input.ant-input-sm {
   font: var(--font-body-s);
   /* 数字滚动结构：antd 固定 20px 高，滚动条与行盒对齐 16px 盒高，配合 align-items 精确垂直居中 */
 }
+.ant-badge .ant-badge-count > bdi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .ant-badge .ant-badge-count > bdi > .ant-scroll-number-only {
   display: flex;
   align-items: center;
