@@ -756,6 +756,28 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
                 style={{ width: '100%' }}
               />
             </Row>
+            <Row label="固定表头滚动">
+              <Table
+                rowKey="key"
+                columns={baseColumns}
+                dataSource={tableData}
+                scroll={{ y: 240 }}
+                pagination={false}
+                style={{ width: '100%' }}
+              />
+            </Row>
+            <Row label="固定表头滚动（无固定列，含排序筛选）">
+              <Table
+                rowKey="key"
+                columns={sortFilterColumns}
+                dataSource={Array.from({ length: 18 }, (_, i) => ({ ...sortFilterData[i % sortFilterData.length], key: `sfy${i}` }))}
+                scroll={{ y: 240 }}
+                sortDirections={['ascend', 'descend', 'ascend']}
+                showSorterTooltip={false}
+                pagination={false}
+                style={{ width: '100%' }}
+              />
+            </Row>
             <Row label="排序与筛选">
               <Table
                 rowKey="key"
