@@ -30,7 +30,21 @@
         }
 
         &.ant-select-disabled {
-            --ant-select-border-color: var(--color-border-disabled)
+            // --ant-select-border-color: var(--color-border-disabled)
+
+            .ant-select-selector {
+                color: var(--color-text-disabled);
+                background: var(--color-fill-disabled-subtle);
+                border-color: var(--color-border-disabled);
+            }
+
+            &:hover {
+                .ant-select-selector {
+                    color: var(--color-text-disabled);
+                    background: var(--color-fill-disabled-subtle);
+                    border-color: var(--color-border-disabled);
+                }
+            }
         }
 
         &.ant-select-status-error {
@@ -82,10 +96,7 @@
         --ant-select-color: var(--color-text-disabled);
         color: var(--color-text-disabled);
 
-        background: var(--color-hover);
-
         &.ant-select-multiple {
-            background: var(--color-fill-disabled-subtle);
 
             .ant-select-content .ant-select-selection-item {
                 background: var(--color-fill-disabled-subtle);

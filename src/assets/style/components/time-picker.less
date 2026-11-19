@@ -1,13 +1,13 @@
 ﻿/* TimePicker/DatePicker 组件样式（antd 5 常规属性覆盖，原 --ant-* 变量方案改写） */
 .ant-picker.ant-picker {
   color: var(--color-text-primary);
-  border-color: var(--gray-20);
+  border-color: var(--color-border);
   border-radius: var(--radius-base);
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   height: 2rem;
   &:not(.ant-picker-disabled):hover {
-    border-color: var(--gray-90);
+    border-color: var(--color-border-hover);
   }
 
   &:focus-within,
@@ -17,9 +17,9 @@
   }
 
   &.ant-picker-disabled {
-    color: var(--color-text-disabled) !important;
-    background-color: rgb(from var(--gray-90) r g b / 0.05);
-    border-color: var(--gray-20) !important;
+    color: var(--color-text-disabled);
+    background: var(--color-fill-disabled-subtle);
+    border-color: var(--color-border-disabled);
 
     .ant-picker-input>input {
       color: var(--color-text-disabled);
@@ -27,6 +27,11 @@
 
     .ant-picker-suffix {
       color: var(--color-text-disabled) !important;
+    }
+    &:hover {
+      color: var(--color-text-disabled);
+      background: var(--color-fill-disabled-subtle);
+      border-color: var(--color-border-disabled);
     }
   }
 
@@ -228,12 +233,6 @@
 
 .dark {
   .ant-picker.ant-picker {
-    color: var(--color-text-primary);
-    border-color: var(--gray-50);
-
-    &:not(.ant-picker-disabled):hover {
-      border-color: var(--gray-05);
-    }
 
     &:focus-within,
     &.ant-picker-focused {
@@ -253,10 +252,6 @@
       }
     }
 
-    &.ant-picker-disabled {
-      background-color: rgb(from var(--gray-05) r g b / 0.2);
-      border-color: var(--gray-20);
-    }
   }
 
   .ant-picker-range .ant-picker-active-bar {
