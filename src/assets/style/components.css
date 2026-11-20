@@ -2792,6 +2792,7 @@ input.ant-input.ant-input-sm {
 }
 .ant-pagination.ant-pagination-simple {
   flex: none;
+  justify-content: normal;
   /* 排列顺序：prev(1) → simple-pager(2) → options 子项(3) → next(4)，
        options 为 display:contents 不生成 flex item，order 需写在其子项上 */
 }

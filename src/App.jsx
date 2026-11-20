@@ -1098,7 +1098,7 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
               <Rate count={5} value={rateVal} onChange={setRateVal} allowHalf />
             </Row>
             <Row label="尺寸变体">
-              <Rate count={5} defaultValue={3} style={{ fontSize: 28 }} />
+              <Rate count={5} allowHalf defaultValue={3.5} style={{ fontSize: 28 }} />
               <Rate count={5} defaultValue={3} />
               <Rate count={5} defaultValue={3} style={{ fontSize: 12 }} />
             </Row>
@@ -1242,6 +1242,20 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
               <Steps current={1} style={{ width: '100%' }} labelPlacement="vertical" items={stepItems} />
               <Steps current={2} style={{ width: '100%' }} labelPlacement="vertical" size="small" items={stepItems} />
             </Row>
+            <Row label="带图标步骤条">
+              <Steps current={1} style={{ width: '100%' }} items={[
+                { title: '登录', description: '账号密码登录', icon: <UserOutlined /> },
+                { title: '验证', description: '短信验证码校验', icon: <SendOutlined /> },
+                { title: '支付', description: '确认支付订单', icon: <CreditCardOutlined /> },
+                { title: '完成', description: '流程办理完毕', icon: <CheckCircleOutlined /> }
+              ]} />
+              <Steps current={2} style={{ width: '100%' }} labelPlacement="vertical" size="small" items={[
+                { title: '登录', status: 'finish', icon: <UserOutlined /> },
+                { title: '验证', status: 'finish', icon: <SendOutlined /> },
+                { title: '支付', status: 'process', icon: <CreditCardOutlined /> },
+                { title: '完成', status: 'wait', icon: <CheckCircleOutlined /> }
+              ]} />
+            </Row>
             <Row label="点状步骤条">
               <Steps progressDot current={1} style={{ width: '100%' }} items={[
                 { title: '已下单', status: 'finish' },
@@ -1290,6 +1304,9 @@ function PageContent({ dark, onToggleDark, page, onPageChange }) {
           </ShowCard>
 
           <ShowCard title="Pagination 分页">
+            <Row label="极简模式（simple）">
+              <Pagination simple defaultCurrent={3} total={85} />
+            </Row>
             <Row label="显示总数">
               <Pagination defaultCurrent={3} total={85} showTotal={(t) => `共 ${t} 条`} showSizeChanger={{ getPopupContainer: () => document.body }} showQuickJumper={{ goButton: '跳转' }} />
             </Row>
